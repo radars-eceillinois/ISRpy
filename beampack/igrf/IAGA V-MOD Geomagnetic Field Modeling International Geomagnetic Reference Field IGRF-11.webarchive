@@ -1,0 +1,351 @@
+bplist00Ò_WebMainResource_WebSubresourcesÕ	
+^WebResourceURL_WebResourceFrameName_WebResourceTextEncodingName_WebResourceData_WebResourceMIMEType_,http://www.ngdc.noaa.gov/IAGA/vmod/igrf.htmlPUUTF-8OÌ<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html40/loose.dtd"><html><head>
+ 	<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+ 	<title>IAGA V-MOD Geomagnetic Field Modeling: International Geomagnetic Reference Field IGRF-11</title>
+ 	<link rel="Stylesheet" type="text/css" media="all" title="default" href="http://www.ngdc.noaa.gov/IAGA/iagabasicstyle.css">
+ 	<meta name="author" content="Manoj Nair">
+ 	<meta name="contact" content="Susan.McLean@noaa.gov">
+ 	<meta name="description" content="International Geomagnetic Reference Field 10th generation (2010-2015) from the Working Group V-MOD of IAGA.">
+ 	<meta http-equiv="Content-Style-Type" content="text/css">
+ 	<link href="../iagabasicstyle.css" rel="stylesheet" type="text/css">
+ </head><body bgcolor="#FFFFFF" background="img/back_paisly.jpg" link="#0000FF" vlink="#000099" class="Normal" lang="EN-US">
+ 
+ <div align="center">
+     <table border="0" cellspacing="0" cellpadding="0" width="100%" layout="summary table">
+       <tbody><tr>
+         <td class="normaltext">
+ 		<img width="550" height="70" src="img/vmod_header.gif" alt="Working Group V-MOD: Geomagnetic Field Modelling" border="0"></td>
+       </tr>
+       <tr>
+         <td bgcolor="#F0F066">
+ 		<p class="topbar">&nbsp;&nbsp;&nbsp; 
+ 		<a href="http://www.IUGG.org">IUGG</a> &gt; 
+ 		<a href="http://www.iugg.org/IAGA/">IAGA</a> &gt; 
+ 		<a href="http://www.iugg.org/IAGA/iaga_pages/science/division_5.htm">Division V</a> &gt; 
+ 		<a href="/IAGA/vmod/">Working Group V-MOD</a> &gt; IGRF Model </p></td>
+       </tr>
+     </tbody></table>
+ </div>
+   <div align="center">
+   <p class="title" align="center">International Geomagnetic Reference Field</p>
+     <table border="0" cellspacing="0" cellpadding="0" width="90%">
+       <tbody><tr>
+         <td class="Normal">
+ 		  <p><span style="color:red"><b>IGRF11 </b> is released. Download the latest IGRF model here :  </span> 
+ 		  IGRF-11 coefficients (<a href="igrf11coeffs.txt">text file</a>, <a href="igrf11coeffs.xls">excel spreadsheet</a>) 
+ 		  </p>
+
+  		<p>The International Association of Geomagnetism and Aeronomy (IAGA) has released the 11 <sup>th</sup> 
+ 		  Generation International Geomagnetic Reference Field â€” the latest version of a standard mathematical 
+ 		  description of the Earth's main magnetic field that is used widely in studies of the Earth's deep interior, its 
+ 		  crust and its ionosphere and magnetosphere. The coefficients for this degree and order 13 main field model were finalized 
+			by a task force of IAGA in December 2009. The IGRF 
+ 		  is the product of a collaborative effort between magnetic field modellers and the institutes involved in 
+ 		  collecting and disseminating magnetic field data from satellites and from observatories and surveys around the world.</p>
+ 
+           <p>The IGRF is a series of mathematical models of the Earth's main field and its annual rate of change 
+ 		  (secular variation). In source-free regions at the Earth's surface and above, the main field, with sources 
+ 		  internal to the Earth, is the negative gradient of a scalar potential <i>V</i> which can be represented by a 
+		  truncated series expansion:</p>
+
+		<p align="center"><img border="0" width="368" height="37" src="img/igrf_exp_eq.gif" alt="expansion equation"></p>
+ 		  
+           <p>The 11 <sup>th</sup> Generation IGRF coefficients were computed from candidate sets 
+ 		   of coefficients produced by the participating members of IAGA Working Group  V-MOD. Their institutes and the many 
+ 		  organisations involved in operating magnetic survey satellites, observatories, magnetic 
+ 		  survey programmes and World Data Centers are to be thanked for their continuing support of 
+ 		  the IGRF project.</p>
+
+
+		<p align="left"><img src="img/newr.gif" alt="New" align="bottom">&nbsp;
+		The following article is the published reference for the IGRF-11 model.  It contains details concerning the model, 
+		the coefficients, and maps of the field.
+		</p>
+		<p>
+		<a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1365-246X.2010.04804.x/abstract"> 
+		International Geomagnetic Reference Field: the eleventh generation. </a>
+		International Association of Geomagnetism and Aeronomy, Working Group 
+		V-MOD. Participating members: C. C. Finlay, S. Maus, C. D. Beggan, 
+		T. N. Bondar, A. Chambodut, T. A. Chernova, A. Chulliat, V. P. Golovkov, 
+		B. Hamilton, M. Hamoudi, R. Holme, G. Hulot, W. Kuang, B. Langlais, 
+		V. Lesur, F. J. Lowes, H. Luhr, S. Macmillan, M. Mandea, S. McLean, 
+		C. Manoj, M. Menvielle, I. Michaelis, N. Olsen, J. Rauberg, M. Rother, 
+		T. J. Sabaka, A. Tangborn, L. Toffner-Clausen, E. Thebault, A. W. P. Thomson, 
+		I. Wardinski Z. Wei, T. I. Zvereva.
+
+		Geophys. J. Int., Vol 183, Issue 3, pp 1216-1230, December 2010. DOI: 
+		10.1111/j.1365-246X.2010.04804.x.		</p>
+
+	      <p> Before using the IGRF please look at the "<a href="/IAGA/vmod/igrfhw.html">Health Warning</a>". </p>
+	
+		<p>Geomag 7.0 C software and model is released !  The updated igrf11.cof required by many users is now available 
+		along with the new Geomag 7.0 software. (<a href="geomag70_windows.zip"> Windows version </a>, <a href="geomag70_linux.tar.gz"> Linux tar file)</a>.
+		<a href="/IAGA/vmod/geomag70_license.html"> License and copyright</a> information for the geomag 7.0 software. </p>
+		<p>
+		<a href="igrf11.f"> Fortran program </a> with IGRF-11 coefficients integrated into the source code.
+		</p>
+
+		<p> Older versions of the IGRF model may be downloaded <a href="igrf_old_models.html"> here</a>.</p>
+
+		
+		<p> The candidate and test models used for the latest IGRF model are available <a href="/IAGA/vmod/candidatemodels.html"> here</a>. 
+		Note that these models are provided for evaluation purposes only. </p></td>
+       </tr>
+     </tbody></table>
+   </div>
+   <div align="center">
+     <table border="0" cellspacing="10" cellpadding="0" width="95%">
+       <tbody><tr>
+         <td class="Normal">
+ 		<p class="footltbg">For page content questions please contact: <a href="mailto:cfinlay@erdw.ethz.ch">Christopher Finlay</a> <br>
+             Webpage Maintained by: <a href="mailto:Manoj.C.Nair@noaa.gov">Manoj Nair</a> <br>
+             Hosted by: <a href="http://www.ngdc.noaa.gov/geomag/wdc/wdcseg.shtml">WDC for Solid Earth and Geophysics</a> </p></td>
+         <td class="Normal">
+ 		<p class="footltbg" style="text-align: right;" align="right">URL: http://www.ngdc.noaa.gov/IAGA/vmod/igrf.html <br>
+             Revised: 28 January, 2010 </p></td>
+       </tr>
+       <tr>
+         <td colspan="2" class="Normal">
+ 		<div align="center"> <hr size="2" width="100%" align="center"> </div>
+         <p class="topbar" align="center" style="text-align:center">
+ 		<a href="http://www.IUGG.org">IUGG</a> &nbsp;&gt; <a href="http://www.iugg.org/IAGA/">IAGA</a> &nbsp;&gt; 
+ 		<a href="http://www.iugg.org/IAGA/iaga_pages/science/division_5.htm">Division V</a> &nbsp;&gt; 
+ 		<a href="/IAGA/vmod/">Working Group V-MOD</a> &nbsp;&gt; IGRF Model </p></td>
+       </tr>
+     </tbody></table>
+   </div>
+ 
+ 
+ </body></html>Ytext/html¦$)Ô_WebResourceResponse_0http://www.ngdc.noaa.gov/IAGA/iagabasicstyle.cssO©body {
+	font-family: verdana, arial, helvetica, san-serif;
+	margin-top:0;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+a:link {color: #0000ff;}
+a:active {color: #ff0000;}
+a:visited {color: #000099;}
+a:hover {color: #009933;}
+
+h1, h2, h3, h4, h5, h6 {font-family: verdana, arial, helvetica, sans-serif;}
+
+table {font-family: verdana, arial, helvetica, sans-serif; font-size: 10pt;}
+tr {font-family: verdana, arial, helvetica, sans-serif; font-size: 9pt;}
+td {font-family: verdana, arial, helvetica, sans-serif; font-size: 9pt;}
+
+li {font-family: verdana, arial, helvetica, sans-serif; font-size: 10pt;}
+ 
+h1 {color: navy; font-size: 1.5em;} 
+h2 {color: #660066; font-size: 1.4em;}
+h3 {color: navy; font-size: 1.2em;}
+h4 {color: navy; font-size: 1em;}
+
+p {font-family: verdana, arial, helvetica, sans-serif; font-size: 10pt;}
+p.hang {font-family: verdana, arial, helvetica, sans-serif; font-size: 10pt; text-indent: -5px; padding-left: 5px; color: navy;}
+.medblue {color: #000099; font-size: 10pt;}
+.smallblue {color: #000099; font-size: 9pt;}
+.title {
+	color: #660066;
+	font-size: 1.3em;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-weight: bold;
+}
+.kword {
+	font-size: 9pt;
+	font-family: verdana, arial, helvetica, sans-serif;
+	color: #009999;
+	font-weight: bold;
+}
+
+.list {font-size: 0.9em; font-family: verdana, arial, helvetica, sans-serif; margin-top: 10px; margin-left: 15px; color: #000000;}
+.listblue {font-size: 0.9em; font-family: verdana, arial, helvetica, sans-serif; margin-top: 10px; margin-left: 15px; color: #000099;}
+address, cite, blockquote {font-size: 9pt; font-weight: normal; font-family: verdana, arial, helvetica, sans-serif; font-style: italic;}
+b, strong, em {font-weight: bold;}
+
+.sidebar {font-size: 9pt; font-family: verdana, arial, helvetica, sans-serif;}
+.sidebar2 {font-size: 8.5pt; font-family: verdana, arial, helvetica, sans-serif;	color: #990033;
+}
+
+.normaltext {
+	font-size: 10pt;
+	font-family: verdana, arial, helvetica, sans-serif;
+	color: #000000;
+}
+.fixedtext {font-family: courier, monospace;}
+.navytext {font-size: 10pt; font-family: verdana, arial, helvetica, sans-serif; color: navy;}
+.bluetext {font-size: 9pt; font-family: verdana, arial, helvetica, sans-serif; color: blue;}
+
+.indent {margin: 20px;}
+
+.subnav {font-size: 8pt; font-family: verdana, arial, helvetica, sans-serif; color:white; background-color: transparent;}
+
+.topbar {
+	font-size: 9pt;
+	font-weight: normal;
+	font-family: verdana, arial, helvetica, sans-serif;
+	color: #660033;
+}
+
+.align-right {text-align: right;}
+.align-center {text-align: center;}
+
+.footltbg {font-size: 8.6pt; font-family: verdana, arial, helvetica, sans-serif; color: #000099;}
+.footdkbg {font-size: 8.6pt; font-family: verdana, arial, helvetica, sans-serif; color: #eeeeff;}
+
+table.flex {width: 96%; max-width: 1024px;}
+
+input[type="radio"] {color: gray; font:9pt arial, verdana, helvetica, sans-serif; background-color: #ffffff;}
+input[type="checkbox"] {color: gray; font:9pt arial, verdana, helvetica, sans-serif; background-color: #ffffff;}
+input[type="text"] {color: gray; font:9pt arial, verdana, helvetica, sans-serif; background-color: #ffffff;}
+input[type="submit"] {color: blue; font:9pt arial, verdana, helvetica, sans-serif; background-color: #ffffff; font-weight: bold;}
+select {color: gray; font:9pt arial, verdana, helvetica, sans-serif; background-color: #ffffff;}
+.maroontext {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #993300;
+}
+Xtext/cssOòbplist00ÔbcX$versionX$objectsY$archiverT$top † ¯"()012HIJKLMNOPQRSTUVWX\]U$nullİ	
+ !R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1€€€ €€€€ €Ó#$%&[NS.relativeWNS.base€€€ _0http://www.ngdc.noaa.gov/IAGA/iagabasicstyle.cssÒ*+,-Z$classnameX$classesUNSURL¢./UNSURLXNSObject#A³kTh¸.ËÈÓ3456?WNS.keysZNS.objects€¨789:;<=>€	€
+€€€€€€¨@ABCDEFG€€€€€€€€VServer]Accept-RangesZConnection\Content-TypeTDate]Last-Modified^Content-LengthTEtagVApacheUbytesUcloseXtext/css_Fri, 29 Apr 2011 20:17:44 GMT_Wed, 20 Apr 2005 15:32:35 GMTT3497_"7ebe8-da9-3f52fef2b6ac0"Ò*+YZ_NSMutableDictionary£Y[/\NSDictionary©Ò*+^__NSHTTPURLResponse£`a/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiverÑde_WebResourceResponse€    # - 2 7 V \ w z ~  „ ‡ ‹  • ˜ ›  ¡ ¤ ¦ ¨ ª ¬ ® ° ² ´ ¶ ¸ º ¼ Ã Ï × Ù Û İ )/28AJLS[fhqsuwy{}ŠŒ’”–˜š¡¯ºÇÌÚéîõû
+*JOkp†Š—šŸ³·ËÙëî             f              Ô_6http://www.ngdc.noaa.gov/IAGA/vmod/img/back_paisly.jpgO«ÿØÿà JFIF  H H  ÿÛ C 
+
+		
+		ÿÛ C
+ÿÀ  P P ÿÄ               ÿÄ +         !1AQ"aq2‘¡±Áğ3BáÿÄ                ÿÄ           !1ÿÚ   ? õ¡r’DLò›DŠş3jk´«Œğ—ÕÔ4ÿ IWÎUÁÚó<×!M*¹âÂ… qT&n„ò‹Ëˆ†àÕ%®æ´J#>ßdÚ69U¤i‹ÚNZ&b©¤²,ä†uDTMqWSJíSÄ2~,™H1$PÆçİdĞú¤Š£Ñms
+Hé Ğç+ 0&Õ@Hé×àœ*é‹ˆ é_egšsÉ¯ À&ñT,`Mª€‘Ó“zõª®‹ÆÕ|fˆÎNO	©7œ(1Õ%¢—6WO§kÉ¢<ğî¼9p9æP&ƒ„™LôÌ$$Îÿ M³aÙ$gB\ÓXp‰Ÿ(	¸å,±ªz„ÙÎ‡ˆL&°sAèPDÆPpÏ>5˜Me2A şÂ :IŞğ“EŒé³ìd8$3¡.	­œĞz$Í¤Le6ˆ9¿Û÷á#U„™”É7 H|Œ¡®á9=n€±İ6}‘Ç)edÛ9µLÃ]Çïux‰Ì;u å7ÁQObæ™JL”é¶KP$a#I¥ÜuóöºÛ_…©ñÒ`\¬“Ñ !AY@ğ¶zì€‹ÁsmÌ,‘¨ÒÛ¡—éË€ºmÎè³Ûp‘”	şIœ (çCKşå‰CpNkÑCe‹À?s€™"á]ûŸuq1vÌUBâGd5&EÂ¹áMFf¨ô™Ûò—QFºH‘Ô±UÂ²€Å  ¶s”4™7IEq6¹à —.€ãR†Lg	´+ÕÂ¡L``&D uDXíŸˆUÄiä8{‡Ä»á*:)ÿÙZimage/jpegOùbplist00ÔbcX$versionX$objectsY$archiverT$top † ¯"()012HIJKLMNOPQRSTUVWX\]U$nullİ	
+ !R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1€€€ €€€€ €Ó#$%&[NS.relativeWNS.base€€€ _6http://www.ngdc.noaa.gov/IAGA/vmod/img/back_paisly.jpgÒ*+,-Z$classnameX$classesUNSURL¢./UNSURLXNSObject#A³kThÌ¤nÈÓ3456?WNS.keysZNS.objects€¨789:;<=>€	€
+€€€€€€¨@ABCDEFG€€€€€€€€VServer]Accept-RangesZConnection\Content-TypeTDate]Last-Modified^Content-LengthTEtagVApacheUbytesUcloseZimage/jpeg_Fri, 29 Apr 2011 20:17:44 GMT_Wed, 12 May 2004 14:20:02 GMTS939_"85e3f-3ab-3da3af0244880"Ò*+YZ_NSMutableDictionary£Y[/\NSDictionary«Ò*+^__NSHTTPURLResponse£`a/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiverÑde_WebResourceResponse€    # - 2 7 V \ w z ~  „ ‡ ‹  • ˜ ›  ¡ ¤ ¦ ¨ ª ¬ ® ° ² ´ ¶ ¸ º ¼ Ã Ï × Ù Û İ&/58>GPRYalnwy{}ƒ…‡’”–˜šœ §µÀÍÒàïôû2RVrw‘¡¦º¾Òàòõ             f              Ô_6http://www.ngdc.noaa.gov/IAGA/vmod/img/vmod_header.gifOHGIF89a&F ÷     KæKŠŠŠ@@@ö¼¼%a­åÌÌŠÁİ R”æKK¿¿¿Jt²333¯ú¡­°D¾û3Ó3Bİ1g®îƒƒ…Â…ÿÿÿ©áı‰¥ÊO­Üzzz3 Ì.vÕïïïÌÌÌüéé™™™ttt31Ø™Ì™—¯·ébbQ~Ò3eåŒ×ı…«¾3Ğ)h½™™™–¯Ğó¥¥1hŞªss3RàÕÕÕ2vçÅÅÅ4®ëfff¼ÊİY†Â´Ï´/i×úŞŞt¡Úëúÿ#Z¥mëm³ãâåëVèV+iÇ3)ÖHƒâfÌÿĞóÿìxx3fÌ|«Ã¼ö¼¯Şµµµk§k›³›'´ú3ÎÕİè   3:Ûï0yß‹­Öš³å2ƒë§ß,sÎ`ãÒzza¬Ò°Ãİ„„„ßßßşôô3Zànº¾Ğèï±ô±K{¹¯¯¯ÛóÛŒ«»&[¯'bµ\Ñô±±dÕd3"Õ¥¥¥ŞúŞ›Üıp¬ÊPPPmÍm3Ñƒîƒ!XœT”å¥½à½ŒŒ3JŞëmmş                                                                                                                                                                                                                                                                                                                                                                                             !ù ÿ ,    &F  ÿ 5H° Áƒ„Â°¡C…#JœH±"D‡ZÜ¨M…4x`¡C‡
+1Âpà F.pøXAÈO,ĞDs²;Ø<ÑÀH âÔì`¤Áœ¤Ğ¬Tú ÈQŸ ¢‚áÑ ‚Ò
+B?­à#€0h>d@ÃM†mãÖˆKw-]¹î²ıPî]}ïRx pá o(8qçîb'vŞ1$ÆLš;/û;cf0˜kbVğ5th-H$ ÑB¯é×m~Lı:FÛ•ĞÖ‹HÍÒ°~ ¡ HL¤šæH1£óçĞ£KŸN=#ÇêØ³[g.ñ'è›h`ÿ°Ğû²JØ^N<iP„Mß~ãÑÈ“^g~¥úÀ«O¥JÍñ
+€&@6ñDKÿ}ÇLfD(ÍÕ_zÇ›[¼ñå×]€ánmfX ‰9Á–]ºT"aàAáktà‘iÀÅFS=G@	$Ğ‚%WÁ™&[G”ñ.11ßFò6CßÇVVtÃ—6"w
+i—Q
+h¦™‚™l¶ùĞBnf§æšØ‘™Pll‡Æ]ĞĞ@xã¹÷‘J1ğ`„Dİ'h`pY£ÉÇÃV…¥ÀIÎQTX@	5é	ôiEZD1ÖXÊ1™bÑeá]¯êÿÅb\Ä_³îUC®Lv˜*Æ•ë†qÅa‡„rĞô%L ÀõÚ£‰¥™i ™ÀÌø‘mG&Ú’G´ğZ3ğäPhñ–Á’¯ÑX—²ñRa€Ñ#fPa§AgÎéï¿ ,ğÀÜfÁ'ğvûô(®q@GŸVlqOĞÀfI-éR¤@ñğ@¡B%TS'@U #óĞ©Mtğéf+_E–Y±”n³+ì]øœ–­+ÚÚ«aÀª«AgÀô[ÄNz‰¨í|=Òó´˜é $	nx0.]bz«ãGá¾Ö%UU¢ÁDø[LÉ{cKrƒÿ¦„eÖ°@ù{Çáˆ'®øâŒ7îøã
+ÀWn9äsb4¸h<XnZ€ñ—(”nzérÃiç˜ñr"?àRHñwT–º²RdÕ²M6:8SYg5H“Z¼]] ä¥Wˆwy—¾`GcuÀtB‡¨ı‡mÅá+ÕÌgı´£9úZµ	üA€·6æ™¥ÙK–1lLHùÁ´èÍ»¡é€ë5ƒ0,©\"°Càƒ3Î!jJ&HÁ
+Zğ‚Ì 7ÈÁ2aì GxAÄ©éMûúˆ†nõ…æ+.0ifu~¤eG™É©HU”•åRM™C¨ÿ”s õw9«@„‚,›/yà“U\\XµaÕjz0
+ °×íñlE/ÜRœ—c X]œŸƒ^S®U _{ŸÙ¸Å„Ì €ÁYpµA¹ˆ]’—jïpL&¢	ƒÌˆ43h¦aTSá@ÉJZò’˜Ì¤&7ÉI8\°“´Ü';IÊRfò‚'lÈ¾Š:í…iÚË _©=şÅaI·¬€pbõù’h@I<â¨¤Lªò	ŞƒĞ ü åA`ñˆ
+cáaÆQñ›â,ÕÕŠra‘±ÆE4Ôê‹?£®f%>	•ó¦QNhš0´`5rb"ÿ€) DÎÃc´>â!=K7}|[rùrŒ	3ª„¤Í`LvjÈœ&hÉ!xô£ ©HGJÒ’šô¤$=¥;ŠÒ–ºT¤•¬`šPÈœ|AXÚÛZš&Ë!Ò]ĞúÉL,ğ„Q}ĞtT0‡™Ÿ£ÄÎeÑ\
+W¬M›@…“¡Âù²†¥·Õe›Ü4§ˆxVµEhÔ:¦Î[™µ0v K<Mã(vé€¬Ièù\4¿•œ-Ê[ÜÈ®#Ü/q ù¬ùš¸1%H(£¹b&£‘$G?‚Îzö³ ­hGKÚÒšÖ´!-eHOËÚÖŠ¤”¤ šTI&sÿºr89mëZÀĞØ|…(V‘OTN‚0“ª`±ÉƒÄh*ÅF"¹z2â…]ĞÄ“®t;´ÙJzla$ùÄÅW:{<…¥ÓÊË–XQ@Bm1‰Ñ§Ñ¼HĞ«‹Ü¨$¶\3›»ö(6ÅAJ¡Él‚g(aT”êŒr'’…Ã>;…{øÃ ±ˆGLâ›˜Ä¯=)hOÌâ‹ø³õäg«îŒ€-µÊn™Æ^±Ö¡YL¸Lç@]ü>ÃµU°éèSS©€‚FÜÍd²ÅMÂrHµõ^Ö‹+¯È–qJp%k N¡ÍÿÍm)L°Î”ùqÙ&w%‘BT5&é… Ïr]êš°yÉkÒ £ P±™‰`ïháëh4öl‡#ÀéN{º µ¨GjO›úÔ¨NµªWŸöÃ©&µ¬gMkQ›ÚÃBl!@c(p§t¸›Ùë4.¹ †ú„'Å†9\Š}d÷ “) e*;	P4eÖ]åĞ
+@İf¼ÃhsQÀ—Œã¢µB¯ÌãvÏYŞsm›±"L\{‚İĞ”F:H@~¿5@³a&~~ÙL ˜š„ªÛEüNø¡MCÆ@èI’£ 
+eóÂ—Şì†=QÃàä(ÿO¹ÊWÎò–»üäµ9©omâO›üå8Ï¹ÊCİéwV×p@m9ÂL»‹¹åîpv3?a`&Šj4Ÿj®N¡AÉÉl2PV¬4U)Ó@5£ıº× ¥­h¨Cì†&€S¬mq‚aĞ<Ö¶¤¹ÇRgšoU÷÷m`™ú²[>$ÀI îê‚ÿ“—Ä„Iú_=…TœhUIJôJæ•à«¤„	Mœ—%C!MĞğH^r•‹áõ°½ìg?{×Ó>ö:Ï}Êm­ê›ÛşöÀşíwŞNOáç2î5sb0„çè´|;o~\wt!<(èÜ@#\—ìr@ª«6ÿšÛ “Q**J9ôLT ­6õ=°QŸOâ6ƒ`Ü^/é'şfõn4¼÷Ìº2Kà•=LÃfA£^k¥+ò*qPbÂ.ò´4±Gˆç[n$X/‘p|ÖØğ÷ä"æâÜ’'™ç¡nA,
+P@Ui‘Y˜j0 {&Ğƒ>øƒ@„AÈƒBøƒÂw„´·r²¶r´W„Nø„Oˆ{0W|Çº6ctÂ.Â'Í†j@ÃQlÆ¦^mÎlbÄ£âLQTİF\
+b‡fu±S0Á`À~>D;’pÅ@P‹'P6"ê¶Bh`FAÿ¸+´‰|÷=vÇÚSV~¡ˆ“‘t†‚å¶Gâ²#æClapw3XÆ5$0qÁ2æ¤Fa°?¡Qq(ÂEÅa@‘ÒóS6À!—z#7 ¶ƒ¯…>H[°.ĞŒÈøŒĞ>˜„,7{ÒË¸WjÇçQ²5tÑ@~B]à h—ã|F§€[âB5m<`.]%‡Î¦hÅ¤ÌŞö ÄC!ª³#ü5q¦èx˜ñ.bFqÕ^àÃ4Ùã3nöOjö*¯Bœ4a/;2	@ ²AÓâ.U¡`ÑBnp ‚ÇQUò3¤’a7^€@ÿ%ˆ›A ‡&©Åi}°@bĞŒ.@+±H‰”[¸[MéP¹Mùƒd€W@•ÍHd`H„W@DP–@¸d°QØ„ÉØ?d‰”YÀXé”¸!ÍH”+Ñ”?°l+q—.ğ\	^€”ÛØ>w…¼–…ÁÓjĞëa]€7¦(~Ò º2V¢m@T²3‚˜šb’T¥Yéuæ"!\–`9â-R@Âµe+±ˆ…A>X+àswz1(p]°œI}°2++5LP¹$‚ö{ô>Ê•5x“`1ñ?0Ñxßÿ©1hUò‡6÷#‚ğ„€H’ypEKòåFÀHƒÂˆƒ­G”dĞ”uÉ^º—\‰%€*z°@  *º•êš}‰”š¡2°•ÌØ”J˜?•×hÚ”%Š—+1•9°¸á WP E‰HÀ¢2* °TØY”$t¾¶Â–+(Ğ'ëñ'4p¤GZ¤p_¸NmÁfe¦Tì1\Tú K%‡V\öáLâa1MIn‰#&éDìÒ›»èf$œ±â4‘8KãˆHZ1™İTwºÑERAkô§pnp>ç)@ó%y¦(@æ’`Hÿ¶$äÆ’şÁ- Y;q’ğu]ƒ¢·‘HrŸ>iƒ«GŒ} üé 9 •+¡B 
+•^PBĞ°Úªú¢+Ñ¶šº•YĞm`¹ÚªK°¨ª¡š?@ZÈº? ¢`éŠŒZ—{Ğ¬ıƒª9À—°­*¡Ğªm°K°B°ËfBÀ¢{ ¬êÊìêª9£;Ê˜³ÅàÃz›¹œ {™7fNSwàµ+
+p\ˆš[*PÁÇT_—²$Xå~„ç‰ß²XÁ!u¨’`ğ‚`‹äCfíEFˆäø'p™_¸F"1Nçœ+b²İô~ÿj_5óapx‘âuÿ¨XO:0´Dô¡x;ç‚G@–áÒi@kq’8Ér—Vİd3’q]b8¦Ÿ¥*ü)£HPıã°l éÚ•èªlpEù¶B°Wi—x»Uğ·[Ùt»`—* ÀªÀº~[Ë¨ [PZ?ğ;¡ÊÈ¬JÊz¹ºD Êš–ÔŠ¹ıÓªq»Z°º«ËŸ Êl 6°°»vÙªt;]ÉÂj°»v°K¯°jUØ£‡Sc±w|7Fh‡€±V’(=×§Šf.@TTş!Ò2¢24ÿ!}˜\£¡±iŠhj_dWv"‹cK"É\è™ YqÃœé™èè0¤‹7Ã‰y¾
+Æ$$Xôèƒ’E -PG$Á«ÑCƒYãSÅ)ñl!@kŸƒoĞÌ# H¢nUCE!Ğ»}e295èQ9Ø¯ÇŸ¨‹­;  kğ¶/š­ú»°k ·jjD¬Zğ·U¸l°=° wË+![¹Z°/zOÌºj»¸AŒK˜K°ºñºd ¹Dyª
+šëÄU •‚+¶»¨›·üI@0ÅÀ+Ñ=°•7@·lP °ÿP¸ Å‚¼l »ê¯§£­f…É·&@Ê¯ÑãE=õ<Ú+üê{§~¢®3‚×VT.c KkD63c:WmuKûÁ¹"uG²àÕ|áqa¥I1û»§|6~z#ü÷D$6$§À:Ğ$†Õ }4´npÙ|xÙ¢5H‹[-{<Ê\f§#.Ò€XkN(ììŸÊ/2ªc;­wÃEy¸*¸* È=À+*€È] l ]\Ğp	·€Æ‡,È+È+¡;|«•z°«¶pW°lZÌ¢àZËæK°lgÿ\®]9Ó·»ºNü¢,p¸Ë¦­ÇEi» »ºËyıĞ0»7ÀÈ‚,ÈNİÃôj¯w¯È{Ê;Mu°+ÆÖ45Pd]ÖdÖh=Öb]»2áñ-”ÒO^1ÿtK"¢ ÄÁLI ×/‘×ƒ4 u°$pzmØˆıO‰Øh ×‹} €İxÄñÇÒAÃÖb^i¦Ù7Ğl0†»2Öu Ø_fŞÔ4_1bı4
+©Ø
+PL  ôéÚæ¤ ÷Ä¤1ÛÚ‰õL`-$ğ¸½ØÄí/0Î­­Ø_àOwxÕ9!ÖMãÜŠ½SM aíÕ·„ÄÿÈ!7-tK¼Õá“iúyrb`üI·gĞ?tË¶cĞMÆt[¸¸qo•% IğÇyP *Ğ¸PìĞKM»ñ*pÄ«¸vK¬g ½·^ĞªIŒ¸«·6 ·[ü·ÊàñíâåJ~€LÅ€ Èö»làÔŒœÔö=Õíª=(:º˜™†Pú¼+RlAŠà|]Ğ]‡m(;aá\°¥M5qàÃá0óyŞâm¯ñOüã6G>àNÎ‹jÀä“Ø¯v¡n;+jĞ MŞ^m¡# !>q#ûQå$ÙcaH¨$ÿŒ'ß‰Øÿ£h4aOªQÖ1²Á`T
+è‡hñ*é‹6AŠÇ+_aB‘]¹Ñq¿8…3'!ô“ÃXª0ĞƒïÍn7Àâ š=àÔ°«ß+Áßvmpº¼ÎÄİ4nÅpÈK½•gÒ­êÔ ˜^€È½«³+¸tKÈvûáuË6@àı·Py…;l ìKP®6ß`@ã/ï‚Ñ‡kãpIÈS]Ä“lÕbp¯C [tâA4;†wÌS²tlaÊO šïğu-åMv—2)ı1q_Ñ00  Ï"P@Å_‘RŒÿJ“ 6¢æÎ^×G2ËÉR„ÿÄÙtĞ ™	’‘…37²2añĞ6ŠÀotOyÕçAk6®8d¨-0#à³¸œ]!ˆÈ³%31#6B`˜=2pGrSÿµe\»ê­¯>IcK¶;Hë­Ğ0ŠÔy È, »gë„Ì€£7í·P»GÜĞİl{°ëÔ0€Ù?Ğ…ë» /ğ=îˆß6`ßLÜ¸<½•P ÀnòŞænîøã³{°ÏÄ}ã®ËæùÃK•=xrÆ‡É™¼ğO|VîKcXlÍÂ"Ìk}Èÿì )=!â GÊÖÖ 8´Â~Ğ> ôu‚|Öá‰¨úÔ[`Q¶¨a°àåeâ† Í‡DˆÆ šÀ¬ñá 3 ©€¦BÌ ’q£Æ
+q*´H £‚ *ˆÓ 	-6‚‰Crc
+|¢ñ© hÇ;ä³‘@‚63
+Øùp'ÔGH„	ÃÄÁ:ÔˆÍ› 	k¹°ƒ×03:€i#iPìBI‘7/¾|áü<dHˆS"D€CŒ	[8Q±€ÃdÊ“Çä¹Á!Š„lT¨°ÁáF(•)³ÈS@…–*d8´QáÙ
+ÿ‡=*
+LîÑC/@¢ z4ğ1,J{éqÃ…^8ŒÉİ£ô™3lä®~]µUªèÑüû…VÚ´±Ş#ôr“ `Á»‡j-Y4«P~!O6è£Äfƒ!rp11`è#‚)¦aˆ¿úÒ+Â»&´K ‚$J(CÊà"ˆèb 	„ÔQ4jè ˆx‚ªˆŒX©¥ˆj¨‚¤¢+?ŠÚ-"D2É‘4Bë«8ğ!€ ”XI(4¨Ã,Ñ ã‰'\4q!„ AÅ2¨¡L~‚C:¡ˆÒˆŠ Ì	Œ9ÁĞ¡©’ZbÈ!8ĞáˆÿÊğ€£˜Š:ÈH"9H("…ê(”HĞA˜ËI7ê³Œ0: Ã™@c†ŒÂ(’¬„@`b' „#[*ŠB½ú
+L0_	#lÁ>úPŒ±ÆS!	ÚrË1xÛ¯42`ãŒøD“,
+fØˆÔVÛÀµ,n¸Á
+ D³·Ü\ã€…è„[À†ÍÈÌ†<ò+@Y2$èáYm³Û/»ùìÎ»s9Hb¿Ôd£Ş®] =Ş“¬]	TØáÜ,ğkwÆ(Í
+ UĞ…MH,A„£¯;^¾#Â¼(„Âƒ°4uCëØJ À N,úE P|&j`‚Œÿ,à()Lr¨G2` vúZI±oe©È‘ˆ‚2€ ÒxÒG2Û¨  ;ÍWËÌ™V0k¢.Ä‰£
+¢TBÓ’62éˆ?ÂT†¾R`©?T‚i®‡â0|ì¢zB**ª<˜ 	FêÑÓ«7r#&·¼R¢€È †›¢Ê¢´A!²Ä¨¨b€T 	w…à¯_vÁÃ" ¶XÆƒÌµzØï=ÜòXààÊöµê®‚Ù­Ì‹ oã ºkoØO=Ñ
+p-
+Î½ üt+MşÉ¦8ì€#˜wª°‡É,@añŒÃ51‰½>¦A”cšÍ0Œd2Ö`p˜ÿ•9èA} Ì$tº)MyÓY™T$` 4@@
+b‘EiO¨›%¢¤ñkX[I’´¶GiNlWûš¦U%Am-Ù”Qø¦C4 ­t°ˆ,tÂ‰I!¬È1€³Ñ‰R:œHĞÀ¥è@O>Òˆ“¸p¨0€SEÂ\Q¾2”¡¥Qs)P”¥$à¬
+BÅmäbª|È(m¤b‚$y¢ ƒHdˆ>b†»ìÅ/ƒÖ‚Ti˜å1X‹1ôª“>ê),4—éÁÖÃ \€_ÓQØ~”ã.i|šapĞ§Ìê !:î»AµÈÇ‚÷Üÿ¯`’ õ ^À!Yw°€…h¦–âûŒ
+Ğcƒì&
+ÖãÀ/ ½Úh‚“Â8@!Á2AÔU6H0€i™Ë^&¡$”0!d*Ó™$z&áÍ"è‚—°x%-Ö`Š6lÑ‹v(‘ğ-£#˜U U¤¹P
+¬É‘¨bÄ±’Hh âGà(RE¸’à%0y!ÒP¼X+„l©(c‘”°S‘Äa2&!A‚˜;8†á	pÃÕèdÕ›äD€ƒÔºV•å QÉ£‚š¨$‘C\KúÔÖ)¾Hk:ÁC ŠR©¢€¡CId’ìbJã%•ÿ­Ö°ã< T9ĞBl€“evV™¸Á
+À¬öEÇ³‚T+6Œ–³ dÃ<ë™Ïˆ:æ|:{ÛÓÂÖ‚Z'ªY×nGµ™Õl-s+¾ ‘kŸÊ|æ3ÁÉ* ÔX(¨‚VfP_„ĞKºàĞ¤–×…4oİT£İĞE ßP”„+*äv1˜©NœÈ6³©Ÿ¤iTpŠ«\í;±HŒ‚µD’*Ds[šÑğ!*ÄLÊĞÛR$úFUSv2Ã«z’x`@0ÉWÂ@DQQPÄiĞ‚	|•)7ÆñÜ V!W¤¼š ¸„t¡ÿÊ®Â®Ìq;™ê`	\¤€!Bğ ‰Á$Ï•‘l˜)[YËjA ²`:ÕŒf×š€kşŒj7°âš6@p®mšÏœç6,¶çëlšÕœÚàVag¾3wæLçÌ¶¶·´­mo¡ ¥¶º–Í ‡¥İíÆW„P
+äF5Ø¬¼B´°Ñ/bˆir¯H²,9à	iš}ŸD’4P•ˆHJl€!µÄI™¤#iˆÒÎ•³Å€K@ËâÍ$œ¢ˆšªiZj©8„/4€‚ÓˆFœ(‡pO}j“ r5¯şÁ_0É¦æ‚Ó
+„ e`ÊÊĞ´µ(öV2Sÿ&ĞVœZ®l`¨Â€ï"'’¬§[ñ’Â)¸H¸ê5L¯üoÕ¡%``ÂïÈV]qy0Êc˜#–·üº–(÷ü™Ô×ÌıœùŸ!½›wÑfş3Í{¾Zœ÷¼Ÿy¾3ÍtÏà¼æ>÷Î8…{ó~L€2ÇsœW‹æs¶À½4¦3²å­²ÓMh
+0 -†§>ˆDôÂ/$¾ZÚbCªí¢Js€·‚‘œÀŒJL²|$Ä†m'_é«6*]­G.^TÚ^"£AÄ‹°h†ÖÂÑœ±n+
+¸‘à:‚9ìt¥&Ñˆ’O‡0lªO)‘L|¸ÿFà[tnH”C(”ŸìÄŞ†ªI¢`‚«E)àøÖªÃYZ½
+¿%ÈïHrÆÁ"I²SÒQ6²—¿$Ì-GÿuÕs€z§çV7ô¢Mõ~Úşòàpé\ù÷ßÿ?§¿§º¢“³ÿ‹:©óü«©.Cºü9§@§›³°ƒ¹ëÒ ”Ù´²+(–I(ºq€¹ƒ¡òJ‚¿{¡ ¡4q5£â(½û’	“¯-))4›z$‹à›¹Ú‰Àj=Ä¢”¡”ÚY<&C‰–Ğ=<¢‘–°€' 5Ò#	Ã¸£"Û±§I½íC;Ác«½8h#cë€M	ƒXŠ»#ÿzÓH (²ÆÃ«Ä;ˆ¤ĞpÃ#HzS”Õëˆ¥°‰@Ù$«Š%K1`Ğ¾ P‘c‚)C2H,,’ƒ—)¿Â˜É‚"Ø"`9õ[?ö³¬\´DÀüK@û«@:ETLÅtÅXŒÅÿ£Åş“Åd@WdÀŒ?tÅùó?ûcE,Ed91‹,ô´!à¤›Tk  é‚i¤Æ¤‰F 0É¢¾*sA€NÚ’·úÊµ\;+­‰'°G$Í©(s"×C­¹£4²‘˜Ğó<Y¡„@  “/È:ªÑB!Š 0‰88Ãx#ÿ“€»
+–à [Ù C²+A*,â#>=êø*D+°EB‰"#+Úó!êó“7ª€ˆƒœì°;ø‡€Dø‚É@’ä‰
+°Ä“ËDbÙ‚Ò˜Œ(Ø‚ “ù'Q´¬\Æ]ÜÅ[4E­ÔÊX'=K2¸TüJï8¦Éø¸2ĞƒRÄÅà€È¿q’ËàÅï "ğrš°ÄJïøË[t=¶4ÌT?ôË@Ô.g¤› ƒ¿KšËœFˆ“©„àGüÆ+©!ˆˆ¿ÃÂÖˆ ¢
+¸©v¬7%	™Ü%H6`Ç»‰²9x€ÿ' š
+Ğ¢*Ü„¿{‚hTNôú‚=bª,¤¸‘ÌAƒ^ ¸xHA‰0€
+–°ª¯Ò–8
+Ç‘ÈK! [’ ,ÊƒĞšxœ	8T¤+Ñ“À7• 
+ªÀ«Ôa Bƒ0˜ŒÛA
+xƒH±ª–ˆ ¥G¬7^0pĞxğO¾åaJâ€@©¬J«ôÊÑQİ2ËÇ¨KMKXcâ€-°º]¼ËÑüÉ€ÑËÉ€KÌ§Âl ÅEh¹ÉÚ´a™È”L+Ì"’2S¹»XË5›A4 ˆ#M§	œ°“Ã#œp¼±Ñ³"ÿ9H0µ1Vƒ/h²R”x‚"ø6Aböb/Œòx»É0GÔÔƒèÁI
+4p"%X£5Š”ˆ%*‰—d'É‰¥˜ Æa°8è”?b<+¤H	“hCLÙH@y‰h·+KŠA|£íL£•â\™°© àñ¡ÕÜ$œ
+›â9¹”ƒã(!hƒãè'©´JÑeeÖf2ğ"ø R¯—ó83‚X"XEË½K¸¼QU-ò:å€øÃÅ }ÑàVo­Àb<RÑ4!8'A+d/…èFYCxAİ¦y“ÍLDQÂ¢èµ ƒõŒ”ÿÌñ‘ŸB S*˜ÇR˜Â´‰+Ë« #x€@²¹`šé>}:0µ¤Ê€7ùÓº›°,|*5Bƒ©
+ˆ,	h
+¨ˆH0h
+Ç±T˜£0ÊåÛ½¹Ğ7h§=‚#xZ~[°D²#«á”0p¾–ˆI0ğY­*²2‰‰œ¤'‹)Ö‰´İˆ0ˆƒæ,
+TÁ‰#€
+]JpŒ(@Öj˜Çh:"È‚HLËÚø"°,=K=ø,§À%©cÜÆ\©ƒ\"P\,À\"ÖÃeÀÂÍ‚Ê•K¨ôóX´ÉK­t6à[†)68®*(Üº»<®Â•Ö¹„:èáÿÏ ‚õH'- İÊËÆ­‚É8.À\©[]-x]Õ*-¨iÍö»ÜN4™$İ |‚}•Ì—İ‚è™ƒ¨1	ª2ÇÂ-9Íš¥Í°‰€)±!¾w¼3H6)	*à/2UB$“àh ¨RÚMÙ#âÌ(_˜ÕRÀs€…Xˆ­#I;¡‚F…”2 ³rœTùƒ?ÈI‰ƒ0®56NõBš1CyÃ¨•Úá7œ€HœhH²Ò=|ã‚)‰‰c#"¢ :¥Hªx´U[-¬/Àˆ¤ø†%’ò3ŒWºÈ‚3[ƒ.^€.VĞ, òÿjRšŒ+pJ"uÊ rJ pº¼Ëƒ‰RcÍàÄÊ8Çè'¿œŒ=ÈÊÕµ×bƒĞ`]-hch­¹\‚~"×™8Û è! ( É¸njã(Ğï°É`—ÏcÊ ã!…áPÙX<®‚¨‚9v%ÊHÒaYîõ^gÔñÕñMYÚ(-ÊÒ,5M…$M+¢ù¥ØtX3 ‚ıİ)3ˆXˆ±ƒ7""«'Î•˜‹%DÄ…€FÎ“6Ğ£¨Ğ3ˆrÜ(¡`-í‚5Œ'Âî°*NU |3€|^	 øèç0|Nµ7üƒ >±i&	ˆCÿŞ,›(ZŠ"+›û$1X©7:«
+ÈªªAÛœ à¯"²¸zë/İ	.+ÄPŒÕe­.–é5`ƒã¸‚s)-Èb øç ‚9c—+p^Z×ØF~ŒĞ-K hËÉhÑ%˜/ÈbØáå¥0êpß=ƒz	ã5®ê6øV× @k×PŠ‚%(«–j‘™§f+¸3à‚’€gY ı0k¸~à:²<˜ ±iœvÑU6˜Ş¨j¹æ¥§fQ$ØP\>F•	2èå~Í`şìBÈ¸i€·»»çÌ5[cµñUˆ!r<¸Íg›4 mı•’Û–<èXÿnş2%
+œhßl ;à6
+mc»ÒFĞÓ¶`6ˆ…#ùŠ
+FƒÒ¶•³¢€ŠÈ’ˆÚ³²ÈŠîÎ’ˆ(ÃuÃœ…c
+>Ìé£!œC7LÉˆ˜Œ7–›ĞHô® «ø“À1	$N#0	~G9éI9–^J–3ä5¸'Ñ¨—~š+ÅçØb×ˆd!˜ØX'Œ9j-¨ph^!™Vd!  ‘i^-8ø¦¨Çæ€+è§,°m»!­ŒëHd¶æ%3ñ
+g×ØÏ(È‚e¹ø¨È–8+×ÕÕòË\²Ï(qá( á°qÈhkÿpñ×è§WËÎ^1ĞåPàWòÚ¢¥âŠ,¡5Q÷µ.µ¯Ò”àæ&š›‚D!3ƒõ 3`tFŸæÅíÂ3íÙœ²ñd©<*àÆ;òZ´ÈÉ8À¨úS
+;µp\ˆ.!eÎ€rTƒ‰À
+±·@H >¸ŸˆCqÔ«è? ‚5‰"ñ[
+°òÏl6Ó« ÈC•X”¹]	4H‹Æf˜ŸuƒÃÁ+Ó·Œ€±˜š*pâĞÕ‹[pÂ8ÅƒÕµ§Ê(ë°+  È2gƒg± &6P—?ƒØúAŸÚÂåÀk	Z~7óx/r±ÿ€±0oìØ´¤ò¸€1Xk‡‚xŸ À—ÉP¦üÈñáYZùi a ø 3¯­É¸ë y—øésƒowæ˜‚_0ŞPÈìñ‚}ó;·ó;ÏB-BğópÌ;4`g»C&ˆ"ÑÕ#¤æHÇíDWt%€ÄÆÓ‚‹
+èˆö’9@¢àÍÊAğsVA(E*4Pƒp8¥ø€7™0‘'ˆˆ,ƒ#È BŠ«(áÿÚç°£•ˆHğ€”¬#›
+2>ú‰P”B+&û”
+8°ú|£@1‰íìèª€¥@¤´}‹0˜
+›"œ#±ÛWƒ,¾ÿÛ"é‰ğÉ°ÿoóyÿI
+ıyà¸|ùå ~¢‡7~vsejº‚Yİ8 }ÏJèW—ğ×“¿d¿µëXyèŸüp~ô™yÓ¸ğ	ç¿Ÿå~&§é’Él1£~¨‘Â„
+&ÌA@BOfø€!Â	é<QBaF’TĞdH”#Ó(1ãò¥™4rT’ìğ$JE’G<9Á#d#ÑŒä  L/` XÃ¢Â¬Z3&lM&h>Ä@ãƒ€`Ğğ§B0	ø\EÇ@I÷H`@@…€ÿpp“àŸ<mşTJsd‡88‘*5<!Lä
+Ná LÒ
+ou†IàFt`¨h8”&€®c¦>¤Yª0MG2eJbÄláEÅ6*TØàpã‡=òPÏ³Àxìc8x)ĞüLv¨Ÿá`C 7z@¿€ 	ÙYDg_ß¾tñÓ«[7OŞ|^p0Fv7Ü œTQ´Q@u°ÑœæíW]{=ˆ'uôI×BlPŠçxlÇBv=ìÁAĞ±ØzãµÇußõ@!~ÙeŸ|=x˜]ˆB¸àÂp}D0…F@_Ô D[%„B |„Pÿ p‘F\%´%4` ĞA	Áõ<¥ôœ(Ù¤@\4­…Pœ<ğDE%T”‰Æ'4@ÃW`Õ¥ Zf ‚CZV™P˜ev}DC[Â kéT	 ÄQƒM$±WôEÀ[6¡! G$Ğ‚h<Ù(I ÔnøÄÔH?U Ãaap0Zcq„¡j«ÂŠôV$„±ÚkLM0°8Ë(¯|ñ˜aĞ™n@ôö[pÃ¹d,ÀÆô9w]= pc¼7`4HàwÔ‰÷Ÿå‘‘]sî	ÈBåE—Ç×' ÀDáE60\@ÜQ×àÿ*$¸`ƒ¶¨…À· DÁÂ¿7—DÁğ}âˆõ²¡/Í)^ÄÖÍÌïtĞÇoÿŒ@Â:fØãÄŸH¤F")†’L69_Äq¶•
+UŠĞ 	ğÄ¥b¢ñ™ `¥†—		€ÄÚSnÆ9ëÖ‰.à“…ä 5dhF!hd†6Ü	°(˜v[ù¨ÚUr:V–cĞ€æD oÅ±Ö\=ÙB¿ÚDe ÑM€ÆyAX`Äk¶S›(Ñ‰gS€N²`ÆTçš„l…£FÚ­kbËT_¬9>Sf€I~W Âcb%¤@1ÀBÿD œ.” Ÿxı“Áas€Ğç¨H<6 
+àœAaÈNyÎ#2Ğ+:5ë_z.–±İÀ€ô²ÁÍ3†f>LÏrVÆ ±H*BƒnP }Ù >8»ÑvêŸq-hdPA€€!@@´avè2ğ/Géà¨ÆÀ<$ìj²˜xxØƒ5¨ 	GJRÄÖ¤D!îSßJ‡Ğ` Hé(•.ĞÀ#Yœt"€uıŠË3Éàî„­‘(à  a¤ğ‘œÀ"^ –Å“áUÀè
+Ç¹$mzƒ#è,–¹A(hÀX> ;àA2>ÿ©–İby+×-k$ˆI˜" &OÉsJ †58’8¯)Æƒ^’“ZŸSœ	šb…*	pÍ[Æ§  éCÉ‚U|a+pB€Ó‡áˆ!%`z.À¡‚Á“bÔqšy @iˆ
+ì ì“€
+q6¼‘£S€”L<QHZöÀ Y<‚´Â6°¡£/ÔBËZ( 6í>4ˆDD"ğKˆDìÁH9À‚ - >@ÈátÖ?{òˆG	½ÀB-Ê‚«qÑ‹_ëC›Äƒ¥Î` 
+™AVŞ˜•'!o_’*å¹5Æ!›\N†)¸aªÄW7¡Iÿ¤ ? Á"ù€P¸IS’0ÔŒp--yRÌÊ¢ÂUÒ¥)t¬È"Ñàƒ&8¥ˆİ3À(À'N1Ì_PC«äE2Éfdp¢ƒL xœ=íÜ ¾eÒ³­â ²Ê —Â†{-+4[Vb½e[!Q
+7›Ú¼‰‚ã ¾Šs¦3ñjg„°€, EüY@u©Ó"	P·E-R ;*ŞÒ<Bbw}t1íö@Bã-€Î Ñİ <íU }e¨Àj´
+Ârø»XñçwJ£êz· Ş€T `i—»úônÎ$cÃà½/xÁÿ;Şú¶(cEı"Ø’j„¥.•²JÛÚ²”&³\©n|#@;‚D4âTÉX‡)È «¤mëË "5 ËeS1Í#Ô	0‡¥pœû«Ú¼º¥ÑijV0bÀ
+`5ZzA*r•/˜&)mRÀ,}Œ0xFÍ‰]Ã@ [ı¡- €­xæšÄôN Ó—ÓüD{I©Öö˜Â”2p‹zª©@_lƒÇ
+P! fĞ4!‰eÖQjó›‚sñ×N ¯a¾ï«Å[€VÓz¼¾uGñËíá¥òĞ^åX¼®npˆHëe·:D*„p×„ğì«€¼/ğÛ"ÿ.&hÀÿ•°‚³“le3›Ö÷¶±í[«€×¾¶ØE‡M©,>J º•‡DÕ¯§Û1VqL&ä­!
+™Œ±àDäœ,owñU¹Ö×(R q­  ÜôÇ'W POxÂRâ „1]ynr”–¶:&¯¦‰;>ˆ¦ğÆ‚Ä*@e¶HHÀ…ì­|H |"šÒš¤è(ƒ_BC¼ÌT€v	˜€†Ù—#ˆ.ˆÖÌ[ãê½&¸¦ö$Í¾\Ë6jiùPb¾O7$ºR€X”‹¼KøËAt«½lb/gİ}·õr¢-øh÷ÙÄ …8ìşïâÅµG!/^i/ÿhAÿíÚ€e w­Ú~—<­?êmh;ïÅ|ák­îÈ³ûÖƒoÍ#Ä<¬¡kô^’½—*§­à˜+¡#ÕèÕ„œ2ªpœœ^‡.;!oáHIM”Â ÇQÜ ~hÊX#Ì
+`Î(
+\¬œFºñu+lˆE‹†¼}¤ı]‚‹–ÕM§d ÍØİfY¸»\s/Ë2€ 3)	@„òô‘àè@ğà
+ü-T Ò(Sm½Å¤‘ÀšT–h”†øJÚı®è
+dT€´áLPÁi0ª=tu^€Ş`×àî Ş»µÁØ€$¿Ä›ƒ}ÿ”$¡â Ş`T^ğ æiŞ6aãÕ <aåõ 6!váà)¡j
+!*^ˆäÀÁ@ØìÁŒ ‹©Ä‹]Dï–(e	ßT„ŞğMñe™<Fd¬Kl E› „âD_Bì†PNøÁı1 gt@ÔÁÄ9Ï#K¡\’ŸTSú¨ÜXğ–éáÊ©Ÿ—èáG|A<€Z0Et|LÖU<Êd%aÄ	L€›‰ö,‹Y¦FÕéB‹YeSÓå!%5!‹/Išf(€3~OJPš÷(S´€2	¦
+RI<šlĞoÄ ªé ¬#ğ`°#Âÿ£;Î£;Š!«eu$æy›;Ê#=î ;¶£jŞ‘äÊ@AÆã:şc@â¤ü£B
+$@ú#ŞY¤Dòà=îG«eá×°áo4‰8€î¡Äµß˜¤ßé¨ÁÊµ¤ğ¡AfôÎ¯ c ½JÁ\RÁHdÀI øÔ–šKòğ@|œä|_ |ŸxtNıU•Ešx‰ê <ÀD„K+9Ö\XYVİJ›ø„a¬EáÎüA«üŠh@ÒÉÖ©ÏÃ!c_pË/†UpU@Ÿ`_¾	œ4f£[~KJF4vË›tÓ7…ÚI¶`VÜÁÀ İ±té`A&ÿ¤Cn¦g~&hr¦F²Á±ÈáDn¦f†&k‰	¼¦	l&l¾&h®fmv¦kÂfkz¦mŠægö&k¤ô in[²RMA(•$Mœ©#Xp„t¾ä&’ô Y#œ¬Å÷¢œÀ%=@XÀcÜTl_È½ÌÁÇÍÁQ8¥qÉ•_e… €~¢ÀğÁ	vjŠMAOîÎZÌF ÄÏÅ ™Ğ‰N€îD‹«t–SˆÄîp ÒRtçHÏ«PS×£X`ãš”Á6®Ip!‹pãš ‹¦aèHA 8†Æbu*ešıÀKp¨šÌ¦)‘ÿi‘şftW>¤æ©“>)”F©”N)•VéB$qW;~dØ,'‹9À5\t¶d`À™¸dŸBx…VPÉÅI•JÁR6 Wúäcîk…D1FÅRÅQìJÂEˆYB¨ñI,ê¢b KÌD—` ÁNêÄ[°N™9…ÎM	İHèëĞI_ÀYVV.û„í¸F\FPâ‡’í,…R¨lT@¼@JÎØ%ÀÚ†x€‹¥„H|]Ô‘ O8âUe…Ü¥@
+¼àü¤:Â€ªY)¶iDF—à©¡d+¸†«¸+¸nëàár†ÑÁŠ±˜M†ÿšªiŒdéW™É¾9_n”DŸ¢„P§Z ¾±à 	‹ ¦òe¢Ê§ Ôå6cÄÀHÄ¡`  @vr	4@W¥)Ì}ğD¥’§¤uÀ€ÌšñÁ£|€ƒÚ…h.v`ô…Ğq S`O±(¦NÒQ6ÏH|«fS61Åè*‹â™¾‚ ¡!ëHW0à°œV<+´¾`oP«ıü¨µb&Ø†­ØmØé‘¸cnÎ&Ù®-Û¶­Û¾-ÜÆ­Ü‡Ùnëb&.I°ë½,¼ª)ÍkWíM~ğe|VÄ=Ü,ÏÑ)Ÿ<À	àiÈÕº(OŸzÿ\QŒ Ö¹	{ÂìHÅ%¹Ü£Z	GtZŸ`™)a©…äÎ™MĞhˆÆdµ_pÁHÚœå…~@˜¥RØdDİ/“]ö
+nĞêHL€2¥İ‰º%Ó®I^ğÄÂQ¯_ 8&k ˆ àªJ&´F«´Ò×"RY+ú¦¯ú®/û¶/©nz¦Ú²“ûÖ¯ıŞ/şæ¯şî/ÿ~-fÎ¦gâmØ¬ëÜÛR½+t~•T½é˜öŞ)õ§Bhœ!¢xî‘gy
+,æúí°”ËÁÒéÂÎg1u®ò8†æÁdì_uAH0©Eª(=Äñ@X YÌYtj,!àëØDµTÿ†Ø¢›8Å›"¯\D¦ıÖ›dcŠ+® 	Jâ  L 8öR1Ì†t¯rÉ@AÖJëÖşªÙO×š/Ç±Ï1«ïÛª/çq»1÷ñë1 ² 2!{­ÿ®-ªëŞÂsbúäht
+n½Ú«VàëûüXáØ©D”ÙéäZğÁbßò)¶(ì 'ŸÇÄr_x2¾A§'YrÉpĞA,ÍŠ4@ü°âùdI®ÂâıÕNf YÎ–ln	Ë}€å Dò’Æm^€£­ŠD¦Y¯Hx±õú(€ Ô @_±köV œìGršÿñ‡o9š:õ(×³=ß3>ç³›¯ƒmúÂ±ç³@4A´A4B'ô>Ÿoúâ-ú*‰Ş†€©İ1õŠNVHòELJšÎÍWÑA° PÌ€zhI„îNòÀ.ÅLÂ«ŠK.¾	ªH,¿òl°JÌÀ£ô´£huÊ+X˜ÒwÙ¤¢î,c¡Á‚E,’€îÒÎƒ±ĞŠe7ÎÄ¥ÏâÂ‰ßøM5¿IM‹¯jsp38 4€n°IJ¤s ¬3()W¢Á¿skíÖ’/_÷µ_ÿ5`Sk=»1?¯/@ÛÏ=¶b/6c7¶c?6d+ö=6Cãñ Óÿ©A@–D ê$Çp?ğE›ÑRR®I—ä…JK°|0J¬è,+¬ÙğJ¿r˜öL%˜lÁ%JaY%ÔY|À¼nüÅA7I©@JA qü¡¥¦bB#,ö„$ññÂéIDXG/6ûª‹ns €ï‚Á$ê«Œ2A7­3™xo¼"Ä]£1<Ç³<÷†~ï7÷·û·_³1Ç1×³_ÿ7‚'¸‚/8ƒ7¸ƒ?ø^óµ€S6R¸rJ4”ãfW4Á¾¤¼†ö&}U¥Ì €AN?i{¨ìJ_nò•] p”=Á&
+KÂ!¥¨ÅøHX’lCFâŒ„gkÿE³©}D| ğÙÍ£œäp[4ÆX*yí¬\˜†¤×È4Â•n0€›lwœ #XG]_’`@ojH¯X/d    €Mh†8KA|yHˆÙrwo;o…Ôwøæ5~›¡º¡:¢ú~KxAó5':¤Gº¤O:¥Wº¥_z¡/:ù4ùöF†køJ+/1~va…¶Àa´Ã‘„R6 Ã’Õ{–'„z(?O¹°
+ÿ©äği·rrûMLSî¬“'qëÆ0Ô˜éŞÀÜ4@pÍ™ ¬¨ä*ùı†rÀÏùÒ*VqüÙêúÀù   ì†¾Ò„ßğDi˜sÚiÿã¯†„3Š„ZğN}¦ÄÜ¹¬•ãì*°ÎƒÅ}•(f…ü9 ‡/eŞA9&¼Â/<Ã7¼ÃK+¡ëwcïw¡?¼Å_<Æg¼Æo<Çg¼¡K¼bëwf—c
+„ú7ÜBpt-ÓX½.0¥Àj¼2 ÂÉŠÓ¸O•ñÜt“ÄP°øñ(ŸK7…Ùğ¼N‡ÚSåÕQ‘“§¨¯,\(V Ì.à$€E”Áj D_l»4&@‹âQ!Ä!–{N|µûj¶ØÆè*4úJ¦A£8‹»SDM¨u™Í½ÁK"ûhkÅÀ|}Ûw <â'¾â/>ãSæÂGü‚:Ã7>åWÿ¾å_>æg¾æ[şãç7‚W<„o˜{à«‘a)=Ve•V,œÇÙé¼şë+ªäšö—¿+}öÄòxn¯ò ½'%Àî~Èuu&ŸÜç`EP÷GxEÄ ¾®YÍ†˜•îÌÙxqßh£Œ¢ŒÎH4bû(˜?2jOH¨¦YZiğA_B#»¿1ÀÓ€`øFøŠZ/ÆD;@ØAƒ&ÃÀu‘0¡‡¡D”%EE‹1fÔ¸Ñâw „„ ‡dI“$EBøx‡cK—/aÆ”93æÊ”'O¦„p±BOŸ>Á(èÀÍÂ„F3$i0Â`†G‚‰ÃáÿgÕ
+FæœĞªuV+(¨€fêOq:T#¶§‘"|íI–jO0À ]ÛÓË‰'ONÈå@·êĞi+0AóD§¢h0°àhê¨i D`:4°0pl€ OÇ¶@#VAÕ¬'L@6õÚlÔ­P£ÎÏyÁVEƒ¸‚€xKõs…8+˜=–:‰ÄNçÀ †ªÓƒv Àøô
+ì 0ĞèÀDÛ3|8_ÃDû÷ñç×¿ñ£Nÿ!?âH¿	,ĞÀLğ>ş<úï?‹$
+n.é cÈ)‚Ğh€¨b,¡¼Œ“PD°â(Ë§³Ìë)4êâá­,èÿ	Eİ@Ë'éØâá¸³kÅª(î§Ê ¾¢’Œ=1£ƒ†¢˜Êˆ€®‚&°C:0Ğ`b,HÀËÙĞ8B5êhá4{ò#ÄâÒ¹Ç"àH(CÅ=« Ï—9¦3o;?æª „ñjPË§0LsbIƒŞ+ò1¢èËTÁMñËh¥O=ÊˆÓQI-ÕÔ=5À‹&QK;¼ª‚hÀ€C…‹ƒ7é”°Æç~ô§»t›ã¯{Ö.¼N´±ÿ¢£Y¶~ºSB.‹”•²$'Ãp¡jè‚§>ë„fê š7È|7t±K€ ÖÂRó¶¹¤ ÿ`   Í§L´ê.!=ë©…äœûªç#¯ÙÀà Œ5ÉÔ­›€:  0 ¨ 4Ÿ” Ê. R\‰(Ó™i®ÙfM”©À›yîÙçŸçı`ÂOÄ^¾uÉ‚Ä=
+Ö´AF^{­VbÚN$NEjyx MfÖGjQôÉ‚¿ÓõÇaWÔ,
+)-’Ûm!ºX(»Nˆ7õ¾lá3ÏÔÌN¬tÀ7MŒ±îÉ3¶jm¢6QèpÃdµ7íÛ¾ØÜ§?Š:°@® ·
+êøàƒŞ¦K‹Š,İ;ª „’–Oèİ&šÕüx^øá‰§Ù÷Š€wÿHÄ@€uR\’Œ)˜ãH·]İ¦“°do6Ù‚w|ÀŸö’±|Í3Âë"äª1E“Ï§îÅ´½½io	º;o"{ÂÈ¥cš;E6Ù‰kĞ ƒä(N_Ù1™ÖÌgì¬f5oë‰õ´«=s‰{÷*êôIah/×âğ¦<‰òA Dğ<4Ôàv±LÌdV<ÎGA;ôáx³ÎGD24¢ >p»'tAi‹yOöÈÒ«¡Œ{û‰³åµ9 E º¹K°L¤>¸Œocq]°*(A
+R1aPLõ„†¦]¨nh 
+SÁ4"Pip@š)]
+Pà¾ê‡&|`<ş ’õ¾Y9èIˆö$@OkñŒé6'¹!a(Ô6æ‘õÉ9)r)§Ôp†8Ìa}˜<\î’—»Ôe¦Nà«Z2ÄC¸³ß“" Zb(8ƒ9ŒU"'0ZXf{‚øÈG¶ø9ËEcôI©EiÎ%~c«@nuÌ8.äh ‘Ü5%$Œğ²“ |Å^¬1dö…äœn64Äg2p¢.ÒI*l™€kD¸Ğ¡”1øƒ)ƒ²" HÁå’‘Xc9QÑ.	Îg^h†±Äg!5L¢-Ñ ;Yimage/gifOúbplist00ÔbcX$versionX$objectsY$archiverT$top † ¯"()012HIJKLMNOPQRSTUVWX\]U$nullİ	
+ !R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1€€€ €€€€ €Ó#$%&[NS.relativeWNS.base€€€ _6http://www.ngdc.noaa.gov/IAGA/vmod/img/vmod_header.gifÒ*+,-Z$classnameX$classesUNSURL¢./UNSURLXNSObject#A³kTh¹û”ÈÓ3456?WNS.keysZNS.objects€¨789:;<=>€	€
+€€€€€€¨@ABCDEFG€€€€€€€€VServer]Accept-RangesZConnection\Content-TypeTDate]Last-Modified^Content-LengthTEtagVApacheUbytesUcloseYimage/gif_Fri, 29 Apr 2011 20:17:44 GMT_Wed, 12 May 2004 14:20:02 GMTU18445_"fcab-480d-3da3af0244880"Ò*+YZ_NSMutableDictionary£Y[/\NSDictionaryHÒ*+^__NSHTTPURLResponse£`a/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiverÑde_WebResourceResponse€    # - 2 7 V \ w z ~  „ ‡ ‹  • ˜ ›  ¡ ¤ ¦ ¨ ª ¬ ® ° ² ´ ¶ ¸ º ¼ Ã Ï × Ù Û İ&/58>GPRYalnwy{}ƒ…‡’”–˜šœ §µÀÍÒàïôû1QWsx’Ÿ¢§»¿Óáóö             f              Ô !"#_6http://www.ngdc.noaa.gov/IAGA/vmod/img/igrf_exp_eq.gifONGIF89av, w 1!şSoftware: Microsoft Office !ù    ,  p% €      ÿ„©Ëí£œô„P³Ş¼û†âH–&‚éÉ¶îÇòì¬Œı¤8Í÷şr.‘Šx¼ …Ì¦ó	%í”J‹cÓE·Ü®—U¥U(k9›üª×ìö+n Í°ûÏ¿àD¬?1Ff°$XW¨‡˜¨hØ§UvcG×·Xiy)w”Dèx…	*êÒ)i:Ššª*Q:ø¶
++{êúh;‹»™Ó[«AÕ8\øÆ‰Œ\<ü:y<CÈºMûù±dd1E|XıXÚë™6m¡<$<–¾ìl½"òHe-H=§ïéP­oón¹†°¿[:Ò	\hpB@poY'	"´sÿŸìa¬xâcÆ‹á°íÈğ²„ 7Q”¨Nİ}4zq“2âË’¬áÀ™-j#	._Å]®¦!J“hS¤K}:ò7µèKš5*Å—ƒİ¤r&áEôçéª•?RM³÷ÌÔ¶OßjjKÑ§Ö‘7ó‚•Ï×ŞpÜ¢u"»Á&ŠV¶ÌÂÌ\ß“‹3­l)÷Ÿa¹j+kÈµp·˜5mi™e\Æq9fK½¸ä’òPGNº­ğíQÿR~hhkzÊô¦!Øô«ä¸7LZ§nÅ	ñ†}|63ÊÛÌŸóîú,ífîÃa6º-§÷ğ/yŞÃ~]˜¡ïêµÂE»»óoı9ïÿu¿xthñíf[YW ç™rOÍ3Û/ÂÕ§lòèÒAÊµ”Lö¥;«9¶aqåc‡U*•è¡y-²‰ôE÷Z7b%¦aR9ÒˆkÒl„ak\ñ8äi@º¥X’w¢…FvÚVÔÉÌŒB:Ã”W2tcMV*”bi"µWo=˜#–«Fa¬ æ¥–j”©¹HÔÌWOºÙMQŞ	h }úé”/•	¡r
+Êh£õÙ‰¨£’NJƒ;>RŠi¦&à´e…®i
+ê¤Ö=¹è¡ÚhzEî‰c©¨¾ºÅ.Uˆøè(Î)¬ºâA	ŠjúÆ¸ººk±@”ùgšı€D¬±z  ;Yimage/gifOøbplist00ÔbcX$versionX$objectsY$archiverT$top † ¯"()012HIJKLMNOPQRSTUVWX\]U$nullİ	
+ !R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1€€€ €€€€ €Ó#$%&[NS.relativeWNS.base€€€ _6http://www.ngdc.noaa.gov/IAGA/vmod/img/igrf_exp_eq.gifÒ*+,-Z$classnameX$classesUNSURL¢./UNSURLXNSObject#A³kTh¶ànÈÓ3456?WNS.keysZNS.objects€¨789:;<=>€	€
+€€€€€€¨@ABCDEFG€€€€€€€€VServer]Accept-RangesZConnection\Content-TypeTDate]Last-Modified^Content-LengthTEtagVApacheUbytesUcloseYimage/gif_Fri, 29 Apr 2011 20:17:44 GMT_Wed, 12 May 2004 14:20:02 GMTS846_"85e45-34e-3da3af0244880"Ò*+YZ_NSMutableDictionary£Y[/\NSDictionaryNÒ*+^__NSHTTPURLResponse£`a/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiverÑde_WebResourceResponse€    # - 2 7 V \ w z ~  „ ‡ ‹  • ˜ ›  ¡ ¤ ¦ ¨ ª ¬ ® ° ² ´ ¶ ¸ º ¼ Ã Ï × Ù Û İ&/58>GPRYalnwy{}ƒ…‡’”–˜šœ §µÀÍÒàïôû1QUqvŒ ¥¹½Ñßñô
+             f              Ô%&'(_/http://www.ngdc.noaa.gov/IAGA/vmod/img/newr.gifOuGIF89a<  ÷  ôÿÿòÿÿ÷÷÷æúúîöö÷ïïğğğŞööÿééøèèÖííæææÿßßàççôİİÿÙÙçİİŞŞŞÎââÈààÏŞŞæÖÖÿÌÌÕÕÕ÷ÌÌÇØØÌÕÕºÕÕÃĞĞÌÌÌÿ½½ÿ··ÅÅÅ¯ÄÄ¾½½õ®®ÿ««µ¼¼ê­­½¸¸®½½œÀÀ¦¼¼µµµ­´´¤··²°°ÿ™™­­­™±±§­­›««“¬¬²¢¢ƒ¯¯¥¤¤ñÌ™™ÿ‹‹¦¦”¤¤Û‘‘«ã¦šš´““­””™™™ÔˆˆÄ‹‹…››¦’’ÿyy¹ŠŠÁ‰‰İ€€Ä…… ’’…••x™™ÿtty••äyy·ƒƒğqqŒŒåuu¨„„€zvÿff„„„·uu¦yylˆˆhŠŠíeeŞii|ƒƒfˆˆt„„­uuãddŒ{{ÿ\\Ãkk×dd{{{Ìff¤qq`ƒƒšrr­kkp||tt±jj‡ssk{{~uuvuu¤hhyooÅ[[jrr½\\´^^™ffNxx_ssçMM×QQóII]ooÿDDMrrİIIÉNN ZZ¦VVfffäEEØHH“YY‹ZZÀKK±OOÕCC“UUŞ@@Yddğ99œNNÿ33IddS``å88”LL¥FFO\\í11æ22õ..Õ66J[[hQQCZZÿ''NUUÌ33×00kLLŠDDDVV§::î&&vFF6XXÿ  QNNŞ((lEE9SSù»..ñ  ç""KKK«001QQÿ¾))Î$$™33İøèÈ""ÿÛŒ//—,,-HHöçÀòB??¢""f33(CCÿ		÷		Ã’##u++İîD55Ôäÿ  ö  ğ  Êƒ­ÿÿÿ                                                                           !ù æ ,    <   ÿ Í	H° Áƒ*\È°¡Ã‡#JœH±¢Å‹3jÜÈ‘bš\Õ)X`@`RÕD1Y@’£”j&,0´jÕìÄA@	d“¢YB ‚H ÀÜƒhšcğ€ATH`@ö’Ù&	¸F3D˜£™$L^`Lø$U›KßvÕ(AeÓ·%(:Lõm”ŠüBkaäÛ7W‡n„EHe› eëÄ 1À
+´0†lèñM6J}ƒ¶ƒÍ7V[†5ç7P™rTÛvÍ·m·:™|ğÃ6?ˆ};v†E ÆÎ¸)ñ´)f¢€q¼l«oÁ8yÿQûë)LÃKT*Ğ·k³IN¸¦3Cx}FDmx”QA5ßØ‹/“S	(¸`²Í7ÏàâEQ/|“L-ò-pB5Ï É7°˜âÆ
+Äôtx¡ÂéÂC1€à±!ß8#K6ŸØ‘Åx8rG3àÜ¢Ê‚ÑòÍ0¨èƒ  cI"î9âÈ3%TÍg<ÑA}üfÉ7rĞqÄ(ßtóK(ZğÀÃOĞPÈ7áô‚æ8†*Wœ €Õ0Çßğ¡ÇR!t%~D‚jIB¢|#5zˆĞd@ÁpFãÇ
+HáØ8¨q ˆğrÖ,r†7ÿjÕrÆ|œ·à1ƒ	È„3ĞDB`'7tÀ 0Í|S)7˜ãA5pøqh”ñÄ
+²´Æ7ŒÜ:™HXC3~Üp@Õt£‰è
+$B¨­7|‘Š8Ö
+# £~ìaÍ7jÁBRdÂ‹.íNv
+•HóÊˆ´ F0É”¢È#AáÅN¬¢Í1¶(±CŸtóÌ*4A„P¼%x\.B  Å!‘Mf@(h1èL° Şò@„OÜÀƒ`rW<A‡ĞA]» 
+gøás¸àÂ^\q\ Ã07Rá÷7XzßlVí0Qø+D°À
+~Ëp*B€pÂ	"€PA d^hŸ°Â	 Hº—gnÀ¥¢¯ Bæ,Ğ¹¥Õnûí¸ç®ûî¼' ;Yimage/gifOñbplist00ÔbcX$versionX$objectsY$archiverT$top † ¯"()012HIJKLMNOPQRSTUVWX\]U$nullİ	
+ !R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1€€€ €€€€ €Ó#$%&[NS.relativeWNS.base€€€ _/http://www.ngdc.noaa.gov/IAGA/vmod/img/newr.gifÒ*+,-Z$classnameX$classesUNSURL¢./UNSURLXNSObject#A³kTh¹=!ÈÓ3456?WNS.keysZNS.objects€¨789:;<=>€	€
+€€€€€€¨@ABCDEFG€€€€€€€€VServer]Accept-RangesZConnection\Content-TypeTDate]Last-Modified^Content-LengthTEtagVApacheUbytesUcloseYimage/gif_Fri, 29 Apr 2011 20:17:44 GMT_Wed, 12 Jan 2005 20:47:48 GMTT1653_"fcaa-675-3ed80ea062500"Ò*+YZ_NSMutableDictionary£Y[/\NSDictionaryuÒ*+^__NSHTTPURLResponse£`a/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiverÑde_WebResourceResponse€    # - 2 7 V \ w z ~  „ ‡ ‹  • ˜ ›  ¡ ¤ ¦ ¨ ª ¬ ® ° ² ´ ¶ ¸ º ¼ Ã Ï × Ù Û İ(.17@IKRZegprtvxz|~€‰‹‘“•—™ ®¹ÆËÙèíôú 
+*JOjo…‰–™²¶ÊØêí             f              Ô*+,-_$http://www.ngdc.noaa.gov/favicon.icoO~        h     (                                ÿÿÿÿÿÿÿÿÿÿÿÿóçÉãÀsÚ¥5×šÖšÙ¥5ã¿uóçÈÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿûùôáºgÔŒÓˆ ÕŒ ÖÕÕŒ Òˆ Òà»fûúõÿÿÿÿÿÿÿÿÿüùóİ«EÒ† Ö ÖÖÖÖÖÖÕ Ñ‡ ÛªEûùóÿÿÿıÿÿâ»gÒ‡ ×ÖÖ ÔŠ Ô‰ ÔŒ ÖÖÖÖÑ‡ à¼fÿÿÿòèËÓÖÖÖØ—á¼kâ¸bÖ™Ò‰ Õ‹ Õ ÖÕÒôèËäÀrÓˆ ÖÖÓŠ Óİ¬L÷ëÌÿÿøîÓ—Û¥:Ö–ÕÖÓˆ äÀrÙ¥4Ó Õ Ó‰ ÜªCòâ½ùùğÕº©À™…İÌÉòèÊ×¢/ÓŠ ÖÖŒ Ù¥3ÖšÔ Ô‹çÇ„şÿÿüüÿµ„lAŒ@Aºxğâ¼Øœ"ÔŠ ÖÖšÖ—ÓŠ ëÑ™ÿÿÿşşÿ´‚gŒ?“L'“L'“K%‹>Ğ¸°ûõäØŸ*ÔŠ ØšÛ§9èÈ…şÿÿÿÿÿÇ¤‰:G F ‘H#‘H"BŸ];üüşùòàÕ™Ù *ùöëÿÿÿÿÿÿáÎÅ˜U0¡cB¥jL¨qS^<¡dDŸbA˜Q,ŞÉ½ÿÿÿñâ¾åÆ€ÿÿÿÿÿÿâÒÉ—N+©rUÎ² Î®œÆ¤Ñ¸©Ğ³£Ó»­¯}a¢dDøõóÿÿÿüşûÿÿÿØÀ³BA©oPË¬œ½“}¾˜‚Æ Œ¿”€Æ¤”¬rT>¡gGíãßÿÿÿÿÿÿôïì¬v[Œ>’I$“L'’I%“M(’K%’J$’K&’H"?©rUôîëÿÿÿÿÿÿÿÿÿú÷ö¼zG!Œ@‘G “K%“K%‘G!Œ@‘G!¼{ù÷öÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿçÙÑÃš‚¨nNœY6œZ5§nOÁšƒæÙÑÿÿÿÿÿÿÿÿÿÿÿÿ  ÿÿ  ÿÿ  ÿÿ  ÿÿ  ÿÿ  ÿÿ  ÿÿ  ÿÿ  ÿÿ  ÿÿ  ÿÿ  ÿÿ  ÿÿ  ÿÿ  ÿÿ  ÿÿ\image/x-iconObplist00Ô56X$versionX$objectsY$archiverT$top † «%&-./01U$nullÛ	
+R$6R$2R$7R$3R$8V$classR$4R$9R$0R$5R$1€€€€€
+€€	€ Ó !"#$[NS.relativeWNS.base€€€ _$http://www.ngdc.noaa.gov/favicon.icoÒ'()*Z$classnameX$classesUNSURL¢+,UNSURLXNSObject#A³kuØ”[\image/x-iconP#ïÿÿÿÿÿÿÒ'(23]NSURLResponse¢4,]NSURLResponse_NSKeyedArchiverÑ78_WebResourceResponse€    # - 2 7 C I ` c f i l o v y |  ‚ … ‡ ‰ ‹   ‘ “ • — ™ › ¢ ® ¶ ¸ º ¼ ã è ó ü*+49GJXjmƒ             9              …    1 < K b € ’ ¨ × Ø Ş®¸¿ÈŞ*¾*Ç.½.Æ.ÿ2®2¹6¶6¿6ø	ƒƒƒS†¥†¯Š«Š´Šæ‘_‘i•^•g•™™             .              ›8
