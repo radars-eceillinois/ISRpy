@@ -65,7 +65,7 @@ def enu2xyz(xr,yr,zr,east,north,up):
 
 # --------------------------------------------------------------
 import numpy as np
-from igrf.igrfPR import igrf_B,igrf_B_V
+from pyigrf.igrf import igrf
 
 eps=np.finfo(float).eps         # float resolution
 deg=np.pi/180.                  # to express angles in degree values
@@ -207,7 +207,7 @@ class radarspecs:
         rr = xyz - self.xyz0
         u_rr = rr / np.sqrt(np.dot(rr,rr))   # unit vector from radar to target
 
-        [bX,bY,bZ,bB] = igrf_B(year, r - a_igrf, lon/deg, lat/deg)
+        [bX,bY,bZ,bB] = igrf.igrf_B(year, r - a_igrf, lon/deg, lat/deg)
         bfield = np.array([bX,bY,bZ])
         B = bX*north + bY*east - bZ*radial
         u_B = B / np.sqrt(np.dot(B,B))

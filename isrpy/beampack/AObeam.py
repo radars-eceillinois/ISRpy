@@ -85,7 +85,7 @@ def aspect_angle(year,xyz):
 	rr=xyz-xyz0
 	u_rr=rr/sqrt(dot(rr,rr))			# unit vector from radar to target
 
-	[bX,bY,bZ,bB]=igrf_B(year,r-a_igrf,lon/deg,lat/deg)
+	[bX,bY,bZ,bB]=igrf.igrf_B(year,r-a_igrf,lon/deg,lat/deg)
 	bfield=array([bX,bY,bZ])
 	B=bX*north+bY*east-bZ*radial
 	u_B=B/sqrt(dot(B,B))
@@ -122,7 +122,7 @@ def aspect_elaz(year,rr,el,az):
 
 # --------------------------------------------------------------
 from pylab import *
-from igrf.igrf11 import igrf_B
+from pyigrf.igrf import igrf
 
 eps=finfo(float).eps					# float resolution
 deg=pi/180.								# to express angles in degree values
