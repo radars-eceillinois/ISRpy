@@ -21,5 +21,7 @@ IGRF model.
 -enoise is spectral noise level estimator based on Hildebrand-Sekhon algorithm.
 
 """
+from . import enoise, beampack, readpack
+# from . import kmltools # needs to be fixed
 
-__all__=['readpack','beampack','igrf','kmltools','enoise']
+__all__=['readpack','beampack','kmltools','enoise']

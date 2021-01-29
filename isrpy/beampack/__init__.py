@@ -10,5 +10,7 @@ of a collection ISR and also in an Earth centered coordinate system,
 (b) geomagnetic field vectors and magnetic aspect angles within radar beams.
 """
 
+from . import jrobeam
+
 __all__=['radarbeam','jrobeam','kwajbeam','AObeam','sanyabeam','irisbeam','kairabeam',
 'tromsobeam','esrbeam','laplatabeam','bahirdarbeam']
