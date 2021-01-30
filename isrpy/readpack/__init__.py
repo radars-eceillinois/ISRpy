@@ -9,4 +9,4 @@ digital_rf_hdf5 --- Arecibo plasmaline (PL) data files from Juha's USRP receiver
 readpack. TAB in ipython for module methods...
 """
 
-__all__=['jroread','irisread','rdvme','digital_rf_hdf5']
+__all__=['jroread','irisread','rdvme','digital_rf_hdf5','JROfileread']
