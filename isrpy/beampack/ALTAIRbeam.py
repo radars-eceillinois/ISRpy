@@ -153,6 +153,7 @@ def cosBs(year,rr,el,az):
     """
     uLOS=cosBe*U(h)+cosBn*V(h)+cosBu*W(h) ... LOS wind model in terms of wind components to calculate and direction cosines
     """
+	""""""
 
     return r,lat,lon,h,xyz,B,aspect,cosBn,cosBe,cosBu
 
