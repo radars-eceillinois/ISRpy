@@ -44,6 +44,21 @@ class JROfileread: # create a class instead of a function if you need to rememeb
             self.dh=dh
             self.hts=h0+dh*arange(nsa)
 
+            tauH=fid.read(nTaus) # tau's header
+
+            if CodeType != 0: # dynamic header info about codes
+
+                codeH=fid.read(8)
+                numCodes,numBauds=unpack('<ii',codeH)
+                self.numCodes=numCodes
+                self.numBauds=numBauds
+
+                Codes=[]
+                for ic in range(numCodes):
+                    tmpc=fromfile(fid,'u1',4*int(ceil(numBauds/32.)))
+                    Codes+=[unpackbits(tmpc[::-1])[-1*numBauds:]]
+                self.Codes=Codes
+            
             fid.seek(hlength,0) # now go to data block
 
         self.datablock=datablock # read data block after here
