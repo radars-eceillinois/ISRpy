@@ -44,7 +44,10 @@ class JROfileread: # create a class instead of a function if you need to rememeb
             self.dh=dh
             self.hts=h0+dh*arange(nsa)
 
-            tauH=fid.read(nTaus) # tau's header
+
+            if nTaus !=0:
+                tauH=fid.read(nTaus) # tau's header
+                self.tauH=tauH
 
             if CodeType != 0: # dynamic header info about codes
 
@@ -58,7 +61,7 @@ class JROfileread: # create a class instead of a function if you need to rememeb
                     tmpc=fromfile(fid,'u1',4*int(ceil(numBauds/32.)))
                     Codes+=[unpackbits(tmpc[::-1])[-1*numBauds:]]
                 self.Codes=Codes
-            
+
             fid.seek(hlength,0) # now go to data block
 
         self.datablock=datablock # read data block after here
