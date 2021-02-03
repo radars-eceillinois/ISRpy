@@ -44,7 +44,6 @@ class JROfileread: # create a class instead of a function if you need to rememeb
             self.dh=dh
             self.hts=h0+dh*arange(nsa)
 
-
             if nTaus !=0:
                 tauH=fid.read(nTaus) # tau's header
                 self.tauH=tauH
@@ -71,9 +70,8 @@ class JROfileread: # create a class instead of a function if you need to rememeb
         allsamples=self.nSamples*self.nChannels*2
         data2read=self.nCycles*allsamples
         data=fid.read(data2read*2)  # read and unpack data block
-        data=array(unpack('h'*data2read,data))
 
-        data=reshape(data,(self.nCycles,self.nSamples,self.nChannels,2))
+        data=ndarray(buffer=data,dtype='<h',order='C',shape=(self.nCycles,self.nSamples,self.nChannels,2))
         data=data[:,:,:,0]+1j*data[:,:,:,1] # complex voltage array of [cycles,samples,channels] dimensions
 
         return data
