@@ -80,7 +80,7 @@ def cosBs(year,rr,el,az):
     rr_=xyz-xyz0 # vector from radar to target
     rr_u=rr_/sqrt(dot(rr_,rr_)) # unit vector from radar to target
 
-    [bX,bY,bZ,bB]=igrf_B(year,r-a_igrf,lon/deg,lat/deg)
+    [bX,bY,bZ,bB]=igrf.igrf_B(year,r-a_igrf,lon/deg,lat/deg)
     bfield=array([bX,bY,bZ])
     B=bX*north+bY*east-bZ*radial # magnetic field vector B
     bn=B/sqrt(dot(B,B)) # "magnetic north" unit vector since B points by definition in "magnetic north" direction
@@ -101,7 +101,7 @@ def cosBs(year,rr,el,az):
 
 # --------------------------------------------------------------
 import numpy as np
-import pyigrf
+from pyigrf import igrf
 
 eps=np.finfo(float).eps         # float resolution
 deg=np.pi/180.                  # to express angles in degree values
@@ -243,7 +243,7 @@ class radarspecs:
         rr = xyz - self.xyz0
         u_rr = rr / np.sqrt(np.dot(rr,rr))   # unit vector from radar to target
 
-        [bX,bY,bZ,bB] = pyigrf.igrf_B(year, r - a_igrf, lon/deg, lat/deg)
+        [bX,bY,bZ,bB] = igrf.igrf_B(year, r - a_igrf, lon/deg, lat/deg)
         bfield = np.array([bX,bY,bZ])
         B = bX*north + bY*east - bZ*radial
         u_B = B / np.sqrt(np.dot(B,B))
