@@ -44,6 +44,23 @@ class JROfileread: # create a class instead of a function if you need to rememeb
             self.dh=dh
             self.hts=h0+dh*arange(nsa)
 
+            if nTaus !=0:
+                tauH=fid.read(nTaus) # tau's header
+                self.tauH=tauH
+
+            if CodeType != 0: # dynamic header info about codes
+
+                codeH=fid.read(8)
+                numCodes,numBauds=unpack('<ii',codeH)
+                self.numCodes=numCodes
+                self.numBauds=numBauds
+
+                Codes=[]
+                for ic in range(numCodes):
+                    tmpc=fromfile(fid,'u1',4*int(ceil(numBauds/32.)))
+                    Codes+=[unpackbits(tmpc[::-1])[-1*numBauds:]]
+                self.Codes=Codes
+
             fid.seek(hlength,0) # now go to data block
 
         self.datablock=datablock # read data block after here
@@ -53,9 +70,8 @@ class JROfileread: # create a class instead of a function if you need to rememeb
         allsamples=self.nSamples*self.nChannels*2
         data2read=self.nCycles*allsamples
         data=fid.read(data2read*2)  # read and unpack data block
-        data=array(unpack('h'*data2read,data))
 
-        data=reshape(data,(self.nCycles,self.nSamples,self.nChannels,2))
+        data=ndarray(buffer=data,dtype='<h',order='C',shape=(self.nCycles,self.nSamples,self.nChannels,2))
         data=data[:,:,:,0]+1j*data[:,:,:,1] # complex voltage array of [cycles,samples,channels] dimensions
 
         return data
