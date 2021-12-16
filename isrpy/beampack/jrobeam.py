@@ -12,39 +12,7 @@
 #
 """
 
-def llh2xyz(latg,lon,h):
-	""" returns geocentric xyz coordinates in km of a target with
-	#	latitude       latg (rad) --- geodetic
-	#	longitude      lon (rad)
-	#	height         h (km above local ellipsoid)
-	"""
-
-	n=a_WGS/sqrt(1-flatness*(2-flatness)*sin(latg)**2.)
-	x=(n+h)*cos(latg)*cos(lon)      # cartesian geocentric coordinates wrt Greenwich
-	y=(n+h)*cos(latg)*sin(lon)
-	z=(n*(1-eccentricity**2.)+h)*sin(latg)
-	return x,y,z
-
-def xyz2llh(x,y,z):
-	"""
-	# returns longitude 'lon', geodetic latitude 'lat', and height 'h'
-	# of position (x,y,z) defined in geocentric coordinate system
-	"""
-
-	p=sqrt(x**2.+y**2.)
-	lon=arctan2(y,x)
-	lat=arctan2(z,p)
-	latp=lat
-	for i in range(10):
-		n=a_WGS/sqrt(1-flatness*(2-flatness)*sin(latp)**2.)
-		h=p/cos(latp)-n
-		lat=arctan(z/(p*(1-n*eccentricity**2./(n+h))))
-		if abs(lat-latp)<3*eps:
-			n=a_WGS/sqrt(1-flatness*(2-flatness)*sin(lat)**2.)
-			h=p/cos(lat)-n
-			break
-		latp=lat
-	return lat,lon,h
+from .beam import *
 
 def dec_ha2el_az(dec,ha):
 	"""
@@ -174,15 +142,6 @@ def cosBs(year,rr,el,az):
 # --------------------------------------------------------------
 from pylab import *
 from pyigrf import igrf
-
-eps=finfo(float).eps					# float resolution
-deg=pi/180.								# to express angles in degree values
-a_igrf=6371.2							# mean earth radius (km)
-
-a_WGS=6378.137							# equatorial radius WGS 84
-flatness=1/298.257
-b_WGS=a_WGS*(1-flatness)				# WGS polar radius
-eccentricity=sqrt(a_WGS**2-b_WGS**2)/a_WGS
 
 # ------------ jro radar specifications -------------------------
 lat0=-11.947917*deg						# geodetic, the usual map or GPS latitude
