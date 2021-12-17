@@ -1,11 +1,11 @@
 """
 #   jrobeam.py
 #
-#	module for calculating geometry parameters and magnetic aspect
-#	angle of radar targets monitored by jro
+#    module for calculating geometry parameters and magnetic aspect
+#    angle of radar targets monitored by jro
 #
-#	use aspect_elaz or aspect_txty to calculate aspect angles of targets
-#	specified by (el,az) or (tx,ty) angles
+#    use aspect_elaz or aspect_txty to calculate aspect angles of targets
+#    specified by (el,az) or (tx,ty) angles
 #
 #  Created by Erhan Kudeki on 11/29/08.
 #  Copyright (c) 2008 ECE, UIUC. All rights reserved.
@@ -15,93 +15,93 @@
 from .beam import *
 
 def dec_ha2el_az(dec,ha):
-	"""
-	# returns elevation and azimuth angles of a radar beam with respect to local tangent plane.
-	# the beam is specified by:
-	#		declination dec (deg)
-	#		hour angle  ha  (min)
-	# with respect to radar location at longitude lon0 and height h0
-	# above reference ellipsiod at geodetic latitude lat0
-	"""
+    """
+    # returns elevation and azimuth angles of a radar beam with respect to local tangent plane.
+    # the beam is specified by:
+    #        declination dec (deg)
+    #        hour angle  ha  (min)
+    # with respect to radar location at longitude lon0 and height h0
+    # above reference ellipsiod at geodetic latitude lat0
+    """
 
-	lat=dec*deg	                        	# on celestial sphere
-	lon=2*pi*(ha/(24*60))
-	lon=lon+lon0					# on celestial sphere
-	vec=array([cos(lat)*cos(lon),cos(lat)*sin(lon),sin(lat)])
-	hor=vec-dot(vec,zenith0)*zenith0
-	hor=hor/sqrt(dot(hor,hor))
-	el=arccos(dot(hor,vec))/deg
-	north=dot(hor,north0)
-	east=dot(hor,east0)
-	az=arctan2(east,north)/deg
-	return el,az
+    lat=dec*deg                                # on celestial sphere
+    lon=2*pi*(ha/(24*60))
+    lon=lon+lon0                    # on celestial sphere
+    vec=array([cos(lat)*cos(lon),cos(lat)*sin(lon),sin(lat)])
+    hor=vec-dot(vec,zenith0)*zenith0
+    hor=hor/sqrt(dot(hor,hor))
+    el=arccos(dot(hor,vec))/deg
+    north=dot(hor,north0)
+    east=dot(hor,east0)
+    az=arctan2(east,north)/deg
+    return el,az
 
 def xyz2dec_ha(vec):
-	"""
-	# declination and hour angle in target direction used to describe radar beam
-	# direction at JRO, corresponding to latitude and relative longitude of the
-	# beam-spot on the celestial sphere, corresponds to rr->\infty, in which case:
-	"""
-	vec=vec/sqrt(dot(vec,vec))
-	p=sqrt(vec[0]**2+vec[1]**2)
-	dec=arctan2(vec[2],p)/deg                               # in degrees
-	ha=(arctan2(vec[1],vec[0])-lon0)*(24/(2.*pi))*60		# in minutes
-	return dec,ha
+    """
+    # declination and hour angle in target direction used to describe radar beam
+    # direction at JRO, corresponding to latitude and relative longitude of the
+    # beam-spot on the celestial sphere, corresponds to rr->\infty, in which case:
+    """
+    vec=vec/sqrt(dot(vec,vec))
+    p=sqrt(vec[0]**2+vec[1]**2)
+    dec=arctan2(vec[2],p)/deg                               # in degrees
+    ha=(arctan2(vec[1],vec[0])-lon0)*(24/(2.*pi))*60        # in minutes
+    return dec,ha
 
 def aspect_angle(year,xyz):
-	"""
-	# returns the magnetic aspect angle (rad) of a target with
-	# geocentric vector xyz defined in geocentric coordinates
-	"""
+    """
+    # returns the magnetic aspect angle (rad) of a target with
+    # geocentric vector xyz defined in geocentric coordinates
+    """
 
-	r=sqrt(dot(xyz,xyz))
-	p=sqrt(xyz[0]**2+xyz[1]**2)
-	lat=arctan2(xyz[2],p)
-	lon=arctan2(xyz[1],xyz[0])
-	radial=xyz/r;						# directions from target
-	east=array([-xyz[1],xyz[0],0])/p
-	north=-cross(east,radial)
-	rr=xyz-xyz0
-	u_rr=rr/sqrt(dot(rr,rr))			# unit vector from radar to target
+    r=sqrt(dot(xyz,xyz))
+    p=sqrt(xyz[0]**2+xyz[1]**2)
+    lat=arctan2(xyz[2],p)
+    lon=arctan2(xyz[1],xyz[0])
+    radial=xyz/r;                        # directions from target
+    east=array([-xyz[1],xyz[0],0])/p
+    north=-cross(east,radial)
+    rr=xyz-xyz0
+    u_rr=rr/sqrt(dot(rr,rr))            # unit vector from radar to target
 
-	[bX,bY,bZ,bB]=igrf.igrf_B(year,r-a_igrf,lon/deg,lat/deg)
-	bfield=array([bX,bY,bZ])
-	B=bX*north+bY*east-bZ*radial
-	u_B=B/sqrt(dot(B,B))
-	aspect=arccos(dot(u_B,u_rr))
-	return r,lat,lon,aspect
+    [bX,bY,bZ,bB]=igrf.igrf_B(year,r-a_igrf,lon/deg,lat/deg)
+    bfield=array([bX,bY,bZ])
+    B=bX*north+bY*east-bZ*radial
+    u_B=B/sqrt(dot(B,B))
+    aspect=arccos(dot(u_B,u_rr))
+    return r,lat,lon,aspect
 
 def aspect_txty(year,rr,tx,ty):
-	"""
+    """
     # returns magnetic aspect angle and geocentric coordinates of a target tracked by jro at
     # range rr (km)
-	# tx along jro building
-	# ty into the building
-	"""
+    # tx along jro building
+    # ty into the building
+    """
 
-	tz=sqrt(1-tx**2.-ty**2.)
-	xyz=xyz0+rr*(tx*ux+ty*uy+tz*uo)			#geocentric coordinates of target
+    tz=sqrt(1-tx**2.-ty**2.)
+    xyz=xyz0+rr*(tx*ux+ty*uy+tz*uo)            #geocentric coordinates of target
 
-	[r,lat,lon,aspect]=aspect_angle(year,xyz)
-	[dec,ha]=xyz2dec_ha(xyz-xyz0)
-	return r,lon,lat,dec,ha,aspect
+    [r,lat,lon,aspect]=aspect_angle(year,xyz)
+    [dec,ha]=xyz2dec_ha(xyz-xyz0)
+    return r,lon,lat,dec,ha,aspect
 
 def aspect_elaz(year,rr,el,az):
-	"""
+    """
     # returns magnetic aspect angle and geocentric coordinates of a target tracked by jro at
     # range       rr (km)
     # elevation   el (rad above local tangent plane to ellipsoid)
     # azimuth     az (rad east of local north)
-	"""
+    """
 
-	tx=cos(el)*sin(az)					# direction cosines wrt east and north
-	ty=cos(el)*cos(az)
-	tz=sin(el)
-	xyz=xyz0+rr*(tx*east0+ty*north0+tz*zenith0)		#geocentric coordinates of target
+    tx=cos(el)*sin(az)                    # direction cosines wrt east and north
+    ty=cos(el)*cos(az)
+    tz=sin(el)
+    xyz=xyz0+rr*(tx*east0+ty*north0+tz*zenith0)        #geocentric coordinates of target
 
-	[r,lat,lon,aspect]=aspect_angle(year,xyz)
-	[dec,ha]=xyz2dec_ha(xyz-xyz0)
-	return r,lon,lat,dec,ha,aspect
+    [r,lat,lon,aspect]=aspect_angle(year,xyz)
+    [dec,ha]=xyz2dec_ha(xyz-xyz0)
+    return r,lon,lat,dec,ha,aspect
 
 def cosBs(year,rr,el,az):
     # decomposes the radial unit vector to the target to direction cosines of magnetic North, East, and Up
@@ -144,27 +144,36 @@ from pylab import *
 from pyigrf import igrf
 
 # ------------ jro radar specifications -------------------------
-lat0=-11.947917*deg						# geodetic, the usual map or GPS latitude
-lon0=-76.872306*deg						# east of Greenwich
-h0=0.463								# local height above reference ellipsoid
-n0=a_WGS/sqrt(1-flatness*(2-flatness)*sin(lat0)**2.)
-x0=(n0+h0)*cos(lat0)*cos(lon0)			# cartesian geocentric coordinates wrt Greenwich
-y0=(n0+h0)*cos(lat0)*sin(lon0)
-z0=(n0*(1-eccentricity**2)+h0)*sin(lat0)
-xyz0=array([x0,y0,z0])
-xy0=array([x0,y0])
-r0=sqrt(dot(xyz0,xyz0))
-p0=sqrt(dot(xy0,xy0))
+jrospecs = RadarSepecs(
+    lat0 = -11.947917*deg     # geodetic, the usual map or GPS latitude
+    lon0 = -76.872306*deg     # east of Greenwich
+    h0 = 0.463                # local height above reference ellipsoid
+    dec = -12.88*deg          # antenna declination
+    ha = -(4+37./60.)*deg     # hour angle on-axis direction at JRO
+    )
+
+# Make this variables accesible to the module for backwards compatibility
+
+lat0 = jrospecs.lat0    # geodetic, the usual map or GPS latitude
+lon0 = jrospecs.lon0    # east of Greenwich
+h0   = jrospecs.h0      # local height above reference ellipsoid
+dec = jrospecs.dec      # antenna declination
+ha  = jrospecs.ha       # hour angle on-axis direction at JRO
+
+n0 = jrospecs.n0
+x0 = jrospecs.x0
+y0 = jrospecs.y0
+z0 = jrospecs.z0
+xyz0 = jrospecs.xyz0
 
 # unit vectors from jro
-east0=array([-y0,x0,0])/p0				# zenith and north directions wrt local ellipsoid
-zenith0=array([cos(lat0)*cos(lon0),cos(lat0)*sin(lon0),sin(lat0)])
-north0=cross(zenith0,east0)
+east0 = jrospecs.east0
+zenith0 = jrospecs.zenith0
+north0 = jrospecs.north0
 
 # orthonormal basis vectors including the jro on-axis direction
-dec=-12.88*deg
-ha=-(4+37./60.)*deg						# on-axis direction at JRO
-uo=array([cos(dec)*cos(ha/4.+lon0),cos(dec)*sin(ha/4.+lon0),sin(dec)])	# on axis
-ux=cross(zenith0,uo)
-ux=ux/sqrt(dot(ux,ux))					# along the building to the right
-uy=cross(uo,ux)							# away from the building into the valley
+uo = jrospecs.uo        # on axis
+
+ux = np.cross(zenith0, uo)
+ux = ux / np.sqrt(np.dot(ux, ux))  # along the building to the right
+uy = np.cross(uo, ux)              # away from the building into the valley

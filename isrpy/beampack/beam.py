@@ -118,33 +118,21 @@ class RadarSpecs:
     def calculate_geometry(self):
         self.n0 = a_WGS / np.sqrt(1 - flatness * (2 - flatness) * np.sin(lat0)**2.)
         # cartesian geocentric coordinates wrt Greenwich
-        self.x0=(self.n0 + self.h0) * np.cos(self.lat0) * np.cos(self.lon0)
-        y0=(n0+h0)*cos(lat0)*sin(lon0)
-        z0=(n0*(1-eccentricity**2)+h0)*sin(lat0)
-        xyz0=array([x0,y0,z0])
-        xy0=array([x0,y0])
-        r0=sqrt(dot(xyz0,xyz0))
-        p0=sqrt(dot(xy0,xy0))
+        self.x0 = (self.n0 + self.h0) * np.cos(self.lat0) * np.cos(self.lon0)
+        self.y0 = (self.n0 + self.h0) * np.cos(self.lat0) * np.sin(self.lon0)
+        self.z0 = (self.n0 * (1 - eccentricity**2) + self.h0) * np.sin(self.lat0)
+        self.xyz0 = np.array([x0, y0, z0])
+        xy0 = array([self.x0, self.y0])
+        r0 = np.sqrt(np.dot(self.xyz0, self.xyz0))
+        p0 = np.sqrt(np.dot(xy0, xy0))
 
-        # unit vectors from jro
-        east0=array([-y0,x0,0])/p0				# zenith and north directions wrt local ellipsoid
-        zenith0=array([cos(lat0)*cos(lon0),cos(lat0)*sin(lon0),sin(lat0)])
-        north0=cross(zenith0,east0)
+        # unit vectors
+        self.east0 = np.array([-self.y0, self.x0, 0]) / p0 # zenith and north directions wrt local ellipsoid
+        self.zenith0 = np.array([np.cos(self.lat0) * np.cos(self.lon0),
+                                 np.cos(self.lat0) * np.sin(self.lon0),
+                                 np.sin(self.lat0)])
+        self.north0 = np.cross(self.zenith0, self.east0)
 
-        # orthonormal basis vectors including the jro on-axis direction
-        dec=-12.88*deg
-        ha=-(4+37./60.)*deg						# on-axis direction at JRO
-        uo=array([cos(dec)*cos(ha/4.+lon0),cos(dec)*sin(ha/4.+lon0),sin(dec)])	# on axis
-        ux=cross(zenith0,uo)
-        ux=ux/sqrt(dot(ux,ux))					# along the building to the right
-        uy=cross(uo,ux)							# away from the building into the valley
-
-
-
-
-
-
-
-
-
-
+        self.uo = np.array([np.cos(self.dec) * np.cos(self.ha/4. + self.lon0),
+                            np.cos(self.dec) * np.sin(self.ha/4. + self.lon0),
+                            np.sin(self.dec)])    # on axis
