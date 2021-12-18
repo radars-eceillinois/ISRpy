@@ -1,6 +1,6 @@
 """A setuptools based setup module.
 See:
-https://packaging.python.org/en/latest/distributing.html
+https://packaging.python.org/en/latest/tutorials/packaging-projects/
 """
 
 import setuptools
@@ -19,16 +19,10 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/radars-eceillinois/isrpy",
     packages=setuptools.find_packages(),
-    classifiers=[
-        "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
-    ],
-    install_requires=['numpy','scipy',
-        'pyigrf @ git+https://github.com/radars-eceillinois/pyigrf.git'],
-    # Optional
-    #package_data={'pyigrf': ['pyigrf/*.txt'],
-    #                         },
-    #include_package_data=True,
+    install_requires=["numpy","scipy"],
+    include_package_data=True,
+    package_data={"isrpy": ["igrfdata/*.txt",
+                       "igrfdata/*.DAT"],
+    },
+    python_requires=">=3.4",
 )
