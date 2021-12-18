@@ -144,12 +144,12 @@ from pylab import *
 from pyigrf import igrf
 
 # ------------ jro radar specifications -------------------------
-jrospecs = RadarSepecs(
-    lat0 = -11.947917*deg     # geodetic, the usual map or GPS latitude
-    lon0 = -76.872306*deg     # east of Greenwich
-    h0 = 0.463                # local height above reference ellipsoid
-    dec = -12.88*deg          # antenna declination
-    ha = -(4+37./60.)*deg     # hour angle on-axis direction at JRO
+jrospecs = RadarSpecs(
+    lat0 = -11.947917 * deg,   # geodetic, the usual map or GPS latitude
+    lon0 = -76.872306 * deg,   # east of Greenwich
+    h0 = 0.463,                # local height above reference ellipsoid
+    dec = -12.88 * deg,        # antenna declination
+    ha = -(4+37./60.) * deg    # hour angle on-axis direction at JRO
     )
 
 # Make this variables accesible to the module for backwards compatibility

@@ -13,7 +13,7 @@ Try "ISRpy. TAB" in ipython for module methods and submodules...
 -readpack and beampack provides data read and target positioning
 routines for a collection of ISR's and CSR's.
 
--igrf is a packet for geomagnetic vector field computataions based on the
+-pyigrf is a packet for geomagnetic vector field computataions based on the
 IGRF model.
 
 -kmltools provides routines for placing radar beam and data maps in Google Earth.
@@ -21,7 +21,13 @@ IGRF model.
 -enoise is spectral noise level estimator based on Hildebrand-Sekhon algorithm.
 
 """
-from . import enoise, beampack, readpack
+from . import readpack
+from . import beampack
+from . import enoise
+from .igrf_version import igrf_version
+
 # from . import kmltools # needs to be fixed
 
-__all__=['readpack','beampack','kmltools','enoise']
+igrf = igrf_version() # instantiating with the latest IGRF coefficients
+
+__all__=['readpack','beampack','kmltools','enoise', 'igrf']
