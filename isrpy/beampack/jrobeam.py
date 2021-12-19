@@ -79,6 +79,7 @@ x0 = jrospecs.x0
 y0 = jrospecs.y0
 z0 = jrospecs.z0
 xyz0 = jrospecs.xyz0
+uo = jrospecs.uo        # on axis
 
 # unit vectors from jro
 east0 = jrospecs.east0
@@ -90,9 +91,9 @@ xyz2dec_ha = jrospecs.xyz2dec_ha
 aspect_angle = jrospecs.aspect_angle
 aspect_txty = jrospecs.aspect_txty
 aspect_elaz = jrospecs.aspect_elaz
+cosBs = jropecs.cosBs
 
 # orthonormal basis vectors including the jro on-axis direction
-uo = jrospecs.uo        # on axis
 
 ux = np.cross(zenith0, uo)
 ux = ux / np.sqrt(np.dot(ux, ux))  # along the building to the right

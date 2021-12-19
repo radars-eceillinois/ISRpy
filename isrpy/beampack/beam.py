@@ -201,7 +201,7 @@ class RadarSpecs:
         aspect = np.arccos(np.dot(u_B, u_rr))
         return r, lat, lon, aspect
 
-    def aspect_txty(year, rr, tx, ty):
+    def aspect_txty(self, year, rr, tx, ty):
         """Returns magnetic aspect angle and geocentric coordinates of a target tracked by jro at
         range rr (km)
         tx along jro building
@@ -217,7 +217,7 @@ class RadarSpecs:
 
         return r,lon,lat,dec,ha,aspect
 
-    def aspect_elaz(year,rr,el,az):
+    def aspect_elaz(self, year, rr, el, az):
         """Returns magnetic aspect angle and geocentric coordinates of a target tracked by jro at
         range       rr (km)
         elevation   el (rad above local tangent plane to ellipsoid)
@@ -234,3 +234,42 @@ class RadarSpecs:
         [dec,ha] = self.xyz2dec_ha(xyz - self.xyz0)
         return r, lon, lat, dec, ha, aspect
 
+    def cosBs(self, year, rr, el, az):
+        """Decomposes the radial unit vector to the target to direction cosines
+        of magnetic North, East, and Up
+        """
+
+        tx = np.cos(el) * np.sin(az)                              # direction cosines wrt east and north
+        ty = np.cos(el) * np.cos(az)
+        tz = np.sin(el)
+        xyz = self.xyz0 + rr * (tx * self.east0 + ty * self.north0 + tz * self.zenith0)     # target vector
+        r = np.sqrt(np.dot(xyz, xyz))
+        lat, lon, h = self.xyz2llh(xyz[0], xyz[1], xyz[2])         # target lat, lon, height
+
+        radial = xyz / r; # unit vector to target
+        p = np.sqrt(xyz[0] ** 2 + xyz[1] ** 2)
+        east = np.array([-xyz[1], xyz[0], 0]) / p # unit vector to east from target
+        north = -np.cross(east, radial) # unit vector to north from target
+        rr_ = xyz - self.xyz0 # vector from radar to target
+        rr_u = rr_ / np.sqrt(np.dot(rr_, rr_)) # unit vector from radar to target
+
+        [bX, bY, bZ, bB] = igrf.igrf_B(year, r - a_igrf, lon / deg, lat / deg)
+        bfield = np.array([bX, bY, bZ])
+        B = bX * north + bY * east - bZ * radial # magnetic field vector B
+        bn = B / np.sqrt(np.dot(B, B))
+        # "magnetic north" unit vector since B points by definition in "magnetic north" direction
+
+        be = np.cross(bn, radial)
+        be = be / np.sqrt(np.dot(be, be)) # magnetic east unit vector
+        bu = np.cross(be, bn) # magnetic up unit vector
+
+        cosBn = np.dot(bn, rr_u) # magnetic north direction-cosine of rr_u
+        aspect_angle = np.arccos(cosBn)
+        cosBe = np.dot(be, rr_u) # magnetic east direction-cosine of rr_u
+        cosBu = np.dot(bu, rr_u) # magnetic up direction-cosine of rr_u
+
+        """
+        uLOS=cosBe*U(h)+cosBn*V(h)+cosBu*W(h) ... LOS wind model in terms of wind components to calculate and direction cosines
+        """
+
+        return r, lat, lon, h, xyz, B, aspect, cosBn, cosBe, cosBu
