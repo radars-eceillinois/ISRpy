@@ -15,66 +15,7 @@
 from .beam import *
 import numpy as np
 
-def dec_ha2el_az(dec,ha):
-    """Returns elevation and azimuth angles of a radar beam with respect to
-    local tangent plane.
 
-    the beam is specified by:
-            declination dec (deg)
-            hour angle  ha  (min)
-    with respect to radar location at longitude lon0 and height h0
-    above reference ellipsiod at geodetic latitude lat0
-    """
-
-    lat = dec * deg                                # on celestial sphere
-    lon = 2 * np.pi * (ha / (24 * 60))
-    lon = lon + lon0                    # on celestial sphere
-    vec = np.array([np.cos(lat) * np.cos(lon),
-                    np.cos(lat) * np.sin(lon),
-                    np.sin(lat)])
-    hor = vec - np.dot(vec, zenith0) * zenith0
-    hor = hor / np.sqrt(np.dot(hor, hor))
-    el = np.arccos(np.dot(hor, vec)) / deg
-    north = np.dot(hor, north0)
-    east = np.dot(hor, east0)
-    az = np.arctan2(east, north) / deg
-
-    return el,az
-
-def xyz2dec_ha_local(vec):
-    """Declination and hour angle in target direction used to describe radar beam
-    direction at JRO, corresponding to latitude and relative longitude of the
-    beam-spot on the celestial sphere, corresponds to rr->\infty, in which case:
-    """
-    vec = vec / np.sqrt(np.dot(vec, vec))
-    p = np.sqrt(vec[0]**2 + vec[1] ** 2)
-    dec = np.arctan2(vec[2], p) / deg                                  # in degrees
-    ha = (np.arctan2(vec[1], vec[0]) - lon0) * (24 / (2.*np.pi)) * 60  # in minutes
-
-    return dec,ha
-
-def aspect_angle(year,xyz):
-    """
-    # returns the magnetic aspect angle (rad) of a target with
-    # geocentric vector xyz defined in geocentric coordinates
-    """
-
-    r=sqrt(dot(xyz,xyz))
-    p=sqrt(xyz[0]**2+xyz[1]**2)
-    lat=arctan2(xyz[2],p)
-    lon=arctan2(xyz[1],xyz[0])
-    radial=xyz/r;                        # directions from target
-    east=array([-xyz[1],xyz[0],0])/p
-    north=-cross(east,radial)
-    rr=xyz-xyz0
-    u_rr=rr/sqrt(dot(rr,rr))            # unit vector from radar to target
-
-    [bX,bY,bZ,bB]=igrf.igrf_B(year,r-a_igrf,lon/deg,lat/deg)
-    bfield=array([bX,bY,bZ])
-    B=bX*north+bY*east-bZ*radial
-    u_B=B/sqrt(dot(B,B))
-    aspect=arccos(dot(u_B,u_rr))
-    return r,lat,lon,aspect
 
 def aspect_txty(year,rr,tx,ty):
     """
@@ -178,6 +119,7 @@ north0 = jrospecs.north0
 
 # radar methods from beam.py
 xyz2dec_ha = jrospecs.xyz2dec_ha
+aspect_angle = jrospecs.aspect_angle
 
 # orthonormal basis vectors including the jro on-axis direction
 uo = jrospecs.uo        # on axis

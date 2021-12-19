@@ -20,6 +20,9 @@
 """
 
 import numpy as np
+from ..igrf_version import igrf_version
+
+igrf = igrf_version() # instantiating with the latest IGRF coefficients
 
 # module level variables:
 
@@ -176,3 +179,24 @@ class RadarSpecs:
 
         return el,az
 
+    def aspect_angle(self, year, xyz):
+        """Returns the magnetic aspect angle (rad) of a target with
+        geocentric vector xyz defined in geocentric coordinates
+        """
+
+        r = np.sqrt(np.dot(xyz, xyz))
+        p = np.sqrt(xyz[0] ** 2 + xyz[1] ** 2)
+        lat = np.arctan2(xyz[2], p)
+        lon = np.arctan2(xyz[1], xyz[0])
+        radial = xyz / r;                        # directions from target
+        east = np.array([-xyz[1], xyz[0], 0]) / p
+        north = -np.cross(east, radial)
+        rr = xyz - self.xyz0
+        u_rr = rr / np.sqrt(np.dot(rr, rr))      # unit vector from radar to target
+
+        [bX, bY, bZ, bB] = igrf.igrf_B(year, r-a_igrf, lon / deg, lat / deg)
+        bfield = np.array([bX, bY, bZ])
+        B = bX * north + bY * east - bZ * radial
+        u_B = B / np.sqrt(np.dot(B, B))
+        aspect = np.arccos(np.dot(u_B, u_rr))
+        return r, lat, lon, aspect
