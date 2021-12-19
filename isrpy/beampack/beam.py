@@ -200,3 +200,37 @@ class RadarSpecs:
         u_B = B / np.sqrt(np.dot(B, B))
         aspect = np.arccos(np.dot(u_B, u_rr))
         return r, lat, lon, aspect
+
+    def aspect_txty(year, rr, tx, ty):
+        """Returns magnetic aspect angle and geocentric coordinates of a target tracked by jro at
+        range rr (km)
+        tx along jro building
+        ty into the building
+        """
+
+        tz = np.sqrt(1 - tx ** 2. - ty ** 2.)
+        xyz = self.xyz0 + rr * (tx * self.ux + ty * self.uy + tz * self.uo)
+        #geocentric coordinates of target
+
+        [r, lat, lon, aspect] = self.aspect_angle(year, xyz)
+        [dec, ha] = self.xyz2dec_ha(xyz - self.xyz0)
+
+        return r,lon,lat,dec,ha,aspect
+
+    def aspect_elaz(year,rr,el,az):
+        """Returns magnetic aspect angle and geocentric coordinates of a target tracked by jro at
+        range       rr (km)
+        elevation   el (rad above local tangent plane to ellipsoid)
+        azimuth     az (rad east of local north)
+        """
+
+        tx = np.cos(el) * np.sin(az)                    # direction cosines wrt east and north
+        ty = np.cos(el) * np.cos(az)
+        tz = np.sin(el)
+        xyz = self.xyz0 + rr * (tx * self.east0 + ty  self.north0 + tz * self.zenith0)
+        #geocentric coordinates of target
+
+        [r, lat, lon, aspect] = self.aspect_angle(year, xyz)
+        [dec,ha] = self.xyz2dec_ha(xyz - self.xyz0)
+        return r, lon, lat, dec, ha, aspect
+

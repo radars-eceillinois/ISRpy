@@ -17,38 +17,6 @@ import numpy as np
 
 
 
-def aspect_txty(year,rr,tx,ty):
-    """
-    # returns magnetic aspect angle and geocentric coordinates of a target tracked by jro at
-    # range rr (km)
-    # tx along jro building
-    # ty into the building
-    """
-
-    tz=sqrt(1-tx**2.-ty**2.)
-    xyz=xyz0+rr*(tx*ux+ty*uy+tz*uo)            #geocentric coordinates of target
-
-    [r,lat,lon,aspect]=aspect_angle(year,xyz)
-    [dec,ha]=xyz2dec_ha(xyz-xyz0)
-    return r,lon,lat,dec,ha,aspect
-
-def aspect_elaz(year,rr,el,az):
-    """
-    # returns magnetic aspect angle and geocentric coordinates of a target tracked by jro at
-    # range       rr (km)
-    # elevation   el (rad above local tangent plane to ellipsoid)
-    # azimuth     az (rad east of local north)
-    """
-
-    tx=cos(el)*sin(az)                    # direction cosines wrt east and north
-    ty=cos(el)*cos(az)
-    tz=sin(el)
-    xyz=xyz0+rr*(tx*east0+ty*north0+tz*zenith0)        #geocentric coordinates of target
-
-    [r,lat,lon,aspect]=aspect_angle(year,xyz)
-    [dec,ha]=xyz2dec_ha(xyz-xyz0)
-    return r,lon,lat,dec,ha,aspect
-
 def cosBs(year,rr,el,az):
     # decomposes the radial unit vector to the target to direction cosines of magnetic North, East, and Up
 
@@ -120,6 +88,8 @@ north0 = jrospecs.north0
 # radar methods from beam.py
 xyz2dec_ha = jrospecs.xyz2dec_ha
 aspect_angle = jrospecs.aspect_angle
+aspect_txty = jrospecs.aspect_txty
+aspect_elaz = jrospecs.aspect_elaz
 
 # orthonormal basis vectors including the jro on-axis direction
 uo = jrospecs.uo        # on axis
