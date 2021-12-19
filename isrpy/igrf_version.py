@@ -29,6 +29,7 @@ history:
 """
 
 import numpy as np
+import os
 
 __version__ = "0.0.4"
 
@@ -46,7 +47,7 @@ __IGRF_MODELS__ = [
 
 class igrf_version:
     a_igrf = 6371.2 #IGRF Earth's radius
-    avail_igrf_models = dict(
+    _avail_igrf_models = dict(
         [[x[0], {'release year':x[1],
                  'main field':x[2:4],
                  'secular variation':x[4:6],
@@ -54,17 +55,55 @@ class igrf_version:
          ] for x in __IGRF_MODELS__
         ])
     def __init__(self, igrf_model = "IGRF-13", coeff_file=None,
-            verbose=False):
-        """Starts an igrf instance with the corresponding igrf model
+            verbose=0):
+        """Holds an igrf instance with an  igrf model loaded.
+
+        available method:
+        igrf_B
+        Usage:
+        [Bn,Be,Bd,B] = igrf_B(year, ht, lon, lat)
+
+        Example:
+        --------
+        >>> import isrpy
+        >>> [Bn,Be,Bd,B] = isrpy.igrf.igrf_B(year, ht, lon, lat)
+
+        Example: Use a different IGRF model
+        -----------------------------------
+        To start a new instance with t different available model:
+
+        >>> import isrpy
+        >>> igrf9 = isrpy.igrf_version("IGRF-9", verbose=1)
+        Reading IGRF-9 coefficients
+        max_n is 13
+        Last Epoch year is: 2000.0
+        secular variation: SV
+        >>> [Bn,Be,Bd,B] = igrf9.igrf_B(year, ht, lon, lat)
         """
         self.verbose = verbose
-        self.igrf_model = igrf_model
+        self.igrf_model = igrf_model.upper()
         if not type(coeff_file) == type(None):
+            # Coefficients will be obtained from coeff_file
             self.coeff_file = coeff_file
             self.igrf_model = "fromfile"
+            if self.verbose >= 1:
+                print(f"IGRF coefficients will be read from file:{coeff_file}")
+        else:
+            if self.verbose >= 1:
+                print(f"Reading {self.igrf_model} coefficients ")
+            assert self.igrf_model in self._avail_igrf_models.keys(), \
+                    f"{self.igrf_model} not one of "\
+                    f"{list(self._avail_igrf_models.keys())}"
+            this_file_folder = os.path.split(os.path.abspath(__file__))[0]
+            self.coeff_file = os.path.join(this_file_folder,'igrfdata',
+                self._avail_igrf_models[self.igrf_model]['coeffs file'])
 
-        self._read_coeff_file()
+        self._read_coeff_file(self.coeff_file)
         self._get_m_n_schmidt()
+
+    def display_available_models(self):
+        print("Available IGRF models:",list(self._avail_igrf_models.keys()))
+
 
     def igrf_B(self,year,ht,lon,lat):
         """
