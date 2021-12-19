@@ -69,11 +69,11 @@ class igrf_version:
         To start a new instance with t different available model:
 
         >>> import isrpy
-        >>> igrf9 = isrpy.igrf_version("IGRF-9", verbose=1)
-        Reading IGRF-9 coefficients
+        >>> igrf11 = isrpy.igrf_version("IGRF-11", verbose=1)
+        Reading IGRF-11 coefficients
         max_n is 13
-        Last Epoch year is: 2000.0
-        secular variation: SV
+        Last Epoch year is: 2010.0
+        secular variation: 2020-15
         >>> [Bn,Be,Bd,B] = igrf9.igrf_B(year, ht, lon, lat)
         """
         self.verbose = verbose
