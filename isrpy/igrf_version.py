@@ -30,7 +30,7 @@ history:
 
 import numpy as np
 
-__version__ = "0.0.3"
+__version__ = "0.0.4"
 
 __IGRF_MODELS__ = [
     # Model, Release Year, Main Field 1, MF2, Secular Variation 1, SV2, file
@@ -53,15 +53,15 @@ class igrf_version:
                  'coeffs file':x[6]}
          ] for x in __IGRF_MODELS__
         ])
-    def __init__(self, igrf_model = "IGRF-13", coeff_file=None):
+    def __init__(self, igrf_model = "IGRF-13", coeff_file=None,
+            verbose=False):
         """Starts an igrf instance with the corresponding igrf model
         """
+        self.verbose = verbose
         self.igrf_model = igrf_model
         if not type(coeff_file) == type(None):
             self.coeff_file = coeff_file
             self.igrf_model = "fromfile"
-        self._get_coeff_file() # get available coefficient files
-                               # selects the last file after alphabetical order
 
         self._read_coeff_file()
         self._get_m_n_schmidt()
@@ -126,22 +126,19 @@ class igrf_version:
 
         return X,Y,Z,B
 
-    def _read_coeff_file(self, coeff_file=None, verbose=False):
-        """
-        Reads the IGRF coefficients from coeff_file.
-        """
-        if not type(coeff_file) == type(None):
-            self.coeff_file = coeff_file
+    def _read_coeff_file(self, coeff_file):
+        """Reads the IGRF coefficients from coeff_file."""
         try:
-            with open(self.coeff_file,'r') as fp:
-                txtlines = fp.read().split('\n')
+            with open(coeff_file,'r') as fp:
+                txtlines = fp.read().splitlines()
         except:
-            raise IOError("Problems reading coefficients file:\n%s"%self.coeff_file)
+            raise IOError("Problems reading coefficients file:\n%s"%coeff_file)
 
-        for line in reversed(txtlines): # start from the bottom to get largest n
-            if len(line) < 3: continue # If line is too small skip
-            max_n = int(line.split()[1]) # getting the largest n (13 in igrf11)
-            if verbose:
+        for line in reversed(txtlines): #start from bottom to get largest n
+            if len(line) < 3:
+                continue # If line is too small skip
+            max_n = int(line.split()[1]) # getting largest n (13 in igrf11)
+            if self.verbose:
                 print("max_n is",max_n)
             break
         for line in txtlines:
@@ -160,7 +157,7 @@ class igrf_version:
                 gdat = np.zeros([epoch.size+1,max_n + 1, max_n + 1],float) #SV+1
                 hdat = np.zeros([epoch.size+1,max_n + 1, max_n + 1],float) #SV+1
 
-        if verbose:
+        if self.verbose:
             print("Last Epoch year is:",epoch[-1])
             print("secular variation:",secular_variation)
 
@@ -189,19 +186,3 @@ class igrf_version:
         self._n = n
         self._schmidt = schmidt
 
-    def _get_coeff_file(self, coeff_file = None, verbose=False):
-        """ if coeff_file is None, the script will search for the file in the
-             same folder where this file is sorted to use the last one.
-        """
-        import glob,os
-        this_file_folder = os.path.split(os.path.abspath(__file__))[0]
-        coeff_files = sorted(glob.glob(os.path.join(this_file_folder,'igrfdata',
-                        'igrf*coeffs.txt')))
-        if type(coeff_file) is type(None):
-            # read the information from the file
-            coeff_file = coeff_files[-1]
-            if verbose:
-                print("Using coefficients file:",os.path.basename(coeff_file))
-
-        self.coeff_file = coeff_file
-        self.coeff_files = coeff_files
