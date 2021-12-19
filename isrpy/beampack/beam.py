@@ -127,7 +127,8 @@ class RadarSpecs:
         p0 = np.sqrt(np.dot(xy0, xy0))
 
         # unit vectors
-        self.east0 = np.array([-self.y0, self.x0, 0]) / p0 # zenith and north directions wrt local ellipsoid
+        self.east0 = np.array([-self.y0, self.x0, 0]) / p0
+        # zenith and north directions wrt local ellipsoid
         self.zenith0 = np.array([np.cos(self.lat0) * np.cos(self.lon0),
                                  np.cos(self.lat0) * np.sin(self.lon0),
                                  np.sin(self.lat0)])
@@ -136,3 +137,42 @@ class RadarSpecs:
         self.uo = np.array([np.cos(self.dec) * np.cos(self.ha/4. + self.lon0),
                             np.cos(self.dec) * np.sin(self.ha/4. + self.lon0),
                             np.sin(self.dec)])    # on axis
+
+    def xyz2dec_ha(self, vec):
+        """Declination and hour angle in target direction used to describe radar beam
+        direction at JRO, corresponding to latitude and relative longitude of the
+        beam-spot on the celestial sphere, corresponds to rr->\infty, in which case:
+        """
+        vec = vec / np.sqrt(np.dot(vec, vec))
+        p = np.sqrt(vec[0]**2 + vec[1] ** 2)
+        dec = np.arctan2(vec[2], p) / deg                                  # in degrees
+        ha = (np.arctan2(vec[1], vec[0]) - self.lon0) * (24 / (2.*np.pi)) * 60  # in minutes
+
+        return dec,ha
+
+    def dec_ha2el_az(self, dec, ha):
+        """Returns elevation and azimuth angles of a radar beam with respect to
+        local tangent plane.
+
+        the beam is specified by:
+                declination dec (deg)
+                hour angle  ha  (min)
+        with respect to radar location at longitude lon0 and height h0
+        above reference ellipsiod at geodetic latitude lat0
+        """
+
+        lat = dec * deg                                # on celestial sphere
+        lon = 2 * np.pi * (ha / (24 * 60))
+        lon = lon + lon0                    # on celestial sphere
+        vec = np.array([np.cos(lat) * np.cos(lon),
+                        np.cos(lat) * np.sin(lon),
+                        np.sin(lat)])
+        hor = vec - np.dot(vec, self.zenith0) * self.zenith0
+        hor = hor / np.sqrt(np.dot(hor, hor))
+        el = np.arccos(np.dot(hor, vec)) / deg
+        north = np.dot(hor, self.north0)
+        east = np.dot(hor, self.east0)
+        az = np.arctan2(east, north) / deg
+
+        return el,az
+

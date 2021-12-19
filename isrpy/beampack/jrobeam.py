@@ -13,39 +13,44 @@
 """
 
 from .beam import *
+import numpy as np
 
 def dec_ha2el_az(dec,ha):
-    """
-    # returns elevation and azimuth angles of a radar beam with respect to local tangent plane.
-    # the beam is specified by:
-    #        declination dec (deg)
-    #        hour angle  ha  (min)
-    # with respect to radar location at longitude lon0 and height h0
-    # above reference ellipsiod at geodetic latitude lat0
+    """Returns elevation and azimuth angles of a radar beam with respect to
+    local tangent plane.
+
+    the beam is specified by:
+            declination dec (deg)
+            hour angle  ha  (min)
+    with respect to radar location at longitude lon0 and height h0
+    above reference ellipsiod at geodetic latitude lat0
     """
 
-    lat=dec*deg                                # on celestial sphere
-    lon=2*pi*(ha/(24*60))
-    lon=lon+lon0                    # on celestial sphere
-    vec=array([cos(lat)*cos(lon),cos(lat)*sin(lon),sin(lat)])
-    hor=vec-dot(vec,zenith0)*zenith0
-    hor=hor/sqrt(dot(hor,hor))
-    el=arccos(dot(hor,vec))/deg
-    north=dot(hor,north0)
-    east=dot(hor,east0)
-    az=arctan2(east,north)/deg
+    lat = dec * deg                                # on celestial sphere
+    lon = 2 * np.pi * (ha / (24 * 60))
+    lon = lon + lon0                    # on celestial sphere
+    vec = np.array([np.cos(lat) * np.cos(lon),
+                    np.cos(lat) * np.sin(lon),
+                    np.sin(lat)])
+    hor = vec - np.dot(vec, zenith0) * zenith0
+    hor = hor / np.sqrt(np.dot(hor, hor))
+    el = np.arccos(np.dot(hor, vec)) / deg
+    north = np.dot(hor, north0)
+    east = np.dot(hor, east0)
+    az = np.arctan2(east, north) / deg
+
     return el,az
 
-def xyz2dec_ha(vec):
+def xyz2dec_ha_local(vec):
+    """Declination and hour angle in target direction used to describe radar beam
+    direction at JRO, corresponding to latitude and relative longitude of the
+    beam-spot on the celestial sphere, corresponds to rr->\infty, in which case:
     """
-    # declination and hour angle in target direction used to describe radar beam
-    # direction at JRO, corresponding to latitude and relative longitude of the
-    # beam-spot on the celestial sphere, corresponds to rr->\infty, in which case:
-    """
-    vec=vec/sqrt(dot(vec,vec))
-    p=sqrt(vec[0]**2+vec[1]**2)
-    dec=arctan2(vec[2],p)/deg                               # in degrees
-    ha=(arctan2(vec[1],vec[0])-lon0)*(24/(2.*pi))*60        # in minutes
+    vec = vec / np.sqrt(np.dot(vec, vec))
+    p = np.sqrt(vec[0]**2 + vec[1] ** 2)
+    dec = np.arctan2(vec[2], p) / deg                                  # in degrees
+    ha = (np.arctan2(vec[1], vec[0]) - lon0) * (24 / (2.*np.pi)) * 60  # in minutes
+
     return dec,ha
 
 def aspect_angle(year,xyz):
@@ -140,8 +145,8 @@ def cosBs(year,rr,el,az):
     return r,lat,lon,h,xyz,B,aspect,cosBn,cosBe,cosBu
 
 # --------------------------------------------------------------
-from pylab import *
-from pyigrf import igrf
+#from pylab import *  # bad idea... name space clobbered
+#from pyigrf import igrf
 
 # ------------ jro radar specifications -------------------------
 jrospecs = RadarSpecs(
@@ -170,6 +175,9 @@ xyz0 = jrospecs.xyz0
 east0 = jrospecs.east0
 zenith0 = jrospecs.zenith0
 north0 = jrospecs.north0
+
+# radar methods from beam.py
+xyz2dec_ha = jrospecs.xyz2dec_ha
 
 # orthonormal basis vectors including the jro on-axis direction
 uo = jrospecs.uo        # on axis
