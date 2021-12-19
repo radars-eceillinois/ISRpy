@@ -15,48 +15,6 @@
 from .beam import *
 import numpy as np
 
-
-
-def cosBs(year,rr,el,az):
-    # decomposes the radial unit vector to the target to direction cosines of magnetic North, East, and Up
-
-    tx=cos(el)*sin(az)                              # direction cosines wrt east and north
-    ty=cos(el)*cos(az)
-    tz=sin(el)
-    xyz=xyz0+rr*(tx*east0+ty*north0+tz*zenith0)     # target vector
-    r=sqrt(dot(xyz,xyz))
-    lat,lon,h=xyz2llh(xyz[0],xyz[1],xyz[2])         # target lat, lon, height
-
-    radial=xyz/r; # unit vector to target
-    p=sqrt(xyz[0]**2+xyz[1]**2)
-    east=array([-xyz[1],xyz[0],0])/p # unit vector to east from target
-    north=-cross(east,radial) # unit vector to north from target
-    rr_=xyz-xyz0 # vector from radar to target
-    rr_u=rr_/sqrt(dot(rr_,rr_)) # unit vector from radar to target
-
-    [bX,bY,bZ,bB]=igrf.igrf_B(year,r-a_igrf,lon/deg,lat/deg)
-    bfield=array([bX,bY,bZ])
-    B=bX*north+bY*east-bZ*radial # magnetic field vector B
-    bn=B/sqrt(dot(B,B)) # "magnetic north" unit vector since B points by definition in "magnetic north" direction
-    be=cross(bn,radial)
-    be=be/sqrt(dot(be,be)) # magnetic east unit vector
-    bu=cross(be,bn) # magnetic up unit vector
-
-    cosBn=dot(bn,rr_u) # magnetic north direction-cosine of rr_u
-    aspect_angle=arccos(cosBn)
-    cosBe=dot(be,rr_u) # magnetic east direction-cosine of rr_u
-    cosBu=dot(bu,rr_u) # magnetic up direction-cosine of rr_u
-
-    """
-    uLOS=cosBe*U(h)+cosBn*V(h)+cosBu*W(h) ... LOS wind model in terms of wind components to calculate and direction cosines
-    """
-
-    return r,lat,lon,h,xyz,B,aspect,cosBn,cosBe,cosBu
-
-# --------------------------------------------------------------
-#from pylab import *  # bad idea... name space clobbered
-#from pyigrf import igrf
-
 # ------------ jro radar specifications -------------------------
 jrospecs = RadarSpecs(
     lat0 = -11.947917 * deg,   # geodetic, the usual map or GPS latitude
@@ -79,6 +37,7 @@ x0 = jrospecs.x0
 y0 = jrospecs.y0
 z0 = jrospecs.z0
 xyz0 = jrospecs.xyz0
+uo = jrospecs.uo        # on axis
 
 # unit vectors from jro
 east0 = jrospecs.east0
@@ -90,9 +49,9 @@ xyz2dec_ha = jrospecs.xyz2dec_ha
 aspect_angle = jrospecs.aspect_angle
 aspect_txty = jrospecs.aspect_txty
 aspect_elaz = jrospecs.aspect_elaz
+cosBs = jropecs.cosBs
 
 # orthonormal basis vectors including the jro on-axis direction
-uo = jrospecs.uo        # on axis
 
 ux = np.cross(zenith0, uo)
 ux = ux / np.sqrt(np.dot(ux, ux))  # along the building to the right
