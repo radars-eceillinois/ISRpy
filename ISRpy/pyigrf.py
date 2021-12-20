@@ -41,7 +41,7 @@ __IGRF_MODELS__ = [
     ]
 
 
-class igrf_version:
+class pyigrf_version:
     a_igrf = 6371.2 #IGRF Earth's radius
     _avail_igrf_models = dict(
         [[x[0], {'release year':x[1],
@@ -69,12 +69,12 @@ class igrf_version:
         To start a new instance with t different available model:
 
         >>> import isrpy
-        >>> igrf11 = isrpy.igrf_version("IGRF-11", verbose=1)
-        Reading IGRF-11 coefficients
+        >>> igrf12 = isrpy.pyigrf("IGRF-12", verbose=1)
+        Reading IGRF-12 coefficients
         max_n is 13
-        Last Epoch year is: 2010.0
-        secular variation: 2020-15
-        >>> [Bn,Be,Bd,B] = igrf9.igrf_B(year, ht, lon, lat)
+        Last Epoch year is: 2015.0
+        secular variation: 2015-20
+        >>> [Bn,Be,Bd,B] = igrf12.igrf_B(year, ht, lon, lat)
         """
         self.verbose = verbose
         self.igrf_model = igrf_model.upper()
