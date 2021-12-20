@@ -227,7 +227,7 @@ class RadarSpecs:
         tx = np.cos(el) * np.sin(az)                    # direction cosines wrt east and north
         ty = np.cos(el) * np.cos(az)
         tz = np.sin(el)
-        xyz = self.xyz0 + rr * (tx * self.east0 + ty  self.north0 + tz * self.zenith0)
+        xyz = self.xyz0 + rr * (tx * self.east0 + ty * self.north0 + tz * self.zenith0)
         #geocentric coordinates of target
 
         [r, lat, lon, aspect] = self.aspect_angle(year, xyz)
