@@ -103,7 +103,7 @@ def xyz2llh(x, y, z):
         latp = lat
     return lat, lon, h
 
-class RadarSpecs:
+class TargetGeometry:
     """Will contain radar coordinates and coordinate conversions"""
 
     def __init__(self,lat0, lon0, h0, IGRFmodel=None):
@@ -115,14 +115,11 @@ class RadarSpecs:
         # None argument instantiates the latest
         self.igrf = pyigrf(IGRFmodel)
 
-        self.calculate_geometry()
-
-    def calculate_geometry(self):
-        self.n0 = a_WGS / np.sqrt(1 - flatness * (2 - flatness) * np.sin(self.lat0)**2.)
+        n0 = a_WGS / np.sqrt(1 - flatness * (2 - flatness) * np.sin(self.lat0)**2.)
         # cartesian geocentric coordinates wrt Greenwich
-        self.x0 = (self.n0 + self.h0) * np.cos(self.lat0) * np.cos(self.lon0)
-        self.y0 = (self.n0 + self.h0) * np.cos(self.lat0) * np.sin(self.lon0)
-        self.z0 = (self.n0 * (1 - eccentricity**2) + self.h0) * np.sin(self.lat0)
+        self.x0 = (n0 + self.h0) * np.cos(self.lat0) * np.cos(self.lon0)
+        self.y0 = (n0 + self.h0) * np.cos(self.lat0) * np.sin(self.lon0)
+        self.z0 = (n0 * (1 - eccentricity**2) + self.h0) * np.sin(self.lat0)
         self.xyz0 = np.array([self.x0, self.y0, self.z0])
         xy0 = np.array([self.x0, self.y0])
         r0 = np.sqrt(np.dot(self.xyz0, self.xyz0))
