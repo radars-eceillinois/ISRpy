@@ -26,7 +26,7 @@ setuptools.setup(
     ],
     install_requires=["numpy","scipy"],
     include_package_data=True,
-    package_data={"isrpy": ["igrfdata/*.txt",
+    package_data={"ISRpy": ["igrfdata/*.txt",
                        "igrfdata/*.DAT"],
     },
     python_requires=">=3.4",
