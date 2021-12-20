@@ -34,7 +34,6 @@ x0 = jrospecs.x0
 y0 = jrospecs.y0
 z0 = jrospecs.z0
 xyz0 = jrospecs.xyz0
-uo = jrospecs.uo        # on axis
 
 # unit vectors from jro
 east0 = jrospecs.east0
