@@ -34,7 +34,7 @@ y0 = jro_specs.y0
 z0 = jro_specs.z0
 xyz0 = jro_specs.xyz0
 
-# unit vectors from jro
+# unit vectors
 east0 = jro_specs.east0
 zenith0 = jro_specs.zenith0
 north0 = jro_specs.north0
