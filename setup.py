@@ -11,7 +11,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="ISRpy",
-    version="0.0.7",
+    version="0.0.8",
     author="Erhan Kudeki",
     author_email="erhan@illinois.edu",
     description="Radar Tools",
