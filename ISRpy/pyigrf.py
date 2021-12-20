@@ -39,6 +39,7 @@ __IGRF_MODELS__ = [
     ['IGRF-12', 2015, 1900., 2015., 2015., 2020., 'igrf12coeffs.txt'],
     ['IGRF-11', 2010, 1900., 2010., 2010., 2015., 'igrf11coeffs.txt'],
     ]
+__LATEST_IGRF__ = "IGRF-13"
 
 
 class pyigrf:
@@ -50,7 +51,7 @@ class pyigrf:
                  'coeffs file':x[6]}
          ] for x in __IGRF_MODELS__
         ])
-    def __init__(self, igrf_model = "IGRF-13", coeff_file=None,
+    def __init__(self, igrf_model = None, coeff_file=None,
             verbose=0):
         """Holds an igrf instance with an  igrf model loaded.
 
@@ -77,7 +78,10 @@ class pyigrf:
         >>> [Bn,Be,Bd,B] = igrf12.igrf_B(year, ht, lon, lat)
         """
         self.verbose = verbose
-        self.igrf_model = igrf_model.upper()
+        if type(igrf_model) == type(None):
+            self.igrf_model = __LATEST_IGRF__
+        else:
+            self.igrf_model = igrf_model.upper()
         if not type(coeff_file) == type(None):
             # Coefficients will be obtained from coeff_file
             self.coeff_file = coeff_file
