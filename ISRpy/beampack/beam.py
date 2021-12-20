@@ -20,9 +20,7 @@
 """
 
 import numpy as np
-from ..igrf_version import igrf_version
-
-igrf = igrf_version() # instantiating with the latest IGRF coefficients
+from ..pyigrf import pyigrf
 
 # module level variables:
 
@@ -108,13 +106,16 @@ def xyz2llh(x, y, z):
 class RadarSpecs:
     """Will contain radar coordinates and coordinate conversions"""
 
-    def __init__(self,lat0, lon0, h0, dec, ha):
+    def __init__(self,lat0, lon0, h0, dec, ha, IGRFmodel=None):
 
         self.lat0 = lat0
         self.lon0 = lon0
         self.h0 = h0
         self.dec = dec
         self.ha = ha
+
+        # None argument instantiates the latest
+        self.igrf = pyigrf(IGRFmodel)
 
         self.calculate_geometry()
 
@@ -194,7 +195,7 @@ class RadarSpecs:
         rr = xyz - self.xyz0
         u_rr = rr / np.sqrt(np.dot(rr, rr))      # unit vector from radar to target
 
-        [bX, bY, bZ, bB] = igrf.igrf_B(year, r-a_igrf, lon / deg, lat / deg)
+        [bX, bY, bZ, bB] = self.igrf.igrf_B(year, r-a_igrf, lon / deg, lat / deg)
         bfield = np.array([bX, bY, bZ])
         B = bX * north + bY * east - bZ * radial
         u_B = B / np.sqrt(np.dot(B, B))
@@ -253,7 +254,7 @@ class RadarSpecs:
         rr_ = xyz - self.xyz0 # vector from radar to target
         rr_u = rr_ / np.sqrt(np.dot(rr_, rr_)) # unit vector from radar to target
 
-        [bX, bY, bZ, bB] = igrf.igrf_B(year, r - a_igrf, lon / deg, lat / deg)
+        [bX, bY, bZ, bB] = self.igrf.igrf_B(year, r - a_igrf, lon / deg, lat / deg)
         bfield = np.array([bX, bY, bZ])
         B = bX * north + bY * east - bZ * radial # magnetic field vector B
         bn = B / np.sqrt(np.dot(B, B))
