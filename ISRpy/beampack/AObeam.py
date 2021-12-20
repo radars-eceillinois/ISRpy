@@ -34,7 +34,7 @@ y0 = ao_specs.y0
 z0 = ao_specs.z0
 xyz0 = ao_specs.xyz0
 
-# unit vectors from jro
+# unit vectors from AO
 east0 = ao_specs.east0
 zenith0 = ao_specs.zenith0
 north0 = ao_specs.north0
