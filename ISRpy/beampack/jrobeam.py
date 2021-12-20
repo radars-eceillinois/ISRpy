@@ -43,6 +43,7 @@ north0 = jrospecs.north0
 
 # radar methods from beam.py
 xyz2dec_ha = jrospecs.xyz2dec_ha
+dec_ha2el_az = jrospecs.dec_ha2el_az
 aspect_angle = jrospecs.aspect_angle
 aspect_elaz = jrospecs.aspect_elaz
 cosBs = jrospecs.cosBs
