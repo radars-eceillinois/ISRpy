@@ -1,4 +1,4 @@
-# isrpy
+# ISRpy
 
 Utility and application modules for ISR (and CSR) data processing and modeling
 
