@@ -24,10 +24,10 @@ IGRF model.
 from . import readpack
 from . import beampack
 from . import enoise
-from .igrf_version import igrf_version
+from .pyigrf import pyigrf
 
 # from . import kmltools # needs to be fixed
 
-igrf = igrf_version() # instantiating with the latest IGRF coefficients
+igrf = pyigrf() # instantiating with the latest IGRF coefficients
 
 __all__=['readpack','beampack','kmltools','enoise', 'igrf']
