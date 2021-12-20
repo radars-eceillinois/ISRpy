@@ -62,15 +62,15 @@ class pyigrf:
 
         Example:
         --------
-        >>> import isrpy
-        >>> [Bn,Be,Bd,B] = isrpy.igrf.igrf_B(year, ht, lon, lat)
+        >>> import ISRpy
+        >>> [Bn,Be,Bd,B] = ISRpy.igrf.igrf_B(year, ht, lon, lat)
 
         Example: Use a different IGRF model
         -----------------------------------
         To start a new instance with t different available model:
 
-        >>> import isrpy
-        >>> igrf12 = isrpy.pyigrf("IGRF-12", verbose=1)
+        >>> import ISRpy
+        >>> igrf12 = ISRpy.pyigrf("IGRF-12", verbose=1)
         Reading IGRF-12 coefficients
         max_n is 13
         Last Epoch year is: 2015.0
