@@ -41,7 +41,7 @@ __IGRF_MODELS__ = [
     ]
 
 
-class pyigrf_version:
+class pyigrf:
     a_igrf = 6371.2 #IGRF Earth's radius
     _avail_igrf_models = dict(
         [[x[0], {'release year':x[1],
