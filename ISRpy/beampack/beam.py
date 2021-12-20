@@ -106,13 +106,11 @@ def xyz2llh(x, y, z):
 class RadarSpecs:
     """Will contain radar coordinates and coordinate conversions"""
 
-    def __init__(self,lat0, lon0, h0, dec, ha, IGRFmodel=None):
+    def __init__(self,lat0, lon0, h0, IGRFmodel=None):
 
         self.lat0 = lat0
         self.lon0 = lon0
         self.h0 = h0
-        self.dec = dec
-        self.ha = ha
 
         # None argument instantiates the latest
         self.igrf = pyigrf(IGRFmodel)
@@ -138,9 +136,6 @@ class RadarSpecs:
                                  np.sin(self.lat0)])
         self.north0 = np.cross(self.zenith0, self.east0)
 
-        self.uo = np.array([np.cos(self.dec) * np.cos(self.ha/4. + self.lon0),
-                            np.cos(self.dec) * np.sin(self.ha/4. + self.lon0),
-                            np.sin(self.dec)])    # on axis
 
     def xyz2dec_ha(self, vec):
         """Declination and hour angle in target direction used to describe radar beam
@@ -202,21 +197,6 @@ class RadarSpecs:
         aspect = np.arccos(np.dot(u_B, u_rr))
         return r, lat, lon, aspect
 
-    def aspect_txty(self, year, rr, tx, ty):
-        """Returns magnetic aspect angle and geocentric coordinates of a target tracked by jro at
-        range rr (km)
-        tx along jro building
-        ty into the building
-        """
-
-        tz = np.sqrt(1 - tx ** 2. - ty ** 2.)
-        xyz = self.xyz0 + rr * (tx * self.ux + ty * self.uy + tz * self.uo)
-        #geocentric coordinates of target
-
-        [r, lat, lon, aspect] = self.aspect_angle(year, xyz)
-        [dec, ha] = self.xyz2dec_ha(xyz - self.xyz0)
-
-        return r,lon,lat,dec,ha,aspect
 
     def aspect_elaz(self, year, rr, el, az):
         """Returns magnetic aspect angle and geocentric coordinates of a target tracked by jro at

@@ -20,8 +20,6 @@ jrospecs = RadarSpecs(
     lat0 = -11.947917 * deg,   # geodetic, the usual map or GPS latitude
     lon0 = -76.872306 * deg,   # east of Greenwich
     h0 = 0.463,                # local height above reference ellipsoid
-    dec = -12.88 * deg,        # antenna declination
-    ha = -(4+37./60.) * deg    # hour angle on-axis direction at JRO
     )
 
 # Make this variables accesible to the module for backwards compatibility
@@ -29,8 +27,7 @@ jrospecs = RadarSpecs(
 lat0 = jrospecs.lat0    # geodetic, the usual map or GPS latitude
 lon0 = jrospecs.lon0    # east of Greenwich
 h0   = jrospecs.h0      # local height above reference ellipsoid
-dec = jrospecs.dec      # antenna declination
-ha  = jrospecs.ha       # hour angle on-axis direction at JRO
+
 
 n0 = jrospecs.n0
 x0 = jrospecs.x0
@@ -52,7 +49,28 @@ aspect_elaz = jrospecs.aspect_elaz
 cosBs = jrospecs.cosBs
 
 # orthonormal basis vectors including the jro on-axis direction
+dec = -12.88 * deg,        # antenna declination
+ha = -(4+37./60.) * deg    # hour angle on-axis direction at JRO
 
+uo = np.array([np.cos(dec) * np.cos(ha/4. + lon0),
+               np.cos(dec) * np.sin(ha/4. + lon0),
+               np.sin(dec)])    # on axis
 ux = np.cross(zenith0, uo)
 ux = ux / np.sqrt(np.dot(ux, ux))  # along the building to the right
 uy = np.cross(uo, ux)              # away from the building into the valley
+
+def aspect_txty(year, rr, tx, ty):
+    """Returns magnetic aspect angle and geocentric coordinates of a target tracked by jro at
+    range rr (km)
+    tx along jro building
+    ty into the building
+    """
+
+    tz = np.sqrt(1 - tx ** 2. - ty ** 2.)
+    xyz = xyz0 + rr * (tx * ux + ty * uy + tz * uo)
+    #geocentric coordinates of target
+
+    [r, lat, lon, aspect] = self.aspect_angle(year, xyz)
+    [dec, ha] = xyz2dec_ha(xyz - xyz0)
+
+    return r,lon,lat,dec,ha,aspect
