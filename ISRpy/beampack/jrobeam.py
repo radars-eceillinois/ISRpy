@@ -22,7 +22,6 @@ h0   = 0.463      # local height above reference ellipsoid
 
 jromodel = beamtools.TargetGeometry(lat0, lon0, h0)
 
-n0 = jromodel.n0
 x0 = jromodel.x0
 y0 = jromodel.y0
 z0 = jromodel.z0
