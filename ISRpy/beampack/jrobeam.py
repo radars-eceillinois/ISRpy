@@ -12,19 +12,18 @@
 #
 """
 
-import beamtools
-import numpy as np
+import .beamtools
+import numpy as np # needed for JRO specific calculations below
 
 # ------------ jro radar specifications -------------------------
+deg = beamtools.deg             # to express angles in degree values
 lat0 = -11.947917 * deg    # geodetic, the usual map or GPS latitude
 lon0 = -76.872306 * deg    # east of Greenwich
 h0   = 0.463      # local height above reference ellipsoid
 
 jromodel = beamtools.TargetGeometry(lat0, lon0, h0)
 
-x0 = jromodel.x0
-y0 = jromodel.y0
-z0 = jromodel.z0
+# Radar location in ECEF coordinates
 xyz0 = jromodel.xyz0
 
 # unit vectors
@@ -32,7 +31,7 @@ east0 = jromodel.east0
 zenith0 = jromodel.zenith0
 north0 = jromodel.north0
 
-# radar methods from beam.py
+# radar methods from beamtools
 xyz2dec_ha = jromodel.xyz2dec_ha
 dec_ha2el_az = jromodel.dec_ha2el_az
 aspect_angle = jromodel.aspect_angle
@@ -61,7 +60,7 @@ def aspect_txty(year, rr, tx, ty):
     xyz = xyz0 + rr * (tx * ux + ty * uy + tz * uo)
     #geocentric coordinates of target
 
-    [r, lat, lon, aspect] = self.aspect_angle(year, xyz)
+    [r, lat, lon, aspect] = aspect_angle(year, xyz)
     [dec, ha] = xyz2dec_ha(xyz - xyz0)
 
     return r,lon,lat,dec,ha,aspect

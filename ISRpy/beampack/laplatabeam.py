@@ -10,34 +10,28 @@
 #  Copyright (c) 2008 ECE, UIUC. All rights reserved.
 #
 
+import .beamtools
+
 # ------------ laPlata AMISR specifications -------------------------
-laplata_specs = RadarSpecs(
-    lat0 = -(33 + 51/60.+57.6/3600.) * deg,
-    lon0 = -(58 + 8 / 60.+11.04/3600.) * deg,
-    h0=0.                            # local height above reference ellipsoid
-    )
+deg = beamtools.deg             # to express angles in degree values
+lat0 = -(33 + 51/60.+57.6/3600.) * deg
+lon0 = -(58 + 8 / 60.+11.04/3600.) * deg
+h0=0.                            # local height above reference ellipsoid
 
-# Make this variables accesible to the module for backwards compatibility
+laplata_model = beamtools.TargetGeometry(lat0, lon0, h0)
 
-lat0 = laplata_specs.lat0    # geodetic, the usual map or GPS latitude
-lon0 = laplata_specs.lon0    # east of Greenwich
-h0   = laplata_specs.h0      # local height above reference ellipsoid
-
-n0 = laplata_specs.n0
-x0 = laplata_specs.x0
-y0 = laplata_specs.y0
-z0 = laplata_specs.z0
-xyz0 = laplata_specs.xyz0
+# Radar location in ECEF coordinates
+xyz0 = laplata_model.xyz0
 
 # unit vectors
-east0 = laplata_specs.east0
-zenith0 = laplata_specs.zenith0
-north0 = laplata_specs.north0
+east0 = laplata_model.east0
+zenith0 = laplata_model.zenith0
+north0 = laplata_model.north0
 
-# radar methods from beam.py
-xyz2dec_ha = laplata_specs.xyz2dec_ha
-dec_ha2el_az = laplata_specs.dec_ha2el_az
-aspect_angle = laplata_specs.aspect_angle
-aspect_elaz = laplata_specs.aspect_elaz
-cosBs = laplata_specs.cosBs
+# radar methods from beamtools
+xyz2dec_ha = laplata_model.xyz2dec_ha
+dec_ha2el_az = laplata_model.dec_ha2el_az
+aspect_angle = laplata_model.aspect_angle
+aspect_elaz = laplata_model.aspect_elaz
+cosBs = laplata_model.cosBs
 

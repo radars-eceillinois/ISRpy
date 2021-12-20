@@ -114,19 +114,21 @@ class TargetGeometry:
 
         # None argument instantiates the latest
         self.igrf = pyigrf(IGRFmodel)
+        # igrf to be instantiated once and to be remembered  between calls
 
         n0 = a_WGS / np.sqrt(1 - flatness * (2 - flatness) * np.sin(self.lat0)**2.)
         # cartesian geocentric coordinates wrt Greenwich
-        self.x0 = (n0 + self.h0) * np.cos(self.lat0) * np.cos(self.lon0)
-        self.y0 = (n0 + self.h0) * np.cos(self.lat0) * np.sin(self.lon0)
-        self.z0 = (n0 * (1 - eccentricity**2) + self.h0) * np.sin(self.lat0)
-        self.xyz0 = np.array([self.x0, self.y0, self.z0])
-        xy0 = np.array([self.x0, self.y0])
-        r0 = np.sqrt(np.dot(self.xyz0, self.xyz0))
+        x0 = (n0 + self.h0) * np.cos(self.lat0) * np.cos(self.lon0)
+        y0 = (n0 + self.h0) * np.cos(self.lat0) * np.sin(self.lon0)
+        z0 = (n0 * (1 - eccentricity**2) + self.h0) * np.sin(self.lat0)
+        xyz0 = np.array([x0, y0, z0])
+        xy0 = np.array([x0, y0])
+        r0 = np.sqrt(np.dot(xyz0, xyz0))
         p0 = np.sqrt(np.dot(xy0, xy0))
 
-        # unit vectors
-        self.east0 = np.array([-self.y0, self.x0, 0]) / p0
+        self.xyz0 = xyz0 # to be remembered between calls
+        # unit vectors to be remembered between calls, hence self.xxx
+        self.east0 = np.array([-y0, x0, 0]) / p0
         # zenith and north directions wrt local ellipsoid
         self.zenith0 = np.array([np.cos(self.lat0) * np.cos(self.lon0),
                                  np.cos(self.lat0) * np.sin(self.lon0),

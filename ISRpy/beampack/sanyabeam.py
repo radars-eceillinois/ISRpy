@@ -10,37 +10,27 @@
 #  Copyright (c) 2008 ECE, UIUC. All rights reserved.
 #
 
-
-from .beam import *
-import numpy as np
+import .beamtools
 
 # ------------ SANYA specifications -------------------------
-sanya_specs = RadarSpecs(
-    lat0 = 18.34 * deg,  #this is geodetic, the usual map or GPS latitude
-    lon0 = 109.62 * deg, #east of Greenwich
-    h0 = 0.                        # local height above reference ellipsoid
-    )
+deg = beamtools.deg             # to express angles in degree values
+lat0 = 18.34 * deg  #this is geodetic, the usual map or GPS latitude
+lon0 = 109.62 * deg #east of Greenwich
+h0 = 0.                        # local height above reference ellipsoid
 
-# Make this variables accesible to the module for backwards compatibility
+sanya_model = beamtools.TargetGeometry(lat0, lon0, h0)
 
-lat0 = sanya_specs.lat0    # geodetic, the usual map or GPS latitude
-lon0 = sanya_specs.lon0    # east of Greenwich
-h0   = sanya_specs.h0      # local height above reference ellipsoid
-
-n0 = sanya_specs.n0
-x0 = sanya_specs.x0
-y0 = sanya_specs.y0
-z0 = sanya_specs.z0
-xyz0 = sanya_specs.xyz0
+# Radar location in ECEF coordinates
+xyz0 = sanya_model.xyz0
 
 # unit vectors
-east0 = sanya_specs.east0
-zenith0 = sanya_specs.zenith0
-north0 = sanya_specs.north0
+east0 = sanya_model.east0
+zenith0 = sanya_model.zenith0
+north0 = sanya_model.north0
 
-# radar methods from beam.py
-xyz2dec_ha = sanya_specs.xyz2dec_ha
-dec_ha2el_az = sanya_specs.dec_ha2el_az
-aspect_angle = sanya_specs.aspect_angle
-aspect_elaz = sanya_specs.aspect_elaz
-cosBs = sanya_specs.cosBs
+# radar methods from beamtools
+xyz2dec_ha = sanya_model.xyz2dec_ha
+dec_ha2el_az = sanya_model.dec_ha2el_az
+aspect_angle = sanya_model.aspect_angle
+aspect_elaz = sanya_model.aspect_elaz
+cosBs = sanya_model.cosBs

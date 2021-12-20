@@ -10,38 +10,27 @@
 #  Copyright (c) 2008 ECE, UIUC. All rights reserved.
 #
 
-from .beam import *
-import numpy as np
-
+import .beamtools import
 
 # ------------ AO specifications -------------------------
-ao_specs = RadarSpecs(
-    lat0 = 18.3464 * deg, #this is geodetic, the usual map or GPS latitude
-    lon0 = -66.7528 * deg, #east of Greenwich
-    h0 = 0,                # local height above reference ellipsoid
-    )
+deg = beamtools.deg             # to express angles in degree values
+lat0 = 18.3464 * deg #this is geodetic, the usual map or GPS latitude
+lon0 = -66.7528 * deg #east of Greenwich
+h0 = 0                # local height above reference ellipsoid
 
-# Make this variables accesible to the module for backwards compatibility
+ao_model = beamtools.TargetGeometry(lat0, lon0, h0)
 
-lat0 = ao_specs.lat0    # geodetic, the usual map or GPS latitude
-lon0 = ao_specs.lon0    # east of Greenwich
-h0   = ao_specs.h0      # local height above reference ellipsoid
+# Radar location in ECEF coordinates
+xyz0 = ao_model.xyz0
 
+# unit vectors
+east0 = ao_model.east0
+zenith0 = ao_model.zenith0
+north0 = ao_model.north0
 
-n0 = ao_specs.n0
-x0 = ao_specs.x0
-y0 = ao_specs.y0
-z0 = ao_specs.z0
-xyz0 = ao_specs.xyz0
-
-# unit vectors from AO
-east0 = ao_specs.east0
-zenith0 = ao_specs.zenith0
-north0 = ao_specs.north0
-
-# radar methods from beam.py
-xyz2dec_ha = ao_specs.xyz2dec_ha
-dec_ha2el_az = ao_specs.dec_ha2el_az
-aspect_angle = ao_specs.aspect_angle
-aspect_elaz = ao_specs.aspect_elaz
-cosBs = ao_specs.cosBs
+# radar methods from beamtools
+xyz2dec_ha = ao_model.xyz2dec_ha
+dec_ha2el_az = ao_model.dec_ha2el_az
+aspect_angle = ao_model.aspect_angle
+aspect_elaz = ao_model.aspect_elaz
+cosBs = ao_model.cosBs

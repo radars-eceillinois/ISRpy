@@ -10,36 +10,26 @@
 #  Copyright (c) 2008 ECE, UIUC. All rights reserved.
 #
 
-from .beam import *
-import numpy as np
+import .beamtools
 
 # ------------ ESR specifications -------------------------
-esr_specs = RadarSpecs(
-    lat0 = (78 + 11 / 60. + 14.9 / 3600.) * deg
-    lon0 = (16 + 8 / 60. + 25.0 / 3600.) * deg
-    h0 = 82. / 1000.                            # local height above reference ellipsoid
-    )
+deg = beamtools.deg             # to express angles in degree values
+lat0 = (78 + 11 / 60. + 14.9 / 3600.) * deg
+lon0 = (16 + 8 / 60. + 25.0 / 3600.) * deg
+h0 = 82. / 1000.                            # local height above reference ellipsoid
+esr_model = beamtools.TargetGeometry(lat0, lon0, h0)
 
-# Make this variables accesible to the module for backwards compatibility
-
-lat0 = esr_specs.lat0    # geodetic, the usual map or GPS latitude
-lon0 = esr_specs.lon0    # east of Greenwich
-h0   = esr_specs.h0      # local height above reference ellipsoid
-
-n0 = esr_specs.n0
-x0 = esr_specs.x0
-y0 = esr_specs.y0
-z0 = esr_specs.z0
-xyz0 = esr_specs.xyz0
+# Radar location in ECEF coordinates
+xyz0 = esr_model.xyz0
 
 # unit vectors
-east0 = esr_specs.east0
-zenith0 = esr_specs.zenith0
-north0 = esr_specs.north0
+east0 = esr_model.east0
+zenith0 = esr_model.zenith0
+north0 = esr_model.north0
 
-# radar methods from beam.py
-xyz2dec_ha = esr_specs.xyz2dec_ha
-dec_ha2el_az = esr_specs.dec_ha2el_az
-aspect_angle = esr_specs.aspect_angle
-aspect_elaz = esr_specs.aspect_elaz
-cosBs = esr_specs.cosBs
+# radar methods from beamtools
+xyz2dec_ha = esr_model.xyz2dec_ha
+dec_ha2el_az = esr_model.dec_ha2el_az
+aspect_angle = esr_model.aspect_angle
+aspect_elaz = esr_model.aspect_elaz
+cosBs = esr_model.cosBs
