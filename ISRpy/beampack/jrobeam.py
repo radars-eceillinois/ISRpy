@@ -12,39 +12,33 @@
 #
 """
 
-from .beam import *
+import beamtools
 import numpy as np
 
 # ------------ jro radar specifications -------------------------
-jro_specs = RadarSpecs(
-    lat0 = -11.947917 * deg,   # geodetic, the usual map or GPS latitude
-    lon0 = -76.872306 * deg,   # east of Greenwich
-    h0 = 0.463,                # local height above reference ellipsoid
-    )
+lat0 = -11.947917 * deg    # geodetic, the usual map or GPS latitude
+lon0 = -76.872306 * deg    # east of Greenwich
+h0   = 0.463      # local height above reference ellipsoid
 
-# Make this variables accesible to the module for backwards compatibility
+jromodel = beamtools.TargetGeometry(lat0, lon0, h0)
 
-lat0 = jro_specs.lat0    # geodetic, the usual map or GPS latitude
-lon0 = jro_specs.lon0    # east of Greenwich
-h0   = jro_specs.h0      # local height above reference ellipsoid
-
-n0 = jro_specs.n0
-x0 = jro_specs.x0
-y0 = jro_specs.y0
-z0 = jro_specs.z0
-xyz0 = jro_specs.xyz0
+n0 = jromodel.n0
+x0 = jromodel.x0
+y0 = jromodel.y0
+z0 = jromodel.z0
+xyz0 = jromodel.xyz0
 
 # unit vectors
-east0 = jro_specs.east0
-zenith0 = jro_specs.zenith0
-north0 = jro_specs.north0
+east0 = jromodel.east0
+zenith0 = jromodel.zenith0
+north0 = jromodel.north0
 
 # radar methods from beam.py
-xyz2dec_ha = jro_specs.xyz2dec_ha
-dec_ha2el_az = jro_specs.dec_ha2el_az
-aspect_angle = jro_specs.aspect_angle
-aspect_elaz = jro_specs.aspect_elaz
-cosBs = jro_specs.cosBs
+xyz2dec_ha = jromodel.xyz2dec_ha
+dec_ha2el_az = jromodel.dec_ha2el_az
+aspect_angle = jromodel.aspect_angle
+aspect_elaz = jromodel.aspect_elaz
+cosBs = jromodel.cosBs
 
 # orthonormal basis vectors including the jro on-axis direction
 dec = -12.88 * deg,        # antenna declination
