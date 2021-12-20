@@ -49,7 +49,7 @@ xyz2dec_ha = jrospecs.xyz2dec_ha
 aspect_angle = jrospecs.aspect_angle
 aspect_txty = jrospecs.aspect_txty
 aspect_elaz = jrospecs.aspect_elaz
-cosBs = jropecs.cosBs
+cosBs = jrospecs.cosBs
 
 # orthonormal basis vectors including the jro on-axis direction
 
