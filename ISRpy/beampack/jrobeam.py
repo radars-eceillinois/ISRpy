@@ -12,7 +12,7 @@
 #
 """
 
-import .beamtools
+from . import beamtools
 import numpy as np # needed for JRO specific calculations below
 
 # ------------ jro radar specifications -------------------------
@@ -39,12 +39,13 @@ aspect_elaz = jromodel.aspect_elaz
 cosBs = jromodel.cosBs
 
 # orthonormal basis vectors including the jro on-axis direction
-dec = -12.88 * deg,        # antenna declination
+dec = -12.88 * deg        # antenna declination
 ha = -(4+37./60.) * deg    # hour angle on-axis direction at JRO
 
 uo = np.array([np.cos(dec) * np.cos(ha/4. + lon0),
                np.cos(dec) * np.sin(ha/4. + lon0),
                np.sin(dec)])    # on axis
+
 ux = np.cross(zenith0, uo)
 ux = ux / np.sqrt(np.dot(ux, ux))  # along the building to the right
 uy = np.cross(uo, ux)              # away from the building into the valley

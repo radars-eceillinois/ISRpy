@@ -11,13 +11,13 @@
 #  Copyright (c) 2008 ECE, UIUC. All rights reserved.
 #
 
-import .beamtools
+from . import beamtools
 
 # ------------ KAIRA specifications -------------------------
 deg = beamtools.deg             # to express angles in degree values
 lat0 = 69.0707445 * deg
 lon0 = 20.7620758 * deg
-h0i = 493. / 1000.                            # local height above reference ellipsoid
+h0 = 493. / 1000.                            # local height above reference ellipsoid
 
 kaira_model = beamtools.TargetGeometry(lat0, lon0, h0)
 

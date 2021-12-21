@@ -172,7 +172,7 @@ def cosBs(year,rr,el,az):
 
 # --------------------------------------------------------------
 from pylab import *
-from ISRpy import pyigrf
+from ..pyigrf import pyigrf
 igrf = pyigrf() # loading the latest IGRF model
 
 eps=finfo(float).eps					# float resolution

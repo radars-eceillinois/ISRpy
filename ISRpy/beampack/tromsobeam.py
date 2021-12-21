@@ -10,7 +10,7 @@
 #  Copyright (c) 2008 ECE, UIUC. All rights reserved.
 #
 
-import .beamtools
+from . import beamtools
 
 # ------------ Tromso UHF specifications -------------------------
 deg = beamtools.deg             # to express angles in degree values

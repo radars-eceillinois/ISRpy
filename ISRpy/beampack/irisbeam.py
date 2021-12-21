@@ -10,9 +10,7 @@
 #  Copyright (c) 2008 ECE, UIUC. All rights reserved.
 #
 
-
-# ------------ IRIS radar specifications -------------------------
-import .beamtools
+from . import beamtools
 
 # ------------ iris radar specifications -------------------------
 deg = beamtools.deg             # to express angles in degree values

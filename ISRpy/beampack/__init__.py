@@ -19,11 +19,9 @@ from . import   AObeam,\
                 kairabeam,\
                 kwajbeam,\
                 laplatabeam,\
-                radarbeam,\
-                sanyabeam,\
                 sanyabeam,\
                 tromsobeam
 
 
-__all__=['radarbeam','jrobeam','kwajbeam','AObeam','sanyabeam','irisbeam','kairabeam',
+__all__=['jrobeam','kwajbeam','AObeam','sanyabeam','irisbeam','kairabeam',
 'tromsobeam','esrbeam','laplatabeam','bahirdarbeam']
