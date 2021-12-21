@@ -7,7 +7,7 @@ ISR's are radar systems with large power-aperture products being used in ionosph
 detect weak returns scattered from thermal level fluctuations encountered in ionospheres in 
 thermal equilibrium. CSR's are smaller radar systems used in atmospheric and ionospheric 
 research which can only detect stronger returns from the scattering medium caused by larger
-amplitude fluctuations caused by instabilities and turbulence.
+amplitude fluctuations in the medium amplified by instabilities and turbulence.
 
 Try "ISRpy. TAB" in iPython or Jupyter for methods and submodules...
 
