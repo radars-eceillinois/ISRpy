@@ -33,11 +33,15 @@ import os
 
 __version__ = "0.0.4"
 
+# source of the coefficient files:
+# https://www.ngdc.noaa.gov/IAGA/vmod/igrf_old_models.html
 __IGRF_MODELS__ = [
     # Model, Release Year, Main Field 1, MF2, Secular Variation 1, SV2, file
     ['IGRF-13', 2020, 1900., 2020., 2020., 2025., 'igrf13coeffs.txt'],
     ['IGRF-12', 2015, 1900., 2015., 2015., 2020., 'igrf12coeffs.txt'],
     ['IGRF-11', 2010, 1900., 2010., 2010., 2015., 'igrf11coeffs.txt'],
+    ['IGRF-10', 2005, 1900., 2005., 2005., 2010., 'igrf10coeffs.txt'],
+    ['IGRF-9',  2003, 1900., 2000., 2000., 2005., 'igrf9coeffs.txt'],
     ]
 __LATEST_IGRF__ = "IGRF-13"
 
@@ -167,34 +171,66 @@ class pyigrf:
 
     def _read_coeff_file(self, coeff_file):
         """Reads the IGRF coefficients from coeff_file."""
+
+        def get_start_end(line):
+            prev_end = 0
+            # get the start/end of columns
+            start_ends = []
+            for i,column in enumerate(line.split()):
+                col_start = line.find(column,prev_end)
+                if i == len(line.split())-1:
+                    start_ends.append([prev_end,None])
+                else:
+                    col_ends = line.find(" ",col_start)
+                    start_ends.append([prev_end,col_ends])
+                    prev_end = col_ends
+            return start_ends
+
+        def separate(line,tabsep,start_ends):
+            if tabsep:
+                return [x if x!='' else '0' for x in line.split('\t')]
+            else:
+                return [x if x!='' else '0' for x in 
+                        [line[x0:x1].strip() for x0,x1 in start_ends]]
+
         try:
             with open(coeff_file,'r') as fp:
-                txtlines = fp.read().splitlines()
+                lines = fp.read().splitlines()
         except:
             raise IOError("Problems reading coefficients file:\n%s"%coeff_file)
 
-        for line in reversed(txtlines): #start from bottom to get largest n
-            if len(line) < 3:
-                continue # If line is too small skip
-            max_n = int(line.split()[1]) # getting largest n (13 in igrf11)
-            if self.verbose:
-                print("max_n is",max_n)
-            break
-        for line in txtlines:
-            if len(line) < 3: continue # If line is too small skip
-            if line[0:2] in ['g ', 'h ']: # reading the coefficients
-                n = int(line.split()[1])
-                m = int(line.split()[2])
-                if line[0] == 'g':
-                    gdat[:,m,n] = np.array(line.split()[3:], dtype=float)
-                elif line[0] == 'h':
-                    hdat[:,m,n] = np.array(line.split()[3:], dtype=float)
-            elif line[0:3] == 'g/h': #reading the epochs
-                all_epochs = line.split()[3:]
-                secular_variation = all_epochs[-1]
-                epoch = np.array(all_epochs[:-1],dtype=float) # read the epochs
-                gdat = np.zeros([epoch.size+1,max_n + 1, max_n + 1],float) #SV+1
-                hdat = np.zeros([epoch.size+1,max_n + 1, max_n + 1],float) #SV+1
+        tabsep = False # flag for identifying if a file is separated with TABs
+        max_n = int(lines[-1].split()[1]) # getting largest n
+        if self.verbose:
+            print("max_n is",max_n)
+        for i,line in enumerate(lines):
+            if line[:3] == 'g/h': # find this line and break
+                break
+        arrays_start = i+1 # the arrays start at this line
+        if line.find('\t')>=0:
+            tabsep = True # igrf9 is based on TABs
+        if not tabsep:
+            start_ends = get_start_end(lines[arrays_start])
+        else:
+            start_ends = None
+        split_line = separate(line,tabsep,start_ends)
+        all_epochs = split_line[3:]
+        secular_variation = all_epochs[-1]
+        epoch = np.array(all_epochs[:-1],dtype=float) # read the epochs
+        gdat = np.zeros([epoch.size+1,max_n + 1, max_n + 1],float) #SV+1
+        hdat = np.zeros([epoch.size+1,max_n + 1, max_n + 1],float) #SV+1
+        for line in lines[arrays_start:]:
+            split_line = separate(line.strip(),tabsep,start_ends)
+            if split_line[0] in ['g', 'h']:
+                n = int(split_line[1])
+                m = int(split_line[2])
+                line2enter = np.array(split_line[3:], dtype=float)
+                #print(split_line[0], n,m,line2enter)
+                #print(split_line)
+                if split_line[0] == 'g':
+                    gdat[:len(line2enter),m,n] = line2enter
+                elif split_line[0] == 'h':
+                    hdat[:len(line2enter),m,n] = line2enter
 
         if self.verbose:
             print("Last Epoch year is:",epoch[-1])
