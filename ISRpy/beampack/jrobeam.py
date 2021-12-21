@@ -61,7 +61,7 @@ def aspect_txty(year, rr, tx, ty):
     xyz = xyz0 + rr * (tx * ux + ty * uy + tz * uo)
     #geocentric coordinates of target
 
-    [r, lat, lon, aspect] = aspect_angle(year, xyz)
+    [r, lat, lon, aspect, B] = aspect_angle(year, xyz)
     [dec, ha] = xyz2dec_ha(xyz - xyz0)
 
-    return r,lon,lat,dec,ha,aspect
+    return r,lon,lat,dec,ha,aspect,B
