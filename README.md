@@ -1,15 +1,15 @@
 # ISRpy
 
-Utility and application modules for ISR (and CSR) data processing and modeling
+Utility and application modules for incoherent scatter radar (ISR) and coherent scatter radar (CS) 
+data processing and modeling.
 
-where:
+ISR's are large aperture power product radar systems used in ionospheric probing which are capable 
+of detecting the weak scattering of the transmitted signals from thermal level fluctuations encountered 
+in ionospheres in thermal equilibrium. CSR's are smaller radar systems used in atmospheric and ionospheric 
+research which are capable of detecting only the larger level fluctuations encountered in the scattering medium
+caused by instabilities and turbulence.
 
-    ISR=Incoherent Scatter Radar
-    CSR=smaller ionospheric/atmospheric radars than ISR's that can only detect
-stronger coherent scatter than minimal level ionospheric incoherent scatter
-
-
-Try "ISRpy. TAB" in ipython for module methods and submodules...
+Try "ISRpy. TAB" in iPython or Jupyter for methods and submodules...
 
 -readpack and beampack provides data read and target positioning
 routines for a collection of ISR's and CSR's.
