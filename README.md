@@ -3,11 +3,11 @@
 Utility and application modules for incoherent scatter radar (ISR) and coherent scatter radar (CS) 
 data processing and modeling.
 
-ISR's are large aperture power product radar systems used in ionospheric probing which are capable 
-of detecting the weak scattering of the transmitted signals from thermal level fluctuations encountered 
-in ionospheres in thermal equilibrium. CSR's are smaller radar systems used in atmospheric and ionospheric 
-research which are capable of detecting only the larger level fluctuations encountered in the scattering medium
-caused by instabilities and turbulence.
+ISR's are radar systems with large power-aperture products being used in ionospheric probing to 
+detect weak returns scattered from thermal level fluctuations encountered in ionospheres in 
+thermal equilibrium. CSR's are smaller radar systems used in atmospheric and ionospheric 
+research which can only detect stronger returns from the scattering medium caused by larger
+amplitude fluctuations caused by instabilities and turbulence.
 
 Try "ISRpy. TAB" in iPython or Jupyter for methods and submodules...
 
