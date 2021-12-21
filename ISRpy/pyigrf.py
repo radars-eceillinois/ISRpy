@@ -44,14 +44,14 @@ __LATEST_IGRF__ = "IGRF-13"
 
 class pyigrf:
     a_igrf = 6371.2 #IGRF Earth's radius
-    _avail_igrf_models = dict(
+    _avail_models = dict(
         [[x[0], {'release year':x[1],
                  'main field':x[2:4],
                  'secular variation':x[4:6],
                  'coeffs file':x[6]}
          ] for x in __IGRF_MODELS__
         ])
-    def __init__(self, igrf_model = None, coeff_file=None,
+    def __init__(self, model_name = None, coeff_file=None,
             verbose=0):
         """Holds an igrf instance with an  igrf model loaded.
 
@@ -78,31 +78,31 @@ class pyigrf:
         >>> [Bn,Be,Bd,B] = igrf12.igrf_B(year, ht, lon, lat)
         """
         self.verbose = verbose
-        if type(igrf_model) == type(None):
-            self.igrf_model = __LATEST_IGRF__
+        if type(model_name) == type(None):
+            self.model_name = __LATEST_IGRF__
         else:
-            self.igrf_model = igrf_model.upper()
+            self.model_name = model_name.upper()
         if not type(coeff_file) == type(None):
             # Coefficients will be obtained from coeff_file
             self.coeff_file = coeff_file
-            self.igrf_model = "fromfile"
+            self.model_name = "fromfile"
             if self.verbose >= 1:
                 print(f"IGRF coefficients will be read from file:{coeff_file}")
         else:
             if self.verbose >= 1:
-                print(f"Reading {self.igrf_model} coefficients ")
-            assert self.igrf_model in self._avail_igrf_models.keys(), \
-                    f"{self.igrf_model} not one of "\
-                    f"{list(self._avail_igrf_models.keys())}"
+                print(f"Reading {self.model_name} coefficients ")
+            assert self.model_name in self._avail_models.keys(), \
+                    f"{self.model_name} not one of "\
+                    f"{list(self._avail_models.keys())}"
             this_file_folder = os.path.split(os.path.abspath(__file__))[0]
             self.coeff_file = os.path.join(this_file_folder,'igrfdata',
-                self._avail_igrf_models[self.igrf_model]['coeffs file'])
+                self._avail_models[self.model_name]['coeffs file'])
 
         self._read_coeff_file(self.coeff_file)
         self._get_m_n_schmidt()
 
     def display_available_models(self):
-        print("Available IGRF models:",list(self._avail_igrf_models.keys()))
+        print("Available IGRF models:",list(self._avail_models.keys()))
 
 
     def igrf_B(self,year,ht,lon,lat):
