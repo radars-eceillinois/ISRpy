@@ -197,6 +197,22 @@ class TargetGeometry:
         return r, lat, lon, aspect
 
 
+    def aspect_txty(self,year,rr,tx,ty):
+        	"""
+            # returns magnetic aspect angle and geocentric coordinates of a target tracked by jro at
+            # range rr (km)
+        	# tx along jro building
+        	# ty into the building
+        	"""
+
+        	tz=np.sqrt(1-tx**2.-ty**2.)
+        	xyz=xyz0+rr*(tx*ux+ty*uy+tz*uo)			#geocentric coordinates of target
+
+        	[r,lat,lon,aspect,B]=self.aspect_angle(year,xyz)
+        	[dec,ha]=self.xyz2dec_ha(xyz-xyz0)
+        	return r,lon,lat,dec,ha,aspect,B
+
+
     def aspect_elaz(self, year, rr, el, az):
         """Returns magnetic aspect angle and geocentric coordinates of a target tracked by jro at
         range       rr (km)
