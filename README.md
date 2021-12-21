@@ -14,7 +14,7 @@ Try "ISRpy. TAB" in iPython or Jupyter for methods and submodules...
 -readpack and beampack provides data read and target positioning
 routines for a collection of ISR's and CSR's.
 
--pyigrf is a packet for geomagnetic vector field computataions based on the
+-pyigrf is a package for geomagnetic vector field computataions based on the
 IGRF model.
 
 -kmltools provides routines for placing radar beam and data maps in Google Earth.
