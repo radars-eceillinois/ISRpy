@@ -1,6 +1,6 @@
 # ISRpy
 
-Utility and application modules for incoherent scatter radar (ISR) and coherent scatter radar (CS) 
+Utility and application modules for incoherent scatter radar (ISR) and coherent scatter radar (CSR) 
 data processing and modeling.
 
 ISR's are radar systems with large power-aperture products being used in ionospheric probing to 
