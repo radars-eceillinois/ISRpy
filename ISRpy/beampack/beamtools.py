@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""beam.py
+"""beamtools.py
 
    module for calculating geometry parameters and magnetic aspect
    angle of radar targets
