@@ -1,7 +1,17 @@
+"""
+Read IRIS data
+
+
+2021-12-31 Pablo Reyes
+           Upgrade to python3 compliance and the latest python packages
+"""
+
+
 from os import path,stat
 from scipy import constants
 from numpy import dtype,fromfile,median,arange,array,argmin,complex64,ones,nan
-from matplotlib.mlab import find
+import numpy as np
+#from matplotlib.mlab import find
 from time import gmtime
 from calendar import timegm
 class fileinfo:
@@ -69,7 +79,8 @@ class fileinfo:
         return (arange(npulses)-npulses/2.) / npulses * self.vel_span
 
     def __GetIPPhts__(self,pwr):
-        peaklocations = find(pwr > pwr.max()*0.9)
+        #peaklocations = find(pwr > pwr.max()*0.9)
+        peaklocations = np.where(pwr.ravel() > pwr.max()*0.9)[0]
         differences = peaklocations[1:] - peaklocations[:-1]
         median_diff = median(differences)
         return int(median_diff),peaklocations[0]
