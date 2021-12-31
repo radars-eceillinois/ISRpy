@@ -37,7 +37,7 @@ class fileinfo:
 
         trysamp2read = 10 * self.RXs * 3200 # at least 10 pulses of largest case
         if not path.exists(filepath):
-            print "File not found:",filepath
+            print("File not found:",filepath)
             return
         try:
             fid = open(filepath,'rb')
@@ -46,7 +46,7 @@ class fileinfo:
             pwr = pwr.reshape(trysamp2read/self.RXs,self.RXs)
             fid.close()
         except:
-            print "Error reading file:",filepath
+            print("Error reading file:",filepath)
             return
         self.nhts,self.h_offset = self.__GetIPPhts__(pwr[:,0])
         del(pwr)
@@ -86,10 +86,10 @@ class fileinfo:
             elif param in ['Bragg_lambda','radar_oper_lambda']:
                 units = 'm'
             if param == 'hts':
-                print param,'= [%.3f, %.3f, %.3f, ..., %.3f, %.3f, %.3f]'%tuple(
-                        self.hts[[0,1,2,-3,-2,-1]]),units
+                print(param,'= [%.3f, %.3f, %.3f, ..., %.3f, %.3f, %.3f]'%tuple(
+                        self.hts[[0,1,2,-3,-2,-1]]),units)
             else:
-                print param,'=', getattr(self,param),units
+                print(param,'=', getattr(self,param),units)
 
 
     def readNpulses(self,pulses2read,pulses2skip=0,out_pulsesread=False):
