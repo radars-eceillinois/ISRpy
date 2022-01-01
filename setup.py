@@ -2,16 +2,26 @@
 See:
 https://packaging.python.org/en/latest/tutorials/packaging-projects/
 """
-
+import re
+import os
 import setuptools
 from glob import glob
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+# Get version number from __init__.py
+here = os.path.abspath(os.path.dirname(__file__))
+regex = "(?<=__version__..\s)\S+"
+with open(os.path.join(here,'ISRpy/__init__.py'),'r', encoding='utf-8') as f:
+    text = f.read()
+match = re.findall(regex,text)
+version = match[0].strip("'")
+
+
 setuptools.setup(
     name="ISRpy",
-    version="0.0.17",
+    version=version,
     author="Erhan Kudeki",
     author_email="erhan@illinois.edu",
     description="Radar Tools",

@@ -14,6 +14,10 @@ import numpy as np
 #from matplotlib.mlab import find
 from time import gmtime
 from calendar import timegm
+
+import traceback
+
+
 class fileinfo:
     """    fileinfo initialization:
 
@@ -43,21 +47,26 @@ class fileinfo:
         self.dhkm_exact = constants.c/2/self.samp_rate/1000. # = 0.3747405725 km
         self.dbytes = 4. # number of bytes
         self.IQ = 2.                 # In-Phase - In-Quadrature
-        self.RXs = 2.                # number of receivers (Antennas)
+        self.RXs = 2                # number of receivers (Antennas)
 
         trysamp2read = 10 * self.RXs * 3200 # at least 10 pulses of largest case
         if not path.exists(filepath):
             print("File not found:",filepath)
             return
         try:
-            fid = open(filepath,'rb')
-            pwr = fromfile(fid,self.dtyp,int(trysamp2read))
+            with open(filepath,'rb') as fid:
+                pwr = fromfile(fid,self.dtyp,int(trysamp2read))
             pwr = pwr['real'] **2 + pwr['imag'] ** 2
-            pwr = pwr.reshape(trysamp2read/self.RXs,self.RXs)
-            fid.close()
-        except:
+            print(pwr.shape)
+            print(trysamp2read)
+            print(trysamp2read//self.RXs)
+            print(self.RXs)
+            pwr = pwr.reshape(trysamp2read//self.RXs,self.RXs)
+            print(pwr.shape)
+        except Exception as e:
             print("Error reading file:",filepath)
-            return
+            print(e)
+            traceback.print_exc()
         self.nhts,self.h_offset = self.__GetIPPhts__(pwr[:,0])
         del(pwr)
         #ch0:less signal power, therefore is more desirable
@@ -80,7 +89,7 @@ class fileinfo:
 
     def __GetIPPhts__(self,pwr):
         #peaklocations = find(pwr > pwr.max()*0.9)
-        peaklocations = np.where(pwr.ravel() > pwr.max()*0.9)[0]
+        peaklocations = np.where(pwr > pwr.max()*0.9)[0]
         differences = peaklocations[1:] - peaklocations[:-1]
         median_diff = median(differences)
         return int(median_diff),peaklocations[0]
@@ -109,7 +118,7 @@ class fileinfo:
         fid = open(self.filepath,'rb')
         fid.seek(samp2skip * self.IQ * self.dbytes,0)
         raw = fromfile(fid,self.dtyp,int(samp2read))
-        pulsesread = raw.size / self.RXs / self.nhts
+        pulsesread = raw.size // self.RXs // self.nhts
         fid.close()
         raw = raw['real'] + 1j * raw['imag']
         raw = raw.reshape(pulses2read,self.nhts,self.RXs)

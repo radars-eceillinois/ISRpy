@@ -27,6 +27,7 @@ from . import enoise
 from .pyigrf import pyigrf
 
 # from . import kmltools # needs to be fixed
+__version__ = '0.0.19'
 
 igrf = pyigrf() # instantiating with the latest IGRF coefficients
 
