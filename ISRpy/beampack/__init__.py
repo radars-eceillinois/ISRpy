@@ -20,8 +20,9 @@ from . import   AObeam,\
                 kwajbeam,\
                 laplatabeam,\
                 sanyabeam,\
-                tromsobeam
+                tromsobeam,\
+                PFISRbeam
 
 
 __all__=['jrobeam','kwajbeam','AObeam','sanyabeam','irisbeam','kairabeam',
-'tromsobeam','esrbeam','laplatabeam','bahirdarbeam']
+'tromsobeam','esrbeam','laplatabeam','bahirdarbeam','PFISRbeam']

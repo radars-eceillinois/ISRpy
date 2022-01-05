@@ -34,3 +34,4 @@ dec_ha2el_az = tromso_model.dec_ha2el_az
 aspect_angle = tromso_model.aspect_angle
 aspect_elaz = tromso_model.aspect_elaz
 cosBs = tromso_model.cosBs
+elaz2xyz = tromso_model.elaz2xyz

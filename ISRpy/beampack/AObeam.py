@@ -34,3 +34,4 @@ dec_ha2el_az = ao_model.dec_ha2el_az
 aspect_angle = ao_model.aspect_angle
 aspect_elaz = ao_model.aspect_elaz
 cosBs = ao_model.cosBs
+elaz2xyz = ao_model.elaz2xyz

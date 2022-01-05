@@ -45,4 +45,4 @@ dec_ha2el_az = kwaj_model.dec_ha2el_az
 aspect_angle = kwaj_model.aspect_angle
 aspect_elaz = kwaj_model.aspect_elaz
 cosBs = kwaj_model.cosBs
-
+elaz2xyz = kwaj_model.elaz2xyz

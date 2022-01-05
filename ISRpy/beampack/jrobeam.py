@@ -37,6 +37,7 @@ dec_ha2el_az = jromodel.dec_ha2el_az
 aspect_angle = jromodel.aspect_angle
 aspect_elaz = jromodel.aspect_elaz
 cosBs = jromodel.cosBs
+elaz2xyz = jromodel.elaz2xyz
 
 # orthonormal basis vectors including the jro on-axis direction
 dec = -12.88 * deg        # antenna declination

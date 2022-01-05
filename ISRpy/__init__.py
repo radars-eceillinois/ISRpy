@@ -24,6 +24,8 @@ Release 0.0.20
 - Include PFISR beam
 Release 0.0.21 (1/4/2022)
 - Adding elaz2xyz definition to find a target with range, elevation, and azimuth
+Release 0.0.22 (1/4/2022)
+- making elaz2xyz available to all radars
 
 """
 from . import readpack

@@ -34,4 +34,5 @@ dec_ha2el_az = iris_model.dec_ha2el_az
 aspect_angle = iris_model.aspect_angle
 aspect_elaz = iris_model.aspect_elaz
 cosBs = iris_model.cosBs
+elaz2xyz = iris_model.elaz2xyz
 

@@ -34,4 +34,4 @@ dec_ha2el_az = laplata_model.dec_ha2el_az
 aspect_angle = laplata_model.aspect_angle
 aspect_elaz = laplata_model.aspect_elaz
 cosBs = laplata_model.cosBs
-
+elaz2xyz = laplata_model.elaz2xyz

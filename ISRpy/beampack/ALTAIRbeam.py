@@ -34,3 +34,4 @@ dec_ha2el_az = altair_model.dec_ha2el_az
 aspect_angle = altair_model.aspect_angle
 aspect_elaz = altair_model.aspect_elaz
 cosBs = altair_model.cosBs
+elaz2xyz = altair_model.elaz2xyz

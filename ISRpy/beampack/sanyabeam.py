@@ -34,3 +34,4 @@ dec_ha2el_az = sanya_model.dec_ha2el_az
 aspect_angle = sanya_model.aspect_angle
 aspect_elaz = sanya_model.aspect_elaz
 cosBs = sanya_model.cosBs
+elaz2xyz = sanya_model.elaz2xyz

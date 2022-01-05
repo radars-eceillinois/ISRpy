@@ -255,7 +255,7 @@ class TargetGeometry:
 
     def elaz2xyz(self, rr, el, az):
         """Returns the xyz ECEF coordinates of a target
-        
+
         The target is specified by elevation, azimuth, and range from the radar.
 
         Parameters

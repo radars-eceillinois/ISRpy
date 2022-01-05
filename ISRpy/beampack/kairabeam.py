@@ -35,3 +35,4 @@ dec_ha2el_az = kaira_model.dec_ha2el_az
 aspect_angle = kaira_model.aspect_angle
 aspect_elaz = kaira_model.aspect_elaz
 cosBs = kaira_model.cosBs
+elaz2xyz = kaira_model.elaz2xyz

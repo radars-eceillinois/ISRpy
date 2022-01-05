@@ -33,3 +33,4 @@ dec_ha2el_az = esr_model.dec_ha2el_az
 aspect_angle = esr_model.aspect_angle
 aspect_elaz = esr_model.aspect_elaz
 cosBs = esr_model.cosBs
+elaz2xyz = esr_model.elaz2xyz

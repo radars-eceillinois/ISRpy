@@ -33,3 +33,4 @@ dec_ha2el_az = bahirdar_model.dec_ha2el_az
 aspect_angle = bahirdar_model.aspect_angle
 aspect_elaz = bahirdar_model.aspect_elaz
 cosBs = bahirdar_model.cosBs
+elaz2xyz = bahirdar_model.elaz2xyz
