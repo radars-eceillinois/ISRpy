@@ -252,3 +252,30 @@ class TargetGeometry:
         """
 
         return r, lat, lon, h, xyz, B, aspect, cosBn, cosBe, cosBu
+
+    def elaz2xyz(self, rr, el, az):
+        """Returns the xyz ECEF coordinates of a target
+        
+        The target is specified by elevation, azimuth, and range from the radar.
+
+        Parameters
+        ----------
+        rr : float
+          The range in km.
+        el : float
+          The elevation in radians. (rad above local tangent plane to ellipsoid)
+        az : float
+          The azimuth in radians. (rad east of local north)
+
+        Returns
+        -------
+        xyz : [float, float, float]
+          ECEF [x, y, z] coordinates
+        """
+        tx = np.cos(el) * np.sin(az)        # direction cosines wrt east and north
+        ty = np.cos(el) * np.cos(az)
+        tz = np.sin(el)
+        #geocentric coordinates of target :
+        xyz = self.xyz0 + rr * (tx * self.east0 + ty * self.north0 + tz * self.zenith0)
+
+        return xyz
