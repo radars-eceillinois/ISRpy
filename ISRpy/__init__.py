@@ -20,6 +20,9 @@ IGRF model.
 
 -enoise is spectral noise level estimator based on Hildebrand-Sekhon algorithm.
 
+Release 0.0.20
+- Include PFISR beam
+
 """
 from . import readpack
 from . import beampack
@@ -27,7 +30,7 @@ from . import enoise
 from .pyigrf import pyigrf
 
 # from . import kmltools # needs to be fixed
-__version__ = '0.0.19'
+__version__ = '0.0.20'
 
 igrf = pyigrf() # instantiating with the latest IGRF coefficients
 
