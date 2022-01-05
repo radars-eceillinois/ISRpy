@@ -22,6 +22,8 @@ IGRF model.
 
 Release 0.0.20
 - Include PFISR beam
+Release 0.0.21 (1/4/2022)
+- Adding elaz2xyz definition to find a target with range, elevation, and azimuth
 
 """
 from . import readpack
@@ -30,7 +32,7 @@ from . import enoise
 from .pyigrf import pyigrf
 
 # from . import kmltools # needs to be fixed
-__version__ = '0.0.20'
+__version__ = '0.0.21'
 
 igrf = pyigrf() # instantiating with the latest IGRF coefficients
 
