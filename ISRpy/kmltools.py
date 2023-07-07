@@ -15,7 +15,10 @@
 
 # ------------ radar specifications -------------------------
 import numpy as np
-import StringIO as __StringIO__
+try:
+    import StringIO as __StringIO__
+except:
+    from io import StringIO as __StringIO__
 
 class kmzfile:
     """Will contain functions to create a kmz file"""
@@ -141,12 +144,12 @@ class kmlfile:
                 fp.write(self.outstr)
                 fp.close()
             except:
-                print "Error writing  ", self.fname
+                print("Error writing  ", self.fname)
         else:
             try:
                 self.fname.write(self.outstr)
             except:
-                print "Error writing in ", self.fname
+                print("Error writing in ", self.fname)
 
     def startfolder(self,foldertitle=None):
         self.outstr += "<Folder>\n"
