@@ -161,7 +161,7 @@ class TargetGeometry:
 
         lat = dec * deg                                # on celestial sphere
         lon = 2 * np.pi * (ha / (24 * 60))
-        lon = lon + lon0                    # on celestial sphere
+        lon = lon + self.lon0                    # on celestial sphere
         vec = np.array([np.cos(lat) * np.cos(lon),
                         np.cos(lat) * np.sin(lon),
                         np.sin(lat)])
