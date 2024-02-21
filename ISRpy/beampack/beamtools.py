@@ -253,6 +253,35 @@ class TargetGeometry:
 
         return r, lat, lon, h, xyz, B, aspect, cosBn, cosBe, cosBu
 
+    def xyz2elaz(self, xyz):
+        """Returns elevation and azimuth of a target at xyz ECEF coordinates
+
+        Parameters
+        ----------
+        xyz : [float, float, float]
+          ECEF [x, y, z] coordinates
+
+        Returns
+        -------
+        rr : float
+          The range in km.
+        el : float
+          The elevation in radians. (rad above local tangent plane to ellipsoid)
+        az : float
+          The azimuth in radians. (rad east of local north)
+
+        """
+
+        vec = xyz - self.xyz0
+        rr = np.linalg.norm(vec)
+
+        east = np.dot(vec, self.east0)
+        north = np.dot(vec, self.north0)
+        el = 90 - np.arccos(np.dot(vec, self.zenith0) / rr) * 180 / np.pi
+        az = np.arctan2(east, north) * 180 / np.pi
+
+        return rr,el,az
+
     def elaz2xyz(self, rr, el, az):
         """Returns the xyz ECEF coordinates of a target
 
