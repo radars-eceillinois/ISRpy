@@ -28,9 +28,10 @@ zenith0 = pfisr_model.zenith0
 north0 = pfisr_model.north0
 
 # radar methods from beamtools.py
-xyz2dec_ha = pfisr_model.xyz2dec_ha
-dec_ha2el_az = pfisr_model.dec_ha2el_az
+#xyz2dec_ha = pfisr_model.xyz2dec_ha
+#dec_ha2el_az = pfisr_model.dec_ha2el_az
 aspect_angle = pfisr_model.aspect_angle
 aspect_elaz = pfisr_model.aspect_elaz
 cosBs = pfisr_model.cosBs
 elaz2xyz = pfisr_model.elaz2xyz
+xyz2elaz = pfisr_model.xyz2elaz
