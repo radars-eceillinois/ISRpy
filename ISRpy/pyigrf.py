@@ -25,6 +25,8 @@ history:
  02/19/2021 - P. Reyes has created a branch that brings back the routines
      inside a class. Advantages are, among others, to load a different set
      of coefficients from a file.
+ 03/19/2025 - P. Reyes Adding the latest IGRF 2025 coefficients file and
+     code to read it
 
 """
 
@@ -37,13 +39,14 @@ __version__ = "0.0.4"
 # https://www.ngdc.noaa.gov/IAGA/vmod/igrf_old_models.html
 __IGRF_MODELS__ = [
     # Model, Release Year, Main Field 1, MF2, Secular Variation 1, SV2, file
+    ['IGRF-14', 2025, 1900., 2025., 2025., 2030., 'igrf14coeffs.txt'],
     ['IGRF-13', 2020, 1900., 2020., 2020., 2025., 'igrf13coeffs.txt'],
     ['IGRF-12', 2015, 1900., 2015., 2015., 2020., 'igrf12coeffs.txt'],
     ['IGRF-11', 2010, 1900., 2010., 2010., 2015., 'igrf11coeffs.txt'],
     ['IGRF-10', 2005, 1900., 2005., 2005., 2010., 'igrf10coeffs.txt'],
     ['IGRF-9',  2003, 1900., 2000., 2000., 2005., 'igrf9coeffs.txt'],
     ]
-__LATEST_IGRF__ = "IGRF-13"
+__LATEST_IGRF__ = "IGRF-14"
 
 
 class pyigrf:
