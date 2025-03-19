@@ -26,15 +26,17 @@ Release 0.0.21 (1/4/2022)
 - Adding elaz2xyz definition to find a target with range, elevation, and azimuth
 Release 0.0.22 (1/4/2022)
 - making elaz2xyz available to all radars
-
+Release 0.0.28 (3/19/2025)
+- updating igrf to igrf-14 (2025)
 """
+
 from . import readpack
 from . import beampack
 from . import enoise
 from .pyigrf import pyigrf
 
 # from . import kmltools # needs to be fixed
-__version__ = '0.0.27'
+__version__ = '0.0.28'
 
 igrf = pyigrf() # instantiating with the latest IGRF coefficients
 
