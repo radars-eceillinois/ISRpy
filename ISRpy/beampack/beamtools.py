@@ -19,6 +19,7 @@
     - Using NumPy Style Python Docstrings
 """
 
+import datetime
 import numpy as np
 from ..pyigrf import pyigrf
 
@@ -32,6 +33,24 @@ a_WGS = 6378.137                           # equatorial radius WGS 84
 flatness = 1/298.257223563
 b_WGS = a_WGS * (1 - flatness)             # WGS polar radius
 eccentricity = np.sqrt(a_WGS**2 - b_WGS**2) / a_WGS
+
+def datetime2year(datetime0):
+    """Converts datetime into year with decimals
+
+    Parameters
+    ----------
+    datetime0: datetime
+        Date and time to convert to float year.
+
+    Returns
+    -------
+    fyear : float
+        The date in year as a float number with fraction.
+
+    """
+    nyear = datetime0.year
+    yeardays = (datetime.datetime(nyear+1,1,1) - datetime.datetime(nyear,1,1))
+    return nyear + (datetime0 - datetime.datetime(nyear,1,1))/yeardays
 
 def llh2xyz(latg, lon, h):
     """Converts a point in geodetic to ECEF coordinates.
