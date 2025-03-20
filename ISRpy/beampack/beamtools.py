@@ -201,6 +201,8 @@ class TargetGeometry:
 
         Parameters
         ----------
+        year: float
+          The date expressed as year. e.g.  Jan 31, 2025 is 2025. + 31 / 365
         rr : float
           Radius in km from the radar to the target.
         el : float
