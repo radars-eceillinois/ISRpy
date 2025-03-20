@@ -1,6 +1,11 @@
 Instructions to compile and upload to PyPI:
 - First advance the version inside setup.py so that there is no conflict
   by editing file ISRpy/__init__.py
+
+- requirements
+  $ pip install wheel
+  $ pip install twine
+
 - $ python setup.py sdist bdist_wheel
 - Now upload the generated 2 files from the current version to PyPI:
 - $ twine upload dist/ISRpy-0.0.*
