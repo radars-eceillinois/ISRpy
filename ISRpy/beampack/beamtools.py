@@ -197,10 +197,34 @@ class TargetGeometry:
         return r, lat, lon, aspect, B
 
     def aspect_elaz(self, year, rr, el, az):
-        """Returns magnetic aspect angle and geocentric coordinates of a target tracked by jro at
-        range       rr (km)
-        elevation   el (rad above local tangent plane to ellipsoid)
-        azimuth     az (rad east of local north)
+        """Returns magnetic aspect angle and geocentric coordinates of a target
+
+        Parameters
+        ----------
+        rr : float
+          Radius in km from the radar to the target.
+        el : float
+          Elevation in rad above local tangent plane to ellipsoid.
+        az : float
+          Azimuth in rad east of local north.
+
+        Returns
+        -------
+        float
+          Distance in km of the target from the center of the Earth.
+        float
+          Longitude in rad of the target in geodetic coordinates.
+        float
+          Latitude in rad  of the target in geodetic coordinates.
+        float
+          Declination in deg of target on the celestial coordinate system.
+        float
+          Hour angle in minutes of target on the celestial coordinate system.
+        float
+          Magnetic aspect angle between the radar pointing direction and the
+          geomagnetic field B at the target.
+        array_like
+          Magnetic field B at the target.
         """
 
         tx = np.cos(el) * np.sin(az)                    # direction cosines wrt east and north
@@ -211,7 +235,7 @@ class TargetGeometry:
 
         [r, lat, lon, aspect,B] = self.aspect_angle(year, xyz)
         [dec,ha] = self.xyz2dec_ha(xyz - self.xyz0)
-        return r, lon, lat, dec, ha, aspect
+        return r, lon, lat, dec, ha, aspect, B
 
     def cosBs(self, year, rr, el, az):
         """Decomposes the radial unit vector to the target to direction cosines
