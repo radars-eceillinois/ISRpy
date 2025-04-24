@@ -111,18 +111,18 @@ class rcH:
         self.fixH=np.fromfile(fid,rcfH_t,1)
         #Start reading dynamic RC header
         #read RC Sampling Windows.
-        self.Windows=np.fromfile(fid,samwin_t,self.fixH['nNumWindows'])
-        self.Taus=np.fromfile(fid,'<f4',self.fixH['nNumTaus']) #read RC Taus.
+        self.Windows=np.fromfile(fid,samwin_t,int(self.fixH['nNumWindows']))
+        self.Taus=np.fromfile(fid,'<f4',int(self.fixH['nNumTaus'])) #read RC Taus.
         self.NumCodes=0
         self.NumBauds=0
-        self.Codes=[]
+        self.Codes=None
         if self.fixH['nCodeType'] != 0:          #if a code was used
-            self.NumCodes=np.fromfile(fid,'<u4',1)   #read number of codes
-            self.NumBauds=np.fromfile(fid,'<u4',1)   #read number of Bauds
+            self.NumCodes = int(np.fromfile(fid,'<u4',1))   #read number of codes
+            self.NumBauds = int(np.fromfile(fid,'<u4',1))   #read number of Bauds
             self.Codes=np.empty([self.NumCodes,self.NumBauds],dtype='u1')
             for ic in range(self.NumCodes):
                 #read 'ic' code
-                tempc=np.fromfile(fid,'u1',4*np.ceil(self.NumBauds/32.))
+                tempc=np.fromfile(fid,'u1',4*int(np.ceil(self.NumBauds/32.)))
                 self.Codes[ic]=np.unpackbits(tempc[::-1])[-1*self.NumBauds:]
             #convert code from '0's and '1's to double +-'1'
             self.Codes=2.0*self.Codes-1.0
@@ -137,7 +137,7 @@ class procH:
         self.fixH=np.fromfile(fid,procfH_t,1)  #read processing fixed header
         #Start reading dynamic processing header
         #read proc Sampling Windows.
-        self.Windows=np.fromfile(fid,samwin_t,self.fixH['nNumWindows'])
+        self.Windows=np.fromfile(fid,samwin_t,int(self.fixH['nNumWindows']))
         #pdb.set_trace()
         #read spectra Combinations
         self.SpcCombinations = np.fromfile(fid, '<u1',
@@ -146,7 +146,7 @@ class procH:
                 self.fixH['TotalSpectra'][0], 2)
         self.NumCodes=0
         self.NumBauds=0
-        self.Codes=[]
+        self.Codes = None
         if (self.fixH['ProcessFlags'] & PROCFLAG.DEFINE_PROCESS_CODE
                 == PROCFLAG.DEFINE_PROCESS_CODE ):
             self.NumCodes=np.fromfile(fid,'<u4',1)   #read number of codes
@@ -237,7 +237,7 @@ def add_experiment_parameters(finfo):
     dtmask = finfo.procH.fixH['ProcessFlags'][0] & PROCFLAG.DATATYPE_MASK
     if dtmask == 0 :
         finfo.data_type = 4
-        print "error reading process flags, data type used instead: float"
+        print("error reading process flags, data type used instead: float")
     else :
         finfo.data_type=int(np.log2(dtmask) - np.log2(PROCFLAG.DATATYPE_CHAR))
     finfo.taus=finfo.rcH.Taus
@@ -247,10 +247,10 @@ def add_experiment_parameters(finfo):
     #PROC information
     finfo.ProcInfo=ProcInfo(finfo.procH.fixH)
     #extra useful parameters for decoding
-    if finfo.code!=[]:
+    if type(finfo.code) != type(None):
         finfo.subbauds=np.round(finfo.txa / finfo.spacing / np.double(
                 finfo.rcH.NumBauds))
-        finfo.subcode=expandcode(finfo.rcH.Codes,finfo.subbauds)
+        finfo.subcode=expandcode(finfo.rcH.Codes,int(finfo.subbauds))
         finfo.num_codes=finfo.subcode.shape[0]
         finfo.num_bauds=finfo.subcode.shape[1]
         if finfo.ProcInfo.decoded:
@@ -306,8 +306,8 @@ def readH_continue(fid):
     try:
         shortH=np.fromfile(fid,shortH_t,1)
         if shortH.size>0:
-            if shortH['length']>24 :
-                fid.seek(shortH['length']-24,1)
+            if shortH['length'].item()>24 :
+                fid.seek(shortH['length'].item()-24,1)
             elif shortH['length']<24:
                 return []
         else:
@@ -394,10 +394,10 @@ def skip_blocks(finfo,blks2skip):
     else:
         #rawdata (real and imaginary)
         bytesperblk = 2* databytes*finfo.num_prof*finfo.num_chan*finfo.num_hei
-    print bytesperblk
-    print finfo.procH.fixH['SizeOfDataBlock'][0]
+    print(bytesperblk)
+    print(finfo.procH.fixH['SizeOfDataBlock'][0])
     if finfo.procH.fixH['SizeOfDataBlock'][0] != bytesperblk:
-        print 'error calculating size of the block'
+        print('error calculating size of the block')
         bytesperblk = finfo.procH.fixH['SizeOfDataBlock'][0]
     bytes2skip=(finfo.lheader_length-24+blks2skip*(bytesperblk+24))
     try:
