@@ -328,9 +328,9 @@ def readRawBlk(finfo,profs=None):
     try:
         temp=np.fromfile(finfo.fid,dt,pts2read)
     except:
-        return []
+        return None
     if temp.nbytes==0:
-        return []
+        return None
     temp=temp.reshape((profs,finfo.num_hei,finfo.num_chan))
     return temp['imag']*1j+temp['real']
 
