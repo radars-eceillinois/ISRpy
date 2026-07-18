@@ -124,7 +124,7 @@ class pyigrf:
              note: geodetic coordinates should be translated to geocentric
                    before calling this function.
         """
-        from scipy.special import lpmn
+        from scipy.special import assoc_legendre_p_all
 
         epoch = self.epoch
         gdat = self._gdat
@@ -161,7 +161,8 @@ class pyigrf:
         theta = (90. - lat) * np.pi / 180.    # set theta=colatitude dependence
         ct = np.cos(theta)
         st = np.sqrt(1. - ct ** 2.)
-        [lPmn,lPmn_der] = lpmn(max_n, max_n, ct)    # assoc legendre and derivative
+        lPmn = assoc_legendre_p_all(max_n, max_n, ct)[0].T[:max_n+1] # assoc legendre
+        lPmn_der = assoc_legendre_p_all(max_n, max_n, ct, diff_n=1)[1].T[:max_n+1] # assoc legendre derivative
         lPmn = lPmn * schmidt    # schmidt normalization
         lPmn_theta = -st * lPmn_der * schmidt
 

@@ -34,9 +34,11 @@ from . import readpack
 from . import beampack
 from . import enoise
 from .pyigrf import pyigrf
+from importlib.metadata import version as _get_version
+
+__version__ = _get_version("ISRpy")
 
 # from . import kmltools # needs to be fixed
-__version__ = '0.0.29'
 
 igrf = pyigrf() # instantiating with the latest IGRF coefficients
 
